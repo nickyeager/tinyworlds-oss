@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="TinyWorlds">
+  <rect width="128" height="128" rx="22" fill="#0d0d0d"/>
+  <path d="M24 49 64 26 104 49 64 72Z" fill="#ffdb58" stroke="#0d0d0d" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M24 49 64 72 64 108 24 85Z" fill="#4ecdc4" stroke="#0d0d0d" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M64 72 104 49 104 85 64 108Z" fill="#c7f464" stroke="#0d0d0d" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M46 37 65 48 84 37M44 61 44 96M84 61 84 96" stroke="#0d0d0d" stroke-width="3" fill="none"/>
+</svg>

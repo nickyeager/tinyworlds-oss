@@ -1,0 +1,1 @@
+"""TinyWorlds authenticated MCP gateway."""

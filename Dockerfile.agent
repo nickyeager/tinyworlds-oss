@@ -1,0 +1,38 @@
+# External generation worker: no application code, secrets, or Docker client.
+FROM python:3.12-slim
+ARG TARGETARCH
+ARG CLAUDE_CODE_VERSION=2.1.325
+ARG CODEX_VERSION=0.169.0
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    ca-certificates curl unzip git ffmpeg libfontconfig1 libfreetype6 \
+    xvfb libgl1 libegl1 libx11-6 libxcursor1 libxi6 libxinerama1 libxrandr2 libasound2 && \
+    curl -fsSL https://deb.nodesource.com/setup_22.x | bash - && \
+    apt-get install -y --no-install-recommends nodejs && \
+    npm install -g @anthropic-ai/claude-code@${CLAUDE_CODE_VERSION} @openai/codex@${CODEX_VERSION} && \
+    case "$TARGETARCH" in arm64) GODOT_ARCH=arm64 ;; amd64) GODOT_ARCH=x86_64 ;; *) exit 1 ;; esac && \
+    curl -fsSL "https://github.com/godotengine/godot/releases/download/4.4-stable/Godot_v4.4-stable_linux.${GODOT_ARCH}.zip" -o /tmp/godot.zip && \
+    unzip /tmp/godot.zip -d /tmp && \
+    mv "/tmp/Godot_v4.4-stable_linux.${GODOT_ARCH}" /usr/local/bin/godot && \
+    chmod 755 /usr/local/bin/godot && \
+    curl -fsSL https://github.com/godotengine/godot/releases/download/4.4-stable/Godot_v4.4-stable_export_templates.tpz -o /tmp/templates.tpz && \
+    unzip /tmp/templates.tpz -d /opt/godot && \
+    mkdir -p /opt/godot/export_templates && \
+    mv /opt/godot/templates /opt/godot/export_templates/4.4.stable && \
+    useradd --uid 1000 --create-home --shell /bin/sh agent && \
+    rm -f /tmp/godot.zip /tmp/templates.tpz && \
+    rm -rf /var/lib/apt/lists/*
+COPY scripts/agent_asset_broker.py /usr/local/bin/asset_gen.py
+RUN chmod 755 /usr/local/bin/asset_gen.py && \
+    printf '%s\n' '#!/bin/sh' 'set -eu' \
+      'provider="$1"; shift' \
+      'mkdir -p "$HOME/.local/share/godot"' \
+      'ln -s /opt/godot/export_templates "$HOME/.local/share/godot/export_templates"' \
+      'case "$provider" in' \
+      'claude) mkdir -p "$HOME/.claude"; cp /agent-auth/claude/.credentials.json "$HOME/.claude/.credentials.json"; chmod 600 "$HOME/.claude/.credentials.json"; exec claude "$@" ;;' \
+      'codex) mkdir -p "$HOME/.codex"; cp /agent-auth/codex/auth.json "$HOME/.codex/auth.json"; chmod 600 "$HOME/.codex/auth.json"; exec codex "$@" ;;' \
+      '*) exit 64 ;;' 'esac' > /usr/local/bin/agent-entrypoint && \
+    chmod 755 /usr/local/bin/agent-entrypoint
+ENV HOME=/home/agent CODEX_HOME=/home/agent/.codex PYTHONDONTWRITEBYTECODE=1
+USER 1000:1000
+WORKDIR /workspace
+ENTRYPOINT ["/usr/local/bin/agent-entrypoint"]

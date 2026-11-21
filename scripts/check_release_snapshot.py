@@ -1,0 +1,47 @@
+#!/usr/bin/env python3
+"""Check a prepared source manifest, distribution boundaries and public doc links."""
+import argparse
+import hashlib
+import json
+from pathlib import Path
+import re
+from urllib.parse import unquote
+
+
+def check(root: Path) -> dict:
+    manifest = json.loads((root / "RELEASE_MANIFEST.json").read_text())
+    failures = []
+    paths = {row["path"] for row in manifest["files"]}
+    for row in manifest["files"]:
+        file = root / row["path"]
+        if not file.is_file() or file.is_symlink():
+            failures.append(f"Missing/unsafe file: {row['path']}")
+        elif hashlib.sha256(file.read_bytes()).hexdigest() != row["sha256"]:
+            failures.append(f"Hash mismatch: {row['path']}")
+        if row["path"].startswith(("data/", "generated_games/", ".git/", ".claude/skills/local/csharp-patterns/")):
+            failures.append(f"Excluded content: {row['path']}")
+        if file.name.startswith('.env') and file.name not in {'.env.example', '.env.production.example'}:
+            failures.append(f"Environment file: {row['path']}")
+    for required in ("LICENSE", "LICENSE-DOCS", "ATTRIBUTION.md", "NOTICE", "SECURITY.md", "requirements-observability.txt", "docker-compose.observability.yml", "docs/guides/agent-observability.md", "docs/releases/v0.1-developer-preview.md"):
+        if required not in paths:
+            failures.append(f"Required release file absent: {required}")
+    docs = sorted(path for path in paths if path.endswith('.md') and ('/' not in path or path.startswith('docs/')))
+    for relative in docs:
+        file = root / relative
+        for raw in re.findall(r'\]\(([^)]+)\)', file.read_text()):
+            link = unquote(raw.split('#')[0].split(' "')[0]).strip('<>')
+            if not link or ':' in link or link.startswith('//'):
+                continue
+            target = (file.parent / link).resolve()
+            if not target.is_relative_to(root.resolve()) or not target.exists():
+                failures.append(f"Broken local link: {relative} -> {link}")
+    return {"passed": not failures, "manifest_files": len(paths), "public_documents_checked": len(docs), "failures": failures}
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('candidate', type=Path)
+    args = parser.parse_args()
+    result = check(args.candidate)
+    print(json.dumps(result, indent=2))
+    raise SystemExit(0 if result['passed'] else 1)

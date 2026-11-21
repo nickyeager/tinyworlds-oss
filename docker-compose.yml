@@ -1,0 +1,127 @@
+services:
+  backend:
+    build: .
+    ports:
+      - "127.0.0.1:8001:8001"
+    env_file: .env
+    environment:
+      DATABASE_URL: ${DATABASE_URL:-postgresql+asyncpg://tinyworlds:${POSTGRES_PASSWORD:-tinyworlds}@postgres:5432/tinyworlds}
+      GODOT_BINARY: godot
+      GAME_AGENT_PROVIDER: ${GAME_AGENT_PROVIDER:-claude}
+      AGENT_EXECUTION_MODE: ${AGENT_EXECUTION_MODE:-local}
+      SIDECAR_LAUNCHER_URL: http://sidecar-launcher:8500
+      LAUNCHER_TOKEN: ${LAUNCHER_TOKEN:-dev-launcher-token}
+      # Remote 3D credentials belong only to the trusted launcher below.
+      FAL_KEY: ""
+    volumes:
+      - games:/app/generated_games
+      - claude-auth:/root/.claude
+      - game-metadata:/app/data/game-metadata
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  web:
+    build:
+      context: web/
+      args:
+        NEXT_PUBLIC_BUILD_SHA: ${BUILD_SHA:-dev}
+        NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-http://localhost:8001}
+        NEXT_PUBLIC_GAME_PLAY_URL: ${NEXT_PUBLIC_GAME_PLAY_URL:-http://localhost:8001}
+    ports:
+      - "127.0.0.1:3333:3000"
+    depends_on:
+      - backend
+
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: tinyworlds
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-tinyworlds}
+      POSTGRES_DB: tinyworlds
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U tinyworlds"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  bevy-builder:
+    build:
+      context: .
+      dockerfile: Dockerfile.bevy-builder
+    image: tinyworlds/bevy-builder:dev
+    profiles: ["bevy"]
+    environment:
+      CARGO_HOME: /cargo-home
+      CARGO_TARGET_DIR: /cargo-target
+    volumes:
+      - games:/games
+      - cargo-cache:/cargo-home
+      - cargo-target:/cargo-target
+    working_dir: /games
+
+  # Canonical worker build only; the launcher starts one isolated job container.
+  agent-worker:
+    build:
+      context: .
+      dockerfile: Dockerfile.agent
+    image: tinyworlds/agent-worker:dev
+    profiles: ["agents"]
+    entrypoint: ["true"]
+
+  # Privileged docker-launcher (security #1). This is the ONLY container that
+  # holds the Docker socket; the backend has no socket access. Its fixed
+  # build/agent operations never accept arbitrary docker commands.
+  # Reuses the backend image and starts with plain compose up.
+  # Published on loopback only, for the host-run dev
+  # backend; in prod the backend reaches it over the compose network.
+  sidecar-launcher:
+    build: .
+    command: ["uvicorn", "src.api.sidecar_launcher:app", "--host", "0.0.0.0", "--port", "8500"]
+    networks:
+      - default
+      - agents
+    environment:
+      LAUNCHER_TOKEN: ${LAUNCHER_TOKEN:-dev-launcher-token}
+      BEVY_BUILDER_IMAGE: tinyworlds/bevy-builder:dev
+      BEVY_PROJECTS_ROOT: /app/generated_games
+      GAME_AGENT_PROVIDER: ${GAME_AGENT_PROVIDER:-claude}
+      AGENT_WORKER_IMAGE: tinyworlds/agent-worker:dev
+      AGENT_GAMES_VOLUME: tinyworlds_games
+      AGENT_AUTH_VOLUME: tinyworlds_agent-auth
+      AGENT_NETWORK: tinyworlds_agents
+      ASSET_BUDGET_ROOT: /app/trusted/asset-budget
+      GOOGLE_API_KEY: ${GOOGLE_API_KEY:-}
+      GEMINI_API_KEY: ${GEMINI_API_KEY:-}
+      XAI_API_KEY: ${XAI_API_KEY:-}
+      FAL_KEY: ${FAL_KEY:-}
+    ports:
+      - "127.0.0.1:8500:8500"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /tmp:/tmp
+      - games:/app/generated_games
+      - agent-auth:/agent-auth:ro
+      - asset-budget:/app/trusted/asset-budget
+
+networks:
+  default:
+    name: tinyworlds_default
+  agents:
+    name: tinyworlds_agents
+
+volumes:
+  pgdata:
+  games:
+    name: tinyworlds_games
+  claude-auth:
+  agent-auth:
+    name: tinyworlds_agent-auth
+  game-metadata:
+  asset-budget:
+  cargo-cache:
+    name: tinyworlds_cargo-cache
+  cargo-target:
+    name: tinyworlds_cargo-target

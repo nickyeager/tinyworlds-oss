@@ -1,0 +1,1744 @@
+{
+  "paths": {
+    "/api/v1/godot/games": {
+      "get": {
+        "description": "List all Godot games.",
+        "operationId": "list_games_api_v1_godot_games_get",
+        "parameters": [
+          {
+            "description": "Authentication for private game media",
+            "in": "query",
+            "name": "token",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Authentication for private game media",
+              "title": "Token"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/GameInfoResponse"
+                  },
+                  "title": "Response List Games Api V1 Godot Games Get",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "List Games",
+        "tags": [
+          "godot"
+        ]
+      },
+      "post": {
+        "description": "Create a new Godot game from a natural language description (SSE streaming).\n\nStreams Server-Sent Events for the full godogen pipeline:\nvisual-target \u2192 decompose \u2192 scaffold \u2192 assets \u2192 task loop \u2192 video.",
+        "operationId": "create_game_api_v1_godot_games_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateGameRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Create Game",
+        "tags": [
+          "godot"
+        ]
+      }
+    },
+    "/api/v1/godot/games/{game_id}": {
+      "delete": {
+        "description": "Hard-delete a Godot game: removes the on-disk directory tree.\n\nIrreversible. The frontend gates this behind a two-step confirm so a\nmisclick can't trigger it. There is no DB row for godot games today \u2014\n`generated_games/<id>/` is the source of truth \u2014 so we just rm -rf and\nreturn 204.",
+        "operationId": "delete_game_api_v1_godot_games__game_id__delete",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "game_id",
+            "required": true,
+            "schema": {
+              "title": "Game Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Delete Game",
+        "tags": [
+          "godot"
+        ]
+      },
+      "get": {
+        "description": "Get information about a Godot game.",
+        "operationId": "get_game_info_api_v1_godot_games__game_id__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "game_id",
+            "required": true,
+            "schema": {
+              "title": "Game Id",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Authentication for private game media",
+            "in": "query",
+            "name": "token",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Authentication for private game media",
+              "title": "Token"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GameInfoResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Get Game Info",
+        "tags": [
+          "godot"
+        ]
+      },
+      "patch": {
+        "description": "Rename a Godot game (updates `config/name` in project.godot).",
+        "operationId": "rename_game_api_v1_godot_games__game_id__patch",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "game_id",
+            "required": true,
+            "schema": {
+              "title": "Game Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RenameGameRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GameInfoResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Rename Game",
+        "tags": [
+          "godot"
+        ]
+      }
+    },
+    "/api/v1/godot/games/{game_id}/assets/{file_path}": {
+      "get": {
+        "description": "Serve raw asset files from a game directory (images, videos, etc.).",
+        "operationId": "serve_game_asset_api_v1_godot_games__game_id__assets__file_path__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "game_id",
+            "required": true,
+            "schema": {
+              "title": "Game Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "file_path",
+            "required": true,
+            "schema": {
+              "title": "File Path",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Authentication for private game media",
+            "in": "query",
+            "name": "token",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Authentication for private game media",
+              "title": "Token"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Serve Game Asset",
+        "tags": [
+          "godot"
+        ]
+      }
+    },
+    "/api/v1/godot/games/{game_id}/events": {
+      "get": {
+        "description": "Return the creation-time event log for a game so the UI can replay\nthe build.\n\nThe godot creation agent persists every SSE event to\n``<game_path>/.creation/events.jsonl``. This endpoint serves that file\nparsed as JSON so the frontend can render it with the same components\nused in the live stream view.\n\nReturns ``{\"events\": [...], \"summary\": {...} | null}`` \u2014 summary is\nthe contents of ``.creation/summary.json`` when present (status,\nduration, has_export, etc.).",
+        "operationId": "get_game_events_api_v1_godot_games__game_id__events_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "game_id",
+            "required": true,
+            "schema": {
+              "title": "Game Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Get Game Events",
+        "tags": [
+          "godot"
+        ]
+      }
+    },
+    "/api/v1/godot/games/{game_id}/events/stream": {
+      "get": {
+        "description": "SSE replay + tail of a game's creation log.\n\nThe same shape POST /games returns, but reattachable. Pass\n``?since=N`` to resume after a disconnect (N is the highest ``seq``\nthe client has already seen). Returns 404 if no events.jsonl exists\nfor this id.\n\nDeliberately does NOT require ``game_exists()`` (which checks for\nproject.godot) \u2014 a build that's only seconds in won't have written\nthat file yet, and we still want the reattach to work.",
+        "operationId": "stream_game_events_api_v1_godot_games__game_id__events_stream_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "game_id",
+            "required": true,
+            "schema": {
+              "title": "Game Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "since",
+            "required": false,
+            "schema": {
+              "default": -1,
+              "title": "Since",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Stream Game Events",
+        "tags": [
+          "godot"
+        ]
+      }
+    },
+    "/api/v1/godot/games/{game_id}/history": {
+      "get": {
+        "description": "Get modification history from MEMORY.md.",
+        "operationId": "get_game_history_api_v1_godot_games__game_id__history_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "game_id",
+            "required": true,
+            "schema": {
+              "title": "Game Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Get Game History",
+        "tags": [
+          "godot"
+        ]
+      }
+    },
+    "/api/v1/godot/games/{game_id}/log": {
+      "get": {
+        "description": "Return the persisted creation log for a game.\n\nThe pipeline writes every event to .creation/events.jsonl during creation\nand a summary.json on exit (success, partial, failed, or crashed). This\nendpoint surfaces both so failures can be diagnosed after the SSE stream\nhas closed.\n\nArgs:\n    tail: If > 0, only the last N events are returned.",
+        "operationId": "get_creation_log_api_v1_godot_games__game_id__log_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "game_id",
+            "required": true,
+            "schema": {
+              "title": "Game Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "tail",
+            "required": false,
+            "schema": {
+              "default": 0,
+              "title": "Tail",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Get Creation Log",
+        "tags": [
+          "godot"
+        ]
+      }
+    },
+    "/api/v1/godot/games/{game_id}/media": {
+      "get": {
+        "description": "List all screenshots and videos for a game.",
+        "operationId": "list_game_media_api_v1_godot_games__game_id__media_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "game_id",
+            "required": true,
+            "schema": {
+              "title": "Game Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "List Game Media",
+        "tags": [
+          "godot"
+        ]
+      }
+    },
+    "/api/v1/godot/games/{game_id}/modifications": {
+      "get": {
+        "description": "List persisted modification runs for a Godot game.",
+        "operationId": "list_game_modifications_api_v1_godot_games__game_id__modifications_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "game_id",
+            "required": true,
+            "schema": {
+              "title": "Game Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "List Game Modifications",
+        "tags": [
+          "godot"
+        ]
+      }
+    },
+    "/api/v1/godot/games/{game_id}/modifications/{run_id}/events": {
+      "get": {
+        "description": "Return summary plus parsed events for one finished Godot modification run.",
+        "operationId": "get_modification_events_api_v1_godot_games__game_id__modifications__run_id__events_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "game_id",
+            "required": true,
+            "schema": {
+              "title": "Game Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "run_id",
+            "required": true,
+            "schema": {
+              "title": "Run Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Get Modification Events",
+        "tags": [
+          "godot"
+        ]
+      }
+    },
+    "/api/v1/godot/games/{game_id}/modifications/{run_id}/events/stream": {
+      "get": {
+        "description": "SSE replay + tail of one modification run's event log.\n\nModifications take 30s-10min and can drop their HTTP connection at\nany point (refresh, mobile sleep, deploy bounce). The persistent log\nlives at ``<game_path>/.modifications/<run_id>/events.jsonl`` \u2014\nthis endpoint reattaches the client to that log so the modify panel\ncan survive disconnects the same way the create page does.\n\nValidates ``run_id`` is alphanumeric (uuid4().hex[:10] in practice)\nto prevent path-traversal via the run_id segment.",
+        "operationId": "stream_modification_events_api_v1_godot_games__game_id__modifications__run_id__events_stream_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "game_id",
+            "required": true,
+            "schema": {
+              "title": "Game Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "run_id",
+            "required": true,
+            "schema": {
+              "title": "Run Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "since",
+            "required": false,
+            "schema": {
+              "default": -1,
+              "title": "Since",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Stream Modification Events",
+        "tags": [
+          "godot"
+        ]
+      }
+    },
+    "/api/v1/godot/games/{game_id}/modify": {
+      "post": {
+        "description": "Modify a Godot game with natural language instruction.\n\nFirst tries fast @export var modification. Falls back to full agent\nfor complex changes.",
+        "operationId": "modify_game_api_v1_godot_games__game_id__modify_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "game_id",
+            "required": true,
+            "schema": {
+              "title": "Game Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ModifyGameRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ModifyGameResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Modify Game",
+        "tags": [
+          "godot"
+        ]
+      }
+    },
+    "/api/v1/godot/games/{game_id}/modify/stream": {
+      "post": {
+        "description": "Modify a Godot game with streaming progress updates (SSE).\n\nAccepts either ``application/json`` (``{\"instruction\": \"...\"}``) or\n``multipart/form-data`` with an ``instruction`` form field and an optional\n``image`` upload. When an image is present it is saved under\n``<game>/_user_uploads/`` and the instruction is augmented with a\nreference-image directive for the modify skill.",
+        "operationId": "modify_game_stream_api_v1_godot_games__game_id__modify_stream_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "game_id",
+            "required": true,
+            "schema": {
+              "title": "Game Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Modify Game Stream",
+        "tags": [
+          "godot"
+        ]
+      }
+    },
+    "/api/v1/godot/games/{game_id}/plan": {
+      "get": {
+        "description": "Get the PLAN.md content for a Godot game.",
+        "operationId": "get_plan_api_v1_godot_games__game_id__plan_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "game_id",
+            "required": true,
+            "schema": {
+              "title": "Game Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Get Plan",
+        "tags": [
+          "godot"
+        ]
+      }
+    },
+    "/api/v1/godot/games/{game_id}/play": {
+      "get": {
+        "description": "Redirect to the game's index.html.",
+        "operationId": "play_game_redirect_api_v1_godot_games__game_id__play_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "game_id",
+            "required": true,
+            "schema": {
+              "title": "Game Id",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Authentication for private game media",
+            "in": "query",
+            "name": "token",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Authentication for private game media",
+              "title": "Token"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Play Game Redirect",
+        "tags": [
+          "godot"
+        ]
+      }
+    },
+    "/api/v1/godot/games/{game_id}/play/{file_path}": {
+      "get": {
+        "description": "Serve HTML5 exported game files with COEP/COOP headers for SharedArrayBuffer.",
+        "operationId": "serve_game_file_api_v1_godot_games__game_id__play__file_path__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "game_id",
+            "required": true,
+            "schema": {
+              "title": "Game Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "file_path",
+            "required": true,
+            "schema": {
+              "title": "File Path",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Authentication for private game media",
+            "in": "query",
+            "name": "token",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Authentication for private game media",
+              "title": "Token"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Serve Game File",
+        "tags": [
+          "godot"
+        ]
+      }
+    },
+    "/api/v1/godot/games/{game_id}/playthrough": {
+      "get": {
+        "description": "Return recent runtime events for a game.\n\nPublic read for now (matches the public POST). Frontend uses this to\nrender an \"in-game activity\" panel on the game detail page and on the\nspend-badge Operations tab.",
+        "operationId": "get_playthrough_api_v1_godot_games__game_id__playthrough_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "game_id",
+            "required": true,
+            "schema": {
+              "title": "Game Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "default": 200,
+              "title": "Limit",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "kind",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Kind"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Get Playthrough",
+        "tags": [
+          "godot"
+        ]
+      },
+      "post": {
+        "description": "Accept one runtime event from a generated game's WASM build.\n\nIntentionally unauthenticated: the game runs in the user's own\nbrowser; a forged event harms no one but the forger's own ledger\nslice. The route exists for telemetry / debugging, not for any\nprivileged action.\n\nPer-game rate cap (300 events / 60s) is enforced in\n:class:`GameRuntimeLog`; over the cap returns 429 and the GDScript\nautoload backs off (or silently drops).",
+        "operationId": "post_playthrough_event_api_v1_godot_games__game_id__playthrough_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "game_id",
+            "required": true,
+            "schema": {
+              "title": "Game Id",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Authentication for private game media",
+            "in": "query",
+            "name": "token",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Authentication for private game media",
+              "title": "Token"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PlaythroughEvent"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Post Playthrough Event",
+        "tags": [
+          "godot"
+        ]
+      }
+    },
+    "/api/v1/godot/games/{game_id}/progress": {
+      "get": {
+        "description": "Get live build progress by inspecting game directory.\n\nUseful for polling during sub-agent execution when SSE goes quiet.",
+        "operationId": "get_progress_api_v1_godot_games__game_id__progress_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "game_id",
+            "required": true,
+            "schema": {
+              "title": "Game Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Get Progress",
+        "tags": [
+          "godot"
+        ]
+      }
+    },
+    "/api/v1/godot/games/{game_id}/screenshot": {
+      "get": {
+        "description": "Get the most representative image for a Godot game.\n\nLookup order (most \u2192 least preferred):\n  1. Latest PNG in `screenshots/` \u2014 what godogen-capture writes.\n  2. Frame extracted from `screenshots/presentation/gameplay.mp4`.\n  3. Latest PNG anywhere under `assets/` \u2014 surfaces in-progress\n     sprites, backgrounds, or asset-tool outputs during the\n     ~5-minute window before the first real screenshot exists.\n  4. 204 No Content with the canonical \"no image yet\" signal.\n\nDeliberately does NOT require `project.godot` \u2014 a fresh build needs\na polling-friendly endpoint *before* scaffold completes (the\nfrontend's preview tile starts polling at the init event). The\n`<game_id>/.creation/events.jsonl` is a sufficient existence\nproof; project.godot only matters for `/play`.",
+        "operationId": "get_screenshot_api_v1_godot_games__game_id__screenshot_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "game_id",
+            "required": true,
+            "schema": {
+              "title": "Game Id",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Authentication for private game media",
+            "in": "query",
+            "name": "token",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Authentication for private game media",
+              "title": "Token"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Get Screenshot",
+        "tags": [
+          "godot"
+        ]
+      }
+    },
+    "/api/v1/godot/games/{game_id}/structure": {
+      "get": {
+        "description": "Get the STRUCTURE.md content for a Godot game.",
+        "operationId": "get_structure_api_v1_godot_games__game_id__structure_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "game_id",
+            "required": true,
+            "schema": {
+              "title": "Game Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Get Structure",
+        "tags": [
+          "godot"
+        ]
+      }
+    },
+    "/api/v1/godot/games/{game_id}/suggestions": {
+      "get": {
+        "description": "Return cached modification suggestions or ``{pending: true}``.\n\nSuggestions are generated best-effort after creation/modify via a\none-shot CLI call and persisted to ``suggestions.json`` in the game\ndirectory. Absent file == still pending (or generator failed).",
+        "operationId": "get_suggestions_api_v1_godot_games__game_id__suggestions_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "game_id",
+            "required": true,
+            "schema": {
+              "title": "Game Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Get Suggestions",
+        "tags": [
+          "godot"
+        ]
+      }
+    },
+    "/api/v1/godot/games/{game_id}/telemetry": {
+      "post": {
+        "description": "Append browser telemetry events (errors, console, heap, WebGL) as NDJSON.\n\nStored at generated_games/{game_id}/telemetry/{session}.ndjson. Used to\ndiagnose tab crashes that kill the page before stderr can be inspected.",
+        "operationId": "post_telemetry_api_v1_godot_games__game_id__telemetry_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "game_id",
+            "required": true,
+            "schema": {
+              "title": "Game Id",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Authentication for private game media",
+            "in": "query",
+            "name": "token",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Authentication for private game media",
+              "title": "Token"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Post Telemetry",
+        "tags": [
+          "godot"
+        ]
+      }
+    },
+    "/api/v1/godot/games/{game_id}/video": {
+      "get": {
+        "description": "Get the presentation video for a Godot game.",
+        "operationId": "get_video_api_v1_godot_games__game_id__video_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "game_id",
+            "required": true,
+            "schema": {
+              "title": "Game Id",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Authentication for private game media",
+            "in": "query",
+            "name": "token",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Authentication for private game media",
+              "title": "Token"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Get Video",
+        "tags": [
+          "godot"
+        ]
+      }
+    }
+  },
+  "schemas": {
+    "CreateGameRequest": {
+      "description": "Request to create a new Godot game.",
+      "properties": {
+        "budget_cents": {
+          "anyOf": [
+            {
+              "maximum": 10000.0,
+              "minimum": 0.0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Asset generation budget in cents",
+          "title": "Budget Cents"
+        },
+        "description": {
+          "description": "Natural language game description",
+          "title": "Description",
+          "type": "string"
+        },
+        "reference_image": {
+          "anyOf": [
+            {
+              "$ref": "#/components/schemas/VisualReference"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "visibility": {
+          "default": "public",
+          "enum": [
+            "public",
+            "private",
+            "unlisted"
+          ],
+          "title": "Visibility",
+          "type": "string"
+        }
+      },
+      "required": [
+        "description"
+      ],
+      "title": "CreateGameRequest",
+      "type": "object"
+    },
+    "GameInfoResponse": {
+      "description": "Game info response.",
+      "properties": {
+        "can_edit": {
+          "default": false,
+          "title": "Can Edit",
+          "type": "boolean"
+        },
+        "engine": {
+          "default": "godot",
+          "title": "Engine",
+          "type": "string"
+        },
+        "game_id": {
+          "title": "Game Id",
+          "type": "string"
+        },
+        "game_path": {
+          "title": "Game Path",
+          "type": "string"
+        },
+        "has_export": {
+          "title": "Has Export",
+          "type": "boolean"
+        },
+        "has_plan": {
+          "title": "Has Plan",
+          "type": "boolean"
+        },
+        "has_structure": {
+          "title": "Has Structure",
+          "type": "boolean"
+        },
+        "has_video": {
+          "title": "Has Video",
+          "type": "boolean"
+        },
+        "name": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Name"
+        },
+        "visibility": {
+          "default": "public",
+          "title": "Visibility",
+          "type": "string"
+        }
+      },
+      "required": [
+        "game_id",
+        "game_path",
+        "has_plan",
+        "has_structure",
+        "has_video",
+        "has_export"
+      ],
+      "title": "GameInfoResponse",
+      "type": "object"
+    },
+    "HTTPValidationError": {
+      "properties": {
+        "detail": {
+          "items": {
+            "$ref": "#/components/schemas/ValidationError"
+          },
+          "title": "Detail",
+          "type": "array"
+        }
+      },
+      "title": "HTTPValidationError",
+      "type": "object"
+    },
+    "ModifyGameRequest": {
+      "description": "Request to modify a Godot game with voice or text.",
+      "properties": {
+        "instruction": {
+          "description": "Natural language modification instruction",
+          "title": "Instruction",
+          "type": "string"
+        }
+      },
+      "required": [
+        "instruction"
+      ],
+      "title": "ModifyGameRequest",
+      "type": "object"
+    },
+    "ModifyGameResponse": {
+      "description": "Response from game modification.",
+      "properties": {
+        "changes": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Changes",
+          "type": "array"
+        },
+        "error": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Error"
+        },
+        "explanation": {
+          "default": "",
+          "title": "Explanation",
+          "type": "string"
+        },
+        "success": {
+          "title": "Success",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "title": "ModifyGameResponse",
+      "type": "object"
+    },
+    "PlaythroughEvent": {
+      "description": "One event POSTed from the running WASM game.\n\nFrontend / GDScript autoload composes these with whatever fields are\nrelevant per kind \u2014 we don't enforce a schema beyond a kind string.\nCommon kinds godogen-generated games emit:\n\n  session_start    \u2014 game loaded, player ready; data: {build_id, scene}\n  player_pos       \u2014 sampled every N seconds; data: {x,y,z, ts_session}\n  pickup           \u2014 player picked something up; data: {kind, object_id}\n  interact         \u2014 interact key pressed against a target; data: {target}\n  error            \u2014 caught script error; data: {type, message}\n  session_end      \u2014 beforeunload; data: {duration_s, fps_avg}",
+      "properties": {
+        "data": {
+          "additionalProperties": true,
+          "title": "Data",
+          "type": "object"
+        },
+        "kind": {
+          "maxLength": 64,
+          "title": "Kind",
+          "type": "string"
+        },
+        "session_id": {
+          "anyOf": [
+            {
+              "maxLength": 64,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Session Id"
+        }
+      },
+      "required": [
+        "kind"
+      ],
+      "title": "PlaythroughEvent",
+      "type": "object"
+    },
+    "RenameGameRequest": {
+      "description": "Body for PATCH /games/{id}: rename a game's display name.",
+      "properties": {
+        "name": {
+          "maxLength": 80,
+          "minLength": 1,
+          "title": "Name",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "title": "RenameGameRequest",
+      "type": "object"
+    }
+  }
+}

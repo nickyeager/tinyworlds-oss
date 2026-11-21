@@ -1,0 +1,6 @@
+interface:
+  display_name: "TinyWorlds Games"
+  short_description: "Create and edit games in your TinyWorlds account"
+  default_prompt: "Use $tinyworlds-games to create a small browser game."
+policy:
+  allow_implicit_invocation: true

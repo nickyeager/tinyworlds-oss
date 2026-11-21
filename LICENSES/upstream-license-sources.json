@@ -1,0 +1,82 @@
+[
+  {
+    "repository": "msitarzewski/agency-agents",
+    "license_revision": "b37b5bb33b78f2c1d6567d98e25ca818e3259219",
+    "source_path": "LICENSE",
+    "local_path": "LICENSES/agency-agents-MIT.txt",
+    "sha256": "9a45258434d5cedf0af73c9ad4771373701225038d246c49219026c33677f66f",
+    "note": "License snapshot; does not establish revision of historical imported content."
+  },
+  {
+    "repository": "thedivergentai/Game-Dev-Agentic-Skills",
+    "license_revision": "db004d74c40686ca2f7a35fe067b119a9cda593e",
+    "source_path": "LICENSE",
+    "local_path": "LICENSES/gd-agentic-skills-LGPL-3.0.txt",
+    "sha256": "e3a994d82e644b03a792a930f574002658412f62407f5fee083f2555c5f23118",
+    "note": "License snapshot; does not establish revision of historical imported content."
+  },
+  {
+    "repository": "sickn33/agentic-awesome-skills",
+    "license_revision": "e9809578fd426a284af017c5db99f8eb6628e6ca",
+    "source_path": "LICENSE",
+    "local_path": "LICENSES/antigravity-awesome-skills-MIT.txt",
+    "sha256": "af98370a7edc0f00ec46979d049517833c9a7fa2ba74e3cf8cc42f7db557299d",
+    "note": "License snapshot; does not establish revision of historical imported content."
+  },
+  {
+    "repository": "coleam00/context-engineering-intro",
+    "license_revision": "a2d84b021cee1e2f4e77ba854bba0be8cb319035",
+    "source_path": "LICENSE",
+    "local_path": "LICENSES/context-engineering-intro-MIT.txt",
+    "sha256": "52c59102b1d6e5ef5e880a18dab83cfe89ac8fbe62a659fcfc4e3b9258a32861",
+    "note": "Current source license snapshot; historical import revision may differ."
+  },
+  {
+    "repository": "vercel-labs/agent-browser",
+    "license_revision": "5801a50d262a4d3e1a2381996a962b22000d8289",
+    "source_path": "LICENSE",
+    "local_path": "LICENSES/agent-browser-Apache-2.0.txt",
+    "sha256": "014bb31e83d5c2e76aea1cc6e82217346ab41362f32cb355ad0f5c10aa0aeaff",
+    "note": "Current source license snapshot; historical import revision may differ."
+  },
+  {
+    "repository": "assistant-ui/assistant-ui",
+    "license_revision": "npm:@assistant-ui/react@0.15.32",
+    "source_path": "LICENSE",
+    "local_path": "LICENSES/assistant-ui-MIT.txt",
+    "sha256": "eafb05991a572efa34097474b31fef45b14a8879ed1d1a8fd77de62e6fa7d275",
+    "note": "Exact license from the installed npm package; dependency resolution retained in web/pnpm-lock.yaml."
+  },
+  {
+    "repository": "google/fonts",
+    "license_revision": "bbda7253fc363238b05d97515ca71f8ae49c4fa9",
+    "source_path": "ofl/fredoka/OFL.txt",
+    "local_path": "web/src/app/fonts/fredoka-OFL.txt",
+    "sha256": "5c9e7eee5c6b25f4b05b8d53b2e470ea4962f9ced742d044a98f7d95d1375bab",
+    "note": "Original OFL alongside unmodified variable font. Font source path and checksum recorded in web/src/app/fonts/sources.json."
+  },
+  {
+    "repository": "google/fonts",
+    "license_revision": "bbda7253fc363238b05d97515ca71f8ae49c4fa9",
+    "source_path": "ofl/nunito/OFL.txt",
+    "local_path": "web/src/app/fonts/nunito-OFL.txt",
+    "sha256": "580df76c95a1ec5ab878ceb25bb3d85c6a076804e9c970c8c6972aea775fdf65",
+    "note": "Original OFL alongside unmodified variable font. Font source path and checksum recorded in web/src/app/fonts/sources.json."
+  },
+  {
+    "repository": "google/fonts",
+    "license_revision": "bbda7253fc363238b05d97515ca71f8ae49c4fa9",
+    "source_path": "ofl/geistmono/OFL.txt",
+    "local_path": "web/src/app/fonts/geistmono-OFL.txt",
+    "sha256": "1781d2806a07d91c4edf4740b88449fab7d0eadad53f7c351b94cd4d4eb8c00f",
+    "note": "Original OFL alongside unmodified variable font. Font source path and checksum recorded in web/src/app/fonts/sources.json."
+  },
+  {
+    "repository": "htdt/godogen",
+    "license_revision": "51954f9f34d18044c501a09c0645ff0e680edbdf",
+    "source_path": "LICENSE.md",
+    "local_path": ".claude/skills/godogen/LICENSE.md",
+    "sha256": "9994c50a3e043728bcf59106d5941c21b06e53dc64977e6bcafe9580a8a5e5d6",
+    "note": "Source files, including this license, exactly matched corresponding upstream Git blob hashes on 2026-11-04."
+  }
+]

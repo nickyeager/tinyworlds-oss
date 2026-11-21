@@ -1,0 +1,24 @@
+name: Bug report
+description: Report a reproducible TinyWorlds problem.
+body:
+  - type: markdown
+    attributes:
+      value: "For vulnerabilities, follow SECURITY.md. Keep credentials, private game content and authentication logs out of issues."
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      description: Include the revision, browser, operating system, engine and provider where relevant.
+    validations:
+      required: true
+  - type: textarea
+    id: behavior
+    attributes:
+      label: Expected and actual behavior
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Redacted evidence
+      description: Remove tokens, account details and private paths before attaching logs or screenshots.

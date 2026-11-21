@@ -1,0 +1,44 @@
+[
+  {
+    "repository": "google/fonts",
+    "revision": "bbda7253fc363238b05d97515ca71f8ae49c4fa9",
+    "source_path": "ofl/fredoka/Fredoka[wdth,wght].ttf",
+    "local_path": "web/src/app/fonts/fredoka.ttf",
+    "sha256": "2ba02e68b152868aef9ba28e24b3648c7d457fe6f25c761f2c2c53fb61a73fc8"
+  },
+  {
+    "repository": "google/fonts",
+    "revision": "bbda7253fc363238b05d97515ca71f8ae49c4fa9",
+    "source_path": "ofl/fredoka/OFL.txt",
+    "local_path": "web/src/app/fonts/fredoka-OFL.txt",
+    "sha256": "5c9e7eee5c6b25f4b05b8d53b2e470ea4962f9ced742d044a98f7d95d1375bab"
+  },
+  {
+    "repository": "google/fonts",
+    "revision": "bbda7253fc363238b05d97515ca71f8ae49c4fa9",
+    "source_path": "ofl/nunito/Nunito[wght].ttf",
+    "local_path": "web/src/app/fonts/nunito.ttf",
+    "sha256": "bb55a5ca5c2042335b3991af27c4d0705d0ef41cac6164ac737fd8f2a1e85207"
+  },
+  {
+    "repository": "google/fonts",
+    "revision": "bbda7253fc363238b05d97515ca71f8ae49c4fa9",
+    "source_path": "ofl/nunito/OFL.txt",
+    "local_path": "web/src/app/fonts/nunito-OFL.txt",
+    "sha256": "580df76c95a1ec5ab878ceb25bb3d85c6a076804e9c970c8c6972aea775fdf65"
+  },
+  {
+    "repository": "google/fonts",
+    "revision": "bbda7253fc363238b05d97515ca71f8ae49c4fa9",
+    "source_path": "ofl/geistmono/GeistMono[wght].ttf",
+    "local_path": "web/src/app/fonts/geist-mono.ttf",
+    "sha256": "d00e590b8eb3a59acc329b2d044fd143ae935090b7da33199ebee27cc7de8196"
+  },
+  {
+    "repository": "google/fonts",
+    "revision": "bbda7253fc363238b05d97515ca71f8ae49c4fa9",
+    "source_path": "ofl/geistmono/OFL.txt",
+    "local_path": "web/src/app/fonts/geistmono-OFL.txt",
+    "sha256": "1781d2806a07d91c4edf4740b88449fab7d0eadad53f7c351b94cd4d4eb8c00f"
+  }
+]

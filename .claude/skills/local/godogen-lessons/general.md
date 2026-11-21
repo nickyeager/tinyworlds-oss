@@ -1,0 +1,15 @@
+# General lessons
+
+Cross-cutting (build, export, quirks not tied to a single stage).
+
+- The server-side `verify_playable` (in `src/api/services/godot_game_service.py`) gates the SSE `done` event on these on-disk checks: `project.godot` has `run/main_scene`; that main_scene file exists; `scripts/` has at least one `.gd` or `.cs` (excluding auto-injected `pause_bridge.gd`) ≥50 bytes; the scripts collectively call into `Input.*` AND define `func _process` or `func _physics_process`; `dist/index.html` and `dist/index.wasm` (≥1MB) exist. If ANY fails, the server emits `event_type: "failed"` with the failure list instead of `done`. Plan generation to satisfy these — they're the minimum bar for "an actual playable game".
+  (why: this gate caught the C#→GDScript pivot bug 2026-05-04 that the orchestrator's own CompletionEvent missed.)
+- Every game directory has a `.creation/events.jsonl` log capturing every pipeline event. When debugging a failure, read it before re-attempting — it shows exactly what was attempted in order.
+  (why: it captured the C#→GDScript pivot moment in godot-43e9a53b — including a `thinking` event reading "Let me pivot to GDScript" 6 seconds before the false `complete`.)
+- Backend runs with `uvicorn --reload`. Editing files under `src/api/`, `.claude/skills/`, `web/`, or `alembic/` during a live generation triggers a graceful uvicorn restart that severs in-flight SSE streams (the orphaned claude subprocess keeps running but no one collects its result, so the pipeline never reaches the export step).
+  (why: 2026-05-04 multiple generations were orphaned by mid-stream edits — both my own and unrelated migration files touched by other tooling. If you must edit code during a generation, expect the in-flight game to need manual export afterwards or to be discarded.)
+- The orchestrator's `CompletionEvent` is the agent's self-report, not a verified state. Treat it as input to verification, not as the verification itself.
+  (why: same C#→GDScript pivot bug. The agent said it was done; the server `verify_playable` knew otherwise.)
+- Web export = `gl_compatibility` renderer. Do NOT use `Environment.glow_*`, `tonemap_mode = TONE_MAPPER_FILMIC`/`TONE_MAPPER_ACES`, SDFGI, SSAO, SSIL, SSR, or volumetric fog — these are forward_plus-only and silently hang the WASM thread under gl_compatibility (the game "exports" but the browser tab freezes for ~2 minutes on first frame). If the capture wrapper overrides to forward_plus for screenshots, the agent must still verify the project compiles + runs cleanly under the actual export renderer before declaring done.
+  (why: Neon Dodge / godot-18aac16d 2026-05-09 — verified under forward_plus, shipped under gl_compatibility, hung browsers. Now statically caught by `src/api/services/godot_export_lint.py`; runtime version surfaces in `data/godogen_failures.jsonl` as `rule=frozen_thread` from the in-iframe telemetry shim.)
+- For Bevy-specific lessons (toolchain quirks, WASM emission, web export), load `bevy.md` in this directory. General lessons here apply across both engines unless otherwise noted.

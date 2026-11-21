@@ -1,0 +1,1287 @@
+{
+  "paths": {
+    "/api/v1/bevy/games": {
+      "get": {
+        "description": "List all Bevy games (filtered by Cargo.toml presence).",
+        "operationId": "list_games_api_v1_bevy_games_get",
+        "parameters": [
+          {
+            "description": "Authentication for private game media",
+            "in": "query",
+            "name": "token",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Authentication for private game media",
+              "title": "Token"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/BevyGameInfoResponse"
+                  },
+                  "title": "Response List Games Api V1 Bevy Games Get",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "List Games",
+        "tags": [
+          "bevy"
+        ]
+      },
+      "post": {
+        "description": "Create a new Bevy game from a natural language description (SSE streaming).",
+        "operationId": "create_game_api_v1_bevy_games_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BevyCreateGameRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Create Game",
+        "tags": [
+          "bevy"
+        ]
+      }
+    },
+    "/api/v1/bevy/games/{game_id}": {
+      "delete": {
+        "description": "Hard-delete a Bevy game: removes the on-disk directory tree.\n\nIncludes `target/` and `dist/` which can be hundreds of MB. Frontend\ntwo-step confirm gates this. No DB row to clean up \u2014 `generated_games/\n<id>/` is the source of truth.",
+        "operationId": "delete_game_api_v1_bevy_games__game_id__delete",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "game_id",
+            "required": true,
+            "schema": {
+              "title": "Game Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Delete Game",
+        "tags": [
+          "bevy"
+        ]
+      },
+      "get": {
+        "description": "Get information about a Bevy game.",
+        "operationId": "get_game_info_api_v1_bevy_games__game_id__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "game_id",
+            "required": true,
+            "schema": {
+              "title": "Game Id",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Authentication for private game media",
+            "in": "query",
+            "name": "token",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Authentication for private game media",
+              "title": "Token"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BevyGameInfoResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Get Game Info",
+        "tags": [
+          "bevy"
+        ]
+      },
+      "patch": {
+        "description": "Rename a Bevy game (writes display_name into Cargo.toml metadata).",
+        "operationId": "rename_game_api_v1_bevy_games__game_id__patch",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "game_id",
+            "required": true,
+            "schema": {
+              "title": "Game Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BevyRenameGameRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BevyGameInfoResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Rename Game",
+        "tags": [
+          "bevy"
+        ]
+      }
+    },
+    "/api/v1/bevy/games/{game_id}/assets/{file_path}": {
+      "get": {
+        "description": "Serve owner-only image previews through the same contract as Godot.",
+        "operationId": "serve_editor_image_api_v1_bevy_games__game_id__assets__file_path__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "game_id",
+            "required": true,
+            "schema": {
+              "title": "Game Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "file_path",
+            "required": true,
+            "schema": {
+              "title": "File Path",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Authentication for private game media",
+            "in": "query",
+            "name": "token",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Authentication for private game media",
+              "title": "Token"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Serve Editor Image",
+        "tags": [
+          "bevy"
+        ]
+      }
+    },
+    "/api/v1/bevy/games/{game_id}/events/stream": {
+      "get": {
+        "description": "SSE replay + tail of a Bevy game's creation log.",
+        "operationId": "stream_game_events_api_v1_bevy_games__game_id__events_stream_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "game_id",
+            "required": true,
+            "schema": {
+              "title": "Game Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "since",
+            "required": false,
+            "schema": {
+              "default": -1,
+              "title": "Since",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Stream Game Events",
+        "tags": [
+          "bevy"
+        ]
+      }
+    },
+    "/api/v1/bevy/games/{game_id}/media": {
+      "get": {
+        "description": "Owner-only screenshots for reviewing and marking game changes.",
+        "operationId": "list_game_media_api_v1_bevy_games__game_id__media_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "game_id",
+            "required": true,
+            "schema": {
+              "title": "Game Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "List Game Media",
+        "tags": [
+          "bevy"
+        ]
+      }
+    },
+    "/api/v1/bevy/games/{game_id}/modifications": {
+      "get": {
+        "description": "List persisted modification runs for a Bevy game.",
+        "operationId": "list_game_modifications_api_v1_bevy_games__game_id__modifications_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "game_id",
+            "required": true,
+            "schema": {
+              "title": "Game Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "List Game Modifications",
+        "tags": [
+          "bevy"
+        ]
+      }
+    },
+    "/api/v1/bevy/games/{game_id}/modifications/{run_id}/events": {
+      "get": {
+        "description": "Return summary plus parsed events for one Bevy modification run.",
+        "operationId": "get_modification_events_api_v1_bevy_games__game_id__modifications__run_id__events_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "game_id",
+            "required": true,
+            "schema": {
+              "title": "Game Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "run_id",
+            "required": true,
+            "schema": {
+              "title": "Run Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Get Modification Events",
+        "tags": [
+          "bevy"
+        ]
+      }
+    },
+    "/api/v1/bevy/games/{game_id}/modifications/{run_id}/events/stream": {
+      "get": {
+        "description": "SSE replay + tail of one Bevy modification run's event log.",
+        "operationId": "stream_modification_events_api_v1_bevy_games__game_id__modifications__run_id__events_stream_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "game_id",
+            "required": true,
+            "schema": {
+              "title": "Game Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "run_id",
+            "required": true,
+            "schema": {
+              "title": "Run Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "since",
+            "required": false,
+            "schema": {
+              "default": -1,
+              "title": "Since",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Stream Modification Events",
+        "tags": [
+          "bevy"
+        ]
+      }
+    },
+    "/api/v1/bevy/games/{game_id}/modify": {
+      "post": {
+        "description": "Modify a Bevy game with a natural-language instruction (non-streaming).",
+        "operationId": "modify_game_api_v1_bevy_games__game_id__modify_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "game_id",
+            "required": true,
+            "schema": {
+              "title": "Game Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BevyModifyGameRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BevyModifyGameResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Modify Game",
+        "tags": [
+          "bevy"
+        ]
+      }
+    },
+    "/api/v1/bevy/games/{game_id}/modify/stream": {
+      "post": {
+        "description": "Modify a Bevy game with streaming progress updates (SSE).",
+        "operationId": "modify_game_stream_api_v1_bevy_games__game_id__modify_stream_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "game_id",
+            "required": true,
+            "schema": {
+              "title": "Game Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BevyModifyGameRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Modify Game Stream",
+        "tags": [
+          "bevy"
+        ]
+      }
+    },
+    "/api/v1/bevy/games/{game_id}/play": {
+      "get": {
+        "description": "Redirect to the game's index.html.",
+        "operationId": "play_game_redirect_api_v1_bevy_games__game_id__play_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "game_id",
+            "required": true,
+            "schema": {
+              "title": "Game Id",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Authentication for private game media",
+            "in": "query",
+            "name": "token",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Authentication for private game media",
+              "title": "Token"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Play Game Redirect",
+        "tags": [
+          "bevy"
+        ]
+      }
+    },
+    "/api/v1/bevy/games/{game_id}/play/{file_path}": {
+      "get": {
+        "description": "Serve WebAssembly bundle files from the game's dist/ directory.",
+        "operationId": "serve_game_file_api_v1_bevy_games__game_id__play__file_path__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "game_id",
+            "required": true,
+            "schema": {
+              "title": "Game Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "file_path",
+            "required": true,
+            "schema": {
+              "title": "File Path",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Authentication for private game media",
+            "in": "query",
+            "name": "token",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Authentication for private game media",
+              "title": "Token"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Serve Game File",
+        "tags": [
+          "bevy"
+        ]
+      }
+    },
+    "/api/v1/bevy/games/{game_id}/screenshot": {
+      "get": {
+        "operationId": "get_editor_screenshot_api_v1_bevy_games__game_id__screenshot_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "game_id",
+            "required": true,
+            "schema": {
+              "title": "Game Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Get Editor Screenshot",
+        "tags": [
+          "bevy"
+        ]
+      }
+    },
+    "/api/v1/bevy/games/{game_id}/suggestions": {
+      "get": {
+        "description": "Return cached modification suggestions or ``{pending: true}``.\n\nMirror of the godot router's suggestions endpoint. Suggestions are\ngenerated best-effort after creation via a one-shot CLI call and\npersisted to ``suggestions.json`` in the game directory.",
+        "operationId": "get_suggestions_api_v1_bevy_games__game_id__suggestions_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "game_id",
+            "required": true,
+            "schema": {
+              "title": "Game Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Get Suggestions",
+        "tags": [
+          "bevy"
+        ]
+      }
+    },
+    "/api/v1/bevy/games/{game_id}/telemetry": {
+      "post": {
+        "description": "Append browser telemetry events (errors, drift, canvas-missing) as NDJSON.\n\nStored at `generated_games/{id}/telemetry/{session}.ndjson` and the\ninteresting events (errors, frozen, canvas_missing) are mirrored into\n`data/godogen_failures.jsonl` so the passive learning loop sees them.",
+        "operationId": "post_telemetry_api_v1_bevy_games__game_id__telemetry_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "game_id",
+            "required": true,
+            "schema": {
+              "title": "Game Id",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Authentication for private game media",
+            "in": "query",
+            "name": "token",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Authentication for private game media",
+              "title": "Token"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Post Telemetry",
+        "tags": [
+          "bevy"
+        ]
+      }
+    },
+    "/api/v1/bevy/games/{game_id}/video": {
+      "get": {
+        "description": "Serve the canonical presentation video for a Bevy game.",
+        "operationId": "get_video_api_v1_bevy_games__game_id__video_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "game_id",
+            "required": true,
+            "schema": {
+              "title": "Game Id",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Authentication for private game media",
+            "in": "query",
+            "name": "token",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Authentication for private game media",
+              "title": "Token"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Get Video",
+        "tags": [
+          "bevy"
+        ]
+      }
+    }
+  },
+  "schemas": {
+    "BevyCreateGameRequest": {
+      "description": "Request to create a new Bevy game.",
+      "properties": {
+        "budget_cents": {
+          "anyOf": [
+            {
+              "maximum": 10000.0,
+              "minimum": 0.0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Asset generation budget in cents",
+          "title": "Budget Cents"
+        },
+        "description": {
+          "description": "Natural language game description",
+          "title": "Description",
+          "type": "string"
+        },
+        "reference_image": {
+          "anyOf": [
+            {
+              "$ref": "#/components/schemas/VisualReference"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "visibility": {
+          "default": "public",
+          "enum": [
+            "public",
+            "private",
+            "unlisted"
+          ],
+          "title": "Visibility",
+          "type": "string"
+        }
+      },
+      "required": [
+        "description"
+      ],
+      "title": "BevyCreateGameRequest",
+      "type": "object"
+    },
+    "BevyGameInfoResponse": {
+      "description": "Game info response (Bevy).",
+      "properties": {
+        "can_edit": {
+          "default": false,
+          "title": "Can Edit",
+          "type": "boolean"
+        },
+        "engine": {
+          "default": "bevy",
+          "title": "Engine",
+          "type": "string"
+        },
+        "game_id": {
+          "title": "Game Id",
+          "type": "string"
+        },
+        "game_path": {
+          "title": "Game Path",
+          "type": "string"
+        },
+        "has_export": {
+          "title": "Has Export",
+          "type": "boolean"
+        },
+        "has_plan": {
+          "title": "Has Plan",
+          "type": "boolean"
+        },
+        "has_structure": {
+          "title": "Has Structure",
+          "type": "boolean"
+        },
+        "has_video": {
+          "title": "Has Video",
+          "type": "boolean"
+        },
+        "name": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Name"
+        },
+        "visibility": {
+          "default": "public",
+          "title": "Visibility",
+          "type": "string"
+        }
+      },
+      "required": [
+        "game_id",
+        "game_path",
+        "has_plan",
+        "has_structure",
+        "has_video",
+        "has_export"
+      ],
+      "title": "BevyGameInfoResponse",
+      "type": "object"
+    },
+    "BevyModifyGameRequest": {
+      "description": "Request to modify a Bevy game with natural-language instruction.",
+      "properties": {
+        "instruction": {
+          "minLength": 1,
+          "title": "Instruction",
+          "type": "string"
+        },
+        "reference_image": {
+          "anyOf": [
+            {
+              "$ref": "#/components/schemas/VisualReference"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "instruction"
+      ],
+      "title": "BevyModifyGameRequest",
+      "type": "object"
+    },
+    "BevyModifyGameResponse": {
+      "properties": {
+        "changes": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Changes",
+          "type": "array"
+        },
+        "error": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Error"
+        },
+        "explanation": {
+          "title": "Explanation",
+          "type": "string"
+        },
+        "success": {
+          "title": "Success",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success",
+        "changes",
+        "explanation"
+      ],
+      "title": "BevyModifyGameResponse",
+      "type": "object"
+    },
+    "BevyRenameGameRequest": {
+      "description": "Body for PATCH /games/{id}: rename a game's display name.",
+      "properties": {
+        "name": {
+          "maxLength": 80,
+          "minLength": 1,
+          "title": "Name",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "title": "BevyRenameGameRequest",
+      "type": "object"
+    },
+    "HTTPValidationError": {
+      "properties": {
+        "detail": {
+          "items": {
+            "$ref": "#/components/schemas/ValidationError"
+          },
+          "title": "Detail",
+          "type": "array"
+        }
+      },
+      "title": "HTTPValidationError",
+      "type": "object"
+    }
+  }
+}

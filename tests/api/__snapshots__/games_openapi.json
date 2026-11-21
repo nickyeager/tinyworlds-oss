@@ -1,0 +1,362 @@
+{
+  "paths": {
+    "/api/v1/games": {
+      "get": {
+        "description": "List games from both engines, merged into one response.\n\nA failure on one side is logged and swallowed so the other side's\ngames still surface.",
+        "operationId": "list_games_api_v1_games_get",
+        "parameters": [
+          {
+            "description": "Authentication for private game media",
+            "in": "query",
+            "name": "token",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Authentication for private game media",
+              "title": "Token"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/UnifiedGameInfoResponse"
+                  },
+                  "title": "Response List Games Api V1 Games Get",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "List Games",
+        "tags": [
+          "games"
+        ]
+      },
+      "post": {
+        "description": "Create a new game using the engine selected by ``DEFAULT_GAME_ENGINE``.\n\nStreams SSE events from the underlying creation pipeline. The first\nevent is ``{\"event_type\": \"init\", \"game_id\": ..., \"engine\": ...}``\nso the frontend can route subsequent calls (play/info/etc.) to the\ncorrect engine-specific endpoints.",
+        "operationId": "create_game_api_v1_games_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UnifiedCreateGameRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Create Game",
+        "tags": [
+          "games"
+        ]
+      }
+    },
+    "/api/v1/games/capabilities": {
+      "get": {
+        "operationId": "capabilities_api_v1_games_capabilities_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Capabilities",
+        "tags": [
+          "games"
+        ]
+      }
+    },
+    "/api/v1/games/{game_id}/cancel": {
+      "post": {
+        "operationId": "cancel_generation_api_v1_games__game_id__cancel_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "game_id",
+            "required": true,
+            "schema": {
+              "title": "Game Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Cancel Generation",
+        "tags": [
+          "games"
+        ]
+      }
+    },
+    "/api/v1/games/{game_id}/suggestions": {
+      "get": {
+        "description": "Return cached modification suggestions for a game, dispatching by engine.",
+        "operationId": "get_suggestions_api_v1_games__game_id__suggestions_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "game_id",
+            "required": true,
+            "schema": {
+              "title": "Game Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "security": [
+          {
+            "OAuth2PasswordBearer": []
+          }
+        ],
+        "summary": "Get Suggestions",
+        "tags": [
+          "games"
+        ]
+      }
+    }
+  },
+  "schemas": {
+    "HTTPValidationError": {
+      "properties": {
+        "detail": {
+          "items": {
+            "$ref": "#/components/schemas/ValidationError"
+          },
+          "title": "Detail",
+          "type": "array"
+        }
+      },
+      "title": "HTTPValidationError",
+      "type": "object"
+    },
+    "UnifiedCreateGameRequest": {
+      "description": "Request body for the umbrella create endpoint.\n\nMirrors the per-engine request bodies \u2014 they're identical today.",
+      "properties": {
+        "budget_cents": {
+          "anyOf": [
+            {
+              "maximum": 10000.0,
+              "minimum": 0.0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Asset generation budget in cents",
+          "title": "Budget Cents"
+        },
+        "description": {
+          "description": "Natural language game description",
+          "title": "Description",
+          "type": "string"
+        },
+        "engine": {
+          "anyOf": [
+            {
+              "enum": [
+                "godot",
+                "bevy"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Engine"
+        },
+        "reference_image": {
+          "anyOf": [
+            {
+              "$ref": "#/components/schemas/VisualReference"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "visibility": {
+          "default": "public",
+          "enum": [
+            "public",
+            "private",
+            "unlisted"
+          ],
+          "title": "Visibility",
+          "type": "string"
+        }
+      },
+      "required": [
+        "description"
+      ],
+      "title": "UnifiedCreateGameRequest",
+      "type": "object"
+    },
+    "UnifiedGameInfoResponse": {
+      "description": "Unified game-info response carrying the engine discriminator.",
+      "properties": {
+        "can_edit": {
+          "default": false,
+          "title": "Can Edit",
+          "type": "boolean"
+        },
+        "engine": {
+          "title": "Engine",
+          "type": "string"
+        },
+        "game_id": {
+          "title": "Game Id",
+          "type": "string"
+        },
+        "game_path": {
+          "title": "Game Path",
+          "type": "string"
+        },
+        "has_export": {
+          "title": "Has Export",
+          "type": "boolean"
+        },
+        "has_plan": {
+          "title": "Has Plan",
+          "type": "boolean"
+        },
+        "has_structure": {
+          "title": "Has Structure",
+          "type": "boolean"
+        },
+        "has_video": {
+          "title": "Has Video",
+          "type": "boolean"
+        },
+        "name": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Name"
+        },
+        "visibility": {
+          "default": "public",
+          "title": "Visibility",
+          "type": "string"
+        }
+      },
+      "required": [
+        "game_id",
+        "game_path",
+        "has_plan",
+        "has_structure",
+        "has_video",
+        "has_export",
+        "engine"
+      ],
+      "title": "UnifiedGameInfoResponse",
+      "type": "object"
+    }
+  }
+}

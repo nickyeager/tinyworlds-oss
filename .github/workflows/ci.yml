@@ -1,0 +1,82 @@
+name: CI
+
+permissions:
+  contents: read
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+  workflow_call:
+
+jobs:
+  backend-tests:
+    runs-on: ubuntu-latest
+    env:
+      SECRET_KEY: ci-dummy-secret-not-used-for-real-signing
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt -c constraints-v0.1.txt
+      - name: Install the Linux sandbox prerequisite used by executor contracts
+        run: sudo apt-get update && sudo apt-get install -y bubblewrap
+      - run: python -m playwright install --with-deps chromium
+      - run: python -m pytest tests/unit/ -x -q
+      - run: python -m pytest tests/api/ -x -q
+      # In-process flow tests (in-memory SQLite, tmp dirs — no CLI/docker/API keys);
+      # they live under tests/e2e/ for now but are unmarked so they run here.
+      - run: python -m pytest tests/e2e/test_admin_e2e.py tests/e2e/test_auth_flows.py -x -q
+
+  frontend-build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: web
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          package_json_file: web/package.json
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+          cache-dependency-path: web/pnpm-lock.yaml
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm test:run
+      - run: pnpm build
+
+  generation-images:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/setup-buildx-action@v3
+      - run: touch .env
+      - name: Validate development Compose without printing secrets
+        run: docker compose --env-file /dev/null config --quiet
+      - name: Validate isolated playback proxy
+        run: docker run --rm --entrypoint caddy --mount type=bind,src=${{ github.workspace }}/Caddyfile,dst=/etc/caddy/Caddyfile,readonly caddy:2-alpine validate --config /etc/caddy/Caddyfile --adapter caddyfile
+      - name: Validate production Compose without printing secrets
+        env:
+          LAUNCHER_TOKEN: ci-unique-launcher-configuration-check
+          SECRET_KEY: ci-unique-signing-configuration-check
+          POSTGRES_PASSWORD: ci-postgres-configuration-check
+          PLUGIN_ENCRYPTION_KEY: ci-plugin-configuration-check
+        run: docker compose --env-file /dev/null -f docker-compose.yml -f docker-compose.prod.yml -f docker-compose.plugin.yml config --quiet
+      - uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: Dockerfile.agent
+          push: false
+          load: true
+          tags: tinyworlds/agent-worker:ci
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+      - name: Validate worker entrypoint syntax and non-root identity
+        run: |
+          docker run --rm --entrypoint sh tinyworlds/agent-worker:ci -n /usr/local/bin/agent-entrypoint
+          test "$(docker run --rm --entrypoint id tinyworlds/agent-worker:ci -u)" = 1000

@@ -1,0 +1,57 @@
+services:
+  caddy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - backend
+      - web
+
+  backend:
+    restart: unless-stopped
+    environment:
+      AGENT_EXECUTION_MODE: worker
+      GAME_PLAY_ORIGIN: https://games.tinyworlds.us
+      FRONTEND_URL: https://tinyworlds.us
+      REQUIRE_PRODUCTION_SECRETS: "1"
+      SECRET_KEY: ${SECRET_KEY:?Set a unique production SECRET_KEY}
+      LAUNCHER_TOKEN: ${LAUNCHER_TOKEN:?Set a unique production LAUNCHER_TOKEN}
+    # SECURITY #1: the backend must NOT mount /var/run/docker.sock. It runs the
+    # application; generation runs in isolated non-root workers.
+    # Docker sidecars (bevy-builder, workers) are launched via the privileged
+    # `sidecar-launcher` service instead. /tmp stays shared with the launcher.
+    volumes:
+      - /tmp:/tmp
+    deploy:
+      resources:
+        limits:
+          memory: 6G
+
+  # Holds the Docker socket and starts with plain compose up.
+  sidecar-launcher:
+    restart: unless-stopped
+    environment:
+      REQUIRE_PRODUCTION_SECRETS: "1"
+      LAUNCHER_TOKEN: ${LAUNCHER_TOKEN:?Set a unique production LAUNCHER_TOKEN}
+
+  web:
+    restart: unless-stopped
+    build:
+      args:
+        NEXT_PUBLIC_API_URL: https://tinyworlds.us
+        NEXT_PUBLIC_GAME_PLAY_URL: https://games.tinyworlds.us
+
+  postgres:
+    restart: unless-stopped
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set the production POSTGRES_PASSWORD}
+
+volumes:
+  caddy_data:
+  caddy_config:

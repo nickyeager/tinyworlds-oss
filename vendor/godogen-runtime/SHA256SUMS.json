@@ -1,0 +1,22 @@
+{
+  "LICENSE.md": "9994c50a3e043728bcf59106d5941c21b06e53dc64977e6bcafe9580a8a5e5d6",
+  "asset-gen/SKILL.md": "eaccfe3e0cf98b8837ae59887209e3d061da78bfd4e458c486b9d20c77f3df19",
+  "asset-gen/api.md": "558725807017685180fb60eb705492b80e60923bbffffb3cda508c6a981d827d",
+  "asset-gen/motion.md": "f618e9fdefca885b22cf29e0e2daffb6c21aebc86cef3b76fa28db4aeaa5409a",
+  "asset-gen/rembg.md": "0b81f9dace0d1d838ec981a3dce85db8411843bfbc04b732be789821156e67cc",
+  "asset-gen/tools/asset_gen.py": "8e88f8ee814b68c007aed35fff65d9408509bc5b13d5bf7f84296d2a72fd5bdf",
+  "asset-gen/tools/find_loop_frame.py": "1a614b32977cd49eab3392b1765168bfb5ed0aa577a8a21c147a427fc383a4fb",
+  "asset-gen/tools/grid_slice.py": "55afb459d2e3e069bc49fb63966c709179ab4359c0cef8332a7452d37aa9c6f9",
+  "asset-gen/tools/loop_audio.py": "2ee0f03e40c5771d7c79eced420609d70008fc029ddd1f32eb3eb03d071acc94",
+  "asset-gen/tools/rembg_matting.py": "79d86130c6f03c14be688ae1c69e3721ae3be2d0850debddd6ac334a487b6b2c",
+  "asset-gen/tools/requirements.txt": "4b99ca26713a4f3332b1e0627a0bb95e6e486b214da6c50c701f85c1dce01ee1",
+  "engines/babylon.md": "47911e246ffa7e5e9f29479bc41064df30d8a51266c05ced47631d2617ca6f04",
+  "engines/bevy.md": "ad44702af773a207a780ae63484a14b14e4c7d00a1ca13eb730d21779ffadd3b",
+  "engines/godot-gdscript.md": "ac27c510305b0513cb6fe0fae4e277f488afdda15579561fb2158a119cdc1cc7",
+  "engines/godot.md": "c0d2f9f22bf654b2d0d3543a12369831d02ce21c5a267fcb74ca56a1f99ca648",
+  "engines/threejs.md": "a03da4dcb0e87c771d843ca66a5144e7a392f2f13bb6c89b06ddf38386399c41",
+  "prompts/runtime.md": "41f08aab1964fc218883478f8a4111cdbf3516437ea2a149538c8397f423f5a9",
+  "publish.sh": "620b118932bc21805f1bb9b2ede692a84f429a3aedfb1c44f1d65bf964f10469",
+  "scripts/generate_codex_metadata.py": "253344e53e28717324afebb15f0b1e3f3aaf2eb0bef9e1cd0292ac7be58c3698",
+  "scripts/render_dir.py": "9ec45445200012e81117b4ed86b8b81c0888a53513c1ca668e24a613d6587516"
+}

@@ -1,0 +1,7 @@
+# Separate environment: MCP's Starlette requirements differ from the web API.
+mcp==1.30.0
+pydantic>=2.12,<3
+httpx==0.28.1
+cryptography==46.0.7
+uvicorn==0.54.0
+python-multipart==0.0.32

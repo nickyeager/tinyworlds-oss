@@ -1,0 +1,36 @@
+# Scripts lessons
+
+Writing C# / GDScript during task execution.
+
+- For 2D top-down movement, use `Input.get_vector("move_left", "move_right", "move_up", "move_down")`; for 1D side-scroll use `Input.get_axis("move_left", "move_right")`. Use `Input.is_action_just_pressed("jump")` / `is_action_pressed(...)` for discrete buttons.
+  (why: idiomatic Godot 4. Project validation watches for any of `Input.is_action_*`, `Input.is_key_*`, `Input.is_mouse_*`, `Input.get_*`, `_input(`, `_unhandled_input(`, `_unhandled_key_input(`. 2026-05-04 TopDownDodger nearly false-failed validation because the validator's earlier pattern list missed `Input.get_vector` — fixed in `de15c72`, but the cleaner answer is to use the canonical APIs.)
+- Every gameplay script attached to a node must define `func _process(delta)` or `func _physics_process(delta)` — pick the latter for physics bodies and collisions, the former for UI/state/draw.
+  (why: server-side `verify_playable` rejects games whose scripts have no update loop — an attached but inert script is not a game. Verified 2026-05-04 with godot-b9dcb519 which had two `ColorRect`s and no scripts, and earlier prompts that left a script attached but with no `_process`.)
+- When the prompt says "arrow keys" OR "WASD", bind both. Map `move_up` etc. to `physical_keycode 87/65/83/68` (W/A/S/D) AND `4194320/4194319/4194322/4194321` (arrow up/left/down/right) in `[input]` of `project.godot`.
+  (why: 2026-05-04 TopDownDodger correctly bound both — robust to user's first-try keypress regardless of platform/locale.)
+- A single well-structured script that handles player + entities + collisions + drawing in one file is fine. Multi-script architecture is a stylistic preference, not a quality signal.
+  (why: 2026-05-04 TopDownDodger's `main.gd` was 80 lines covering everything cleanly. The validator briefly enforced a `≥2 scripts` rule that false-failed it; the rule was dropped in `de15c72`. Keep code where it makes sense, not where structural conventions demand.)
+- For drawing primitives directly to a node, use `_draw()` + `queue_redraw()` from `_process` — avoids creating a child node per primitive when the count is small or dynamic.
+  (why: 2026-05-04 TopDownDodger drew player + 3 enemies entirely in `_draw()`; cleaner than spawning ColorRect children.)
+- **For pickup / collect / fade-out / float-up animations, use `Tween` — NOT `position += delta * N` in `_physics_process`.** Pattern:
+  ```gdscript
+  func collect() -> void:
+      if collected: return
+      collected = true
+      var t := create_tween()
+      t.tween_property(self, "position:y", position.y + 0.84, 0.6)
+      t.tween_callback(queue_free)
+  ```
+  (why: 2026-05-26 godot-cd69bae4 had `position.y += delta * 1.4` in `_physics_process` to float a pot up before queue_free. On the WASM build a single frame stutter delivered delta≈0.1s instead of ≈0.016s, so the pot launched 0.14 units up in one tick instead of 0.023. Visually it read as the pot rocketing off-screen — the user reported it as "the table floated away forever" because the queue_free flashed too quickly to register. Tweens are frame-independent, end on a bounded final value, and self-clean.)
+- **If you MUST integrate motion in `_process`/`_physics_process`, cap delta**. Browser WASM stutters can deliver `delta` as 0.5s in one tick (tab backgrounded, audio context locking, GC pause). Multiplying that against any per-frame velocity launches things into the next zip code:
+  ```gdscript
+  var dt: float = min(delta, 1.0 / 30.0)   # cap at 33ms regardless of stutter
+  position += direction * speed * dt
+  ```
+  (why: same incident as above. Tweens fix it for fixed-distance anims; this cap fixes it for ongoing velocity-based motion.)
+- **Add a runtime-telemetry autoload to every game** so we get insight into what the WASM does post-build. Drop `scripts/telemetry.gd` in the project (`extends Node`, autoload as `"Telemetry"`), and register it in `project.godot` `[autoload]` alongside `PauseBridge`. The script POSTs to `POST /api/v1/godot/games/<GAME_ID>/playthrough` (best-effort, swallows errors, sample player position at 1Hz). Emit pickup/interact/error events by calling `Telemetry.log_event("pickup", {...})` from gameplay scripts. The backend rate-limits to 300 events/60s per game — well above what 1Hz pos sampling produces, room for ~5 interactions/sec on top. See `generated_games/godot-cd69bae4/scripts/telemetry.gd` for the canonical version.
+  (why: 2026-05-26 the user reported "the table floated away forever" and we had no in-game data — only build-time smoke video — so we couldn't tell whether a pot's Y position drifted to 200, the player fell through the floor, or it was just a visual misread. With telemetry the spend-badge → Operations tab now shows "pickup: y=0.5 → y=200" if it ever happens, and we can ship the fix in 5 min instead of guessing.)
+- **In any "avoid the enemy" / dodger / survive-the-swarm game, the player spawn must be at least `2 × (player_radius + enemy_radius)` away from every enemy spawn position, AND every enemy must spawn outside the player's collision radius at frame 0.** Easiest pattern: place the player at viewport center, place enemies on a ring of radius ≥ `min(viewport_w, viewport_h) * 0.35`. If using random enemy spawn positions, reject any sample within `safe_radius` of the player and retry up to 32 times before falling back to the ring. The same rule applies to enemy-vs-enemy spawn if collisions between enemies can cascade.
+  (why: 2026-06-04 godot-99091dfd "TopDownDodger" shipped with the player initial position overlapping an enemy on frame 1 — the game registered a collision before the player could move, displayed `GAME OVER` with Score: 3 (three deaths cascaded from a single overlap because each in-range enemy fired the collision signal), and stayed in that state forever. The server-side `verify_playable` gate passed because the WASM ran, scripts had `Input.*` calls and `_process`, and `dist/index.html` existed — none of which catches "the game immediately ended before the player could move." The play-and-improve probe surfaced this as `stuck_frames` + `lighting_wrong` after one playthrough.)
+- **The spawn ring is necessary but not sufficient — enemies that bounce/wander INWARD eat the buffer in 1-2s. Pair the ring with one of: (a) initial velocity vector pointing OUTWARD or tangential to the ring, NOT toward the player; (b) a 1.5s grace period during which the player's hurtbox is disabled (set `monitoring=false` on the Area2D/3D, re-enable from a one-shot Timer); (c) for projectile-style enemies, delay activation with `await get_tree().create_timer(1.5).timeout` before they begin moving.** Pick exactly one — combining them feels weird (player invulnerable AND enemies frozen = nothing happens for 1.5s).
+  (why: 2026-06-04 godot-93f69424 was the regen of godot-99091dfd with only the ring lesson applied. The player and enemies spawned correctly on a ring as prescribed — visually verified in the probe screenshot — but enemies bounced inward and reached the player in ~2s (Score: 2). A human pressing WASD would have survived; the probe couldn't send input, so the player sat still and died. The ring fixed the *first-frame* collision but didn't make the game *playable* from frame 1. Grace period or outward-only initial motion closes that gap.)

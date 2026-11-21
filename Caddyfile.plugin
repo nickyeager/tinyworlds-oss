@@ -1,0 +1,7 @@
+import /etc/caddy/TinyWorldsBase
+
+plugins.tinyworlds.us {
+    reverse_proxy plugin:8787 {
+        flush_interval -1
+    }
+}

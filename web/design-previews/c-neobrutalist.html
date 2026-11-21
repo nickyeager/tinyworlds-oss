@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TinyWorlds — Option C: Neobrutalist</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      fontFamily: {
+        heading: ['Fredoka', 'sans-serif'],
+        body: ['Nunito', 'sans-serif'],
+      },
+      colors: {
+        surface: { DEFAULT: '#0D0D0D', raised: '#1A1A1A', overlay: '#252525' },
+        pop: { yellow: '#FFDB58', cyan: '#4ECDC4', pink: '#FF6B9D', lime: '#C7F464', red: '#FF6B6B' },
+        txt: { primary: '#FAFAFA', secondary: '#A0A0A0', muted: '#666666' },
+      },
+    }
+  }
+}
+</script>
+<style>
+  body { font-family: 'Nunito', sans-serif; background: #0D0D0D; color: #FAFAFA; }
+  h1, h2, h3, h4 { font-family: 'Fredoka', sans-serif; }
+  .brutal-border { border: 3px solid #FAFAFA; }
+  .brutal-shadow { box-shadow: 4px 4px 0 #FAFAFA; }
+  .brutal-shadow-yellow { box-shadow: 4px 4px 0 #FFDB58; }
+  .brutal-shadow-cyan { box-shadow: 4px 4px 0 #4ECDC4; }
+  .brutal-shadow-pink { box-shadow: 4px 4px 0 #FF6B9D; }
+  .brutal-shadow-lime { box-shadow: 4px 4px 0 #C7F464; }
+  .brutal-card { border: 2px solid #333; }
+  .brutal-card:hover { border-color: #FAFAFA; box-shadow: 4px 4px 0 #FAFAFA; transform: translate(-2px, -2px); }
+  .chip-brutal { transition: all 0.15s ease; }
+  .chip-brutal:hover { transform: translate(-2px, -2px); }
+  .tag { display: inline-block; padding: 2px 8px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+</style>
+</head>
+<body class="min-h-screen">
+
+<!-- Nav -->
+<nav class="flex items-center justify-between px-8 py-5">
+  <div class="flex items-center gap-3">
+    <div class="w-9 h-9 rounded-md bg-pop-yellow brutal-border brutal-shadow flex items-center justify-center">
+      <svg class="w-5 h-5 text-surface" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+    </div>
+    <span class="font-heading text-2xl font-bold tracking-tight">TinyWorlds</span>
+  </div>
+  <div class="flex items-center gap-5">
+    <a href="#" class="text-sm font-bold text-txt-secondary hover:text-pop-yellow transition-colors uppercase tracking-wider">Games</a>
+    <div class="w-8 h-8 rounded-md bg-surface-overlay brutal-border"></div>
+  </div>
+</nav>
+
+<!-- Hero / Create -->
+<main class="max-w-2xl mx-auto px-6 pt-16 pb-16">
+  <div class="text-center mb-12">
+    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-md bg-pop-cyan/10 border-2 border-pop-cyan text-sm text-pop-cyan font-bold mb-6 uppercase tracking-wider">
+      <span class="w-2.5 h-2.5 rounded-sm bg-pop-lime animate-pulse"></span>
+      Engine Ready
+    </div>
+    <h1 class="text-5xl font-heading font-bold mb-4 leading-tight">
+      Type a game idea.<br><span class="text-pop-yellow">We build it.</span>
+    </h1>
+    <p class="text-txt-secondary text-lg font-medium">Text to playable Godot game. No code required.</p>
+  </div>
+
+  <!-- Input Area -->
+  <div class="rounded-lg bg-surface-raised brutal-border brutal-shadow-yellow p-5 mb-8">
+    <textarea
+      placeholder="A platformer where you're a cat jumping between rooftops at sunset..."
+      class="w-full bg-transparent resize-none text-base leading-relaxed placeholder-txt-muted outline-none min-h-[100px] mb-4 font-medium"
+    ></textarea>
+    <div class="flex items-center justify-between">
+      <button class="w-10 h-10 rounded-md bg-surface-overlay brutal-border flex items-center justify-center text-txt-muted hover:text-pop-pink hover:border-pop-pink transition-all cursor-pointer">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/></svg>
+      </button>
+      <button class="px-7 py-2.5 rounded-md bg-pop-yellow text-surface font-bold text-sm brutal-border hover:bg-pop-lime transition-colors cursor-pointer uppercase tracking-wider">
+        Generate
+      </button>
+    </div>
+  </div>
+
+  <!-- Example Chips -->
+  <div class="flex flex-wrap gap-3 justify-center mb-16">
+    <button class="chip-brutal px-4 py-2 rounded-md bg-surface-raised border-2 border-pop-yellow/40 text-sm text-pop-yellow font-bold hover:brutal-shadow-yellow cursor-pointer" style="box-shadow: 3px 3px 0 rgba(255,219,88,0.3)">A space shooter with aliens</button>
+    <button class="chip-brutal px-4 py-2 rounded-md bg-surface-raised border-2 border-pop-cyan/40 text-sm text-pop-cyan font-bold cursor-pointer" style="box-shadow: 3px 3px 0 rgba(78,205,196,0.3)">Pong with particle effects</button>
+    <button class="chip-brutal px-4 py-2 rounded-md bg-surface-raised border-2 border-pop-pink/40 text-sm text-pop-pink font-bold cursor-pointer" style="box-shadow: 3px 3px 0 rgba(255,107,157,0.3)">A top-down maze runner</button>
+  </div>
+
+  <!-- Sample Game Cards (Gallery Preview) -->
+  <h2 class="font-heading text-2xl font-bold mb-6 text-center">Recent Creations</h2>
+  <div class="grid grid-cols-3 gap-5">
+    <div class="rounded-lg bg-surface-raised brutal-card overflow-hidden group cursor-pointer chip-brutal">
+      <div class="aspect-[4/3] bg-pop-yellow/10 border-b-2 border-current flex items-center justify-center relative" style="border-color: #333">
+        <svg class="w-10 h-10 text-pop-yellow/50 group-hover:text-pop-yellow transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      </div>
+      <div class="p-3">
+        <p class="text-sm font-bold">Neon Pong</p>
+        <div class="flex gap-2 mt-2">
+          <span class="tag rounded bg-pop-cyan/20 text-pop-cyan">3 scripts</span>
+          <span class="tag rounded bg-pop-yellow/20 text-pop-yellow">2 scenes</span>
+        </div>
+      </div>
+    </div>
+    <div class="rounded-lg bg-surface-raised brutal-card overflow-hidden group cursor-pointer chip-brutal">
+      <div class="aspect-[4/3] bg-pop-pink/10 border-b-2 flex items-center justify-center" style="border-color: #333">
+        <svg class="w-10 h-10 text-pop-pink/50 group-hover:text-pop-pink transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      </div>
+      <div class="p-3">
+        <p class="text-sm font-bold">Space Knight</p>
+        <div class="flex gap-2 mt-2">
+          <span class="tag rounded bg-pop-cyan/20 text-pop-cyan">5 scripts</span>
+          <span class="tag rounded bg-pop-yellow/20 text-pop-yellow">4 scenes</span>
+        </div>
+      </div>
+    </div>
+    <div class="rounded-lg bg-surface-raised brutal-card overflow-hidden group cursor-pointer chip-brutal">
+      <div class="aspect-[4/3] bg-pop-lime/10 border-b-2 flex items-center justify-center" style="border-color: #333">
+        <svg class="w-10 h-10 text-pop-lime/50 group-hover:text-pop-lime transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      </div>
+      <div class="p-3">
+        <p class="text-sm font-bold">Maze Runner</p>
+        <div class="flex gap-2 mt-2">
+          <span class="tag rounded bg-pop-cyan/20 text-pop-cyan">4 scripts</span>
+          <span class="tag rounded bg-pop-yellow/20 text-pop-yellow">3 scenes</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- Creation In-Progress State -->
+<section class="max-w-2xl mx-auto px-6 pb-16">
+  <h2 class="font-heading text-2xl font-bold mb-6 text-center">Building: <span class="text-pop-yellow">"Neon Pong"</span></h2>
+  <div class="space-y-3">
+    <!-- Plan card -->
+    <div class="rounded-lg bg-surface-raised brutal-card overflow-hidden">
+      <div class="flex items-center gap-2 px-4 py-3 border-b-2" style="border-color: #333">
+        <svg class="w-4 h-4 text-pop-yellow" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+        <span class="text-sm font-bold">PLAN.md</span>
+        <span class="tag ml-auto rounded bg-pop-yellow text-surface">PLAN</span>
+      </div>
+      <div class="px-4 py-3 text-sm text-txt-secondary leading-relaxed font-mono">
+        1. Core pong gameplay<br>2. Particle effects<br>3. Neon visual polish
+      </div>
+    </div>
+    <!-- File card -->
+    <div class="rounded-lg bg-surface-raised brutal-card overflow-hidden">
+      <div class="flex items-center gap-2 px-4 py-3 border-b-2" style="border-color: #333">
+        <svg class="w-4 h-4 text-pop-cyan" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg>
+        <span class="text-sm font-bold">scripts/Ball.cs</span>
+        <span class="tag ml-auto rounded bg-pop-lime text-surface">NEW</span>
+      </div>
+      <pre class="px-4 py-3 text-xs text-txt-secondary leading-relaxed font-mono overflow-x-auto"><code>using Godot;
+
+public partial class Ball : RigidBody2D
+{
+    [Export] public float Speed = 400f;
+    [Export] public float MaxSpeed = 800f;
+}</code></pre>
+    </div>
+    <!-- Thinking card -->
+    <div class="flex gap-2 px-2 py-1">
+      <svg class="w-3.5 h-3.5 text-txt-muted mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+      <p class="text-xs text-txt-muted italic leading-relaxed">Setting up collision layers for paddle and ball interaction...</p>
+    </div>
+    <!-- Command card -->
+    <div class="rounded-lg bg-surface-raised brutal-card overflow-hidden">
+      <div class="flex items-center gap-2 px-4 py-3">
+        <svg class="w-4 h-4 text-pop-lime" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+        <span class="text-sm font-mono text-txt-secondary font-bold">dotnet build</span>
+        <span class="tag ml-auto rounded bg-pop-lime text-surface">OK</span>
+      </div>
+    </div>
+    <!-- Error card -->
+    <div class="rounded-lg bg-pop-red/10 border-2 border-pop-red px-4 py-3" style="box-shadow: 3px 3px 0 rgba(255,107,107,0.3)">
+      <div class="flex items-start gap-2">
+        <svg class="w-4 h-4 text-pop-red mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+        <p class="text-sm text-pop-red font-bold">CS0246: The type 'ParticleManager' could not be found</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="text-center py-8 text-xs text-txt-muted">
+  Option C: Neobrutalist &mdash; Fredoka + Nunito, hard borders, offset shadows, pop colors
+</footer>
+</body>
+</html>

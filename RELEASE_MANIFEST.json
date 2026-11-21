@@ -1,0 +1,2732 @@
+{
+  "format": 1,
+  "source_head": "2478658f5b9c91dde702b0ee583e2a409f7ce7b3",
+  "source": "current working files, including untracked source; not a clean commit",
+  "files": [
+    {
+      "path": ".agents/plugins/marketplace.json",
+      "sha256": "07649b46c363a6fe333365d1a8e376ea4896fa113cc443ba30d9ec06540b1fc4",
+      "bytes": 317
+    },
+    {
+      "path": ".claude/skills/godogen/.github/ISSUE_TEMPLATE/feature_request.md",
+      "sha256": "6513a4e22ce91de46ac48f0f7751bbdced2374ef7e1398bca03ac474dde074ef",
+      "bytes": 636
+    },
+    {
+      "path": ".claude/skills/godogen/.github/PULL_REQUEST_TEMPLATE.md",
+      "sha256": "4fff4c6cc09adf79eae9c0a6f697a71f5f4f8c227037487cf94190f5148eb5dd",
+      "bytes": 299
+    },
+    {
+      "path": ".claude/skills/godogen/.gitignore",
+      "sha256": "f314836d2be159b3f357d88a989615d0c9ed5582159eb5db4bb7e004cab766f8",
+      "bytes": 135
+    },
+    {
+      "path": ".claude/skills/godogen/AGENTS.md",
+      "sha256": "c862c683ee398d8e6d78f682340ef1ea1a5fa01527361dce1c8549f14cd804a8",
+      "bytes": 2098
+    },
+    {
+      "path": ".claude/skills/godogen/CHANGELOG.md",
+      "sha256": "978f80e4c16c4b59321d550adce8e7f8c0ff0481f713f0273e854f09c2a3978f",
+      "bytes": 1856
+    },
+    {
+      "path": ".claude/skills/godogen/CONTRIBUTING.md",
+      "sha256": "0ff33a544f6b67da26bf44870711f7abc681a4c4067f865d879c392180671198",
+      "bytes": 3234
+    },
+    {
+      "path": ".claude/skills/godogen/LICENSE.md",
+      "sha256": "9994c50a3e043728bcf59106d5941c21b06e53dc64977e6bcafe9580a8a5e5d6",
+      "bytes": 1077
+    },
+    {
+      "path": ".claude/skills/godogen/README.md",
+      "sha256": "eeeb7a5a38caef26d025cce2be83277d478a4733d08ff61c265b5db2cb304fe0",
+      "bytes": 5987
+    },
+    {
+      "path": ".claude/skills/godogen/babylon/game-engine.md",
+      "sha256": "fdf7e40df199f44153d71fc15dab8eeb60ed5727cee0011b94ee2cef10294132",
+      "bytes": 319
+    },
+    {
+      "path": ".claude/skills/godogen/babylon/hooks/capture_result.sh",
+      "sha256": "92191216084ddbdf76ee15935853049a804a4d210e746eb21473a23289a77afb",
+      "bytes": 1171
+    },
+    {
+      "path": ".claude/skills/godogen/babylon/scaffold/index.html",
+      "sha256": "f3692b22bf0fc7f19d76a23c5c6f69cdae51540bf6fe798fde7b0dbd7beef0d7",
+      "bytes": 344
+    },
+    {
+      "path": ".claude/skills/godogen/babylon/scaffold/package.json",
+      "sha256": "b841a00cdbcc8e6ba0d4da156dc5071135675d954e5d37b9d1a61af365b1b610",
+      "bytes": 741
+    },
+    {
+      "path": ".claude/skills/godogen/babylon/scaffold/public/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "bytes": 1
+    },
+    {
+      "path": ".claude/skills/godogen/babylon/scaffold/scripts/capture.mjs",
+      "sha256": "dc62a58e7bee2dbad45305d7e8f48bcb9699d356d8af301b31fb7b2e3a864fa7",
+      "bytes": 7228
+    },
+    {
+      "path": ".claude/skills/godogen/babylon/scaffold/src/app/BabylonApp.ts",
+      "sha256": "f28734bfde71358fb4f58fd15dc1bf49bed03064d1ccd130844cf82534137a80",
+      "bytes": 986
+    },
+    {
+      "path": ".claude/skills/godogen/babylon/scaffold/src/app/babylon.ts",
+      "sha256": "03028f264b38bcc33682113fa9cf69f871695cf6f2284b157ec89311c9b85842",
+      "bytes": 1976
+    },
+    {
+      "path": ".claude/skills/godogen/babylon/scaffold/src/assets/audio/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "bytes": 1
+    },
+    {
+      "path": ".claude/skills/godogen/babylon/scaffold/src/assets/models/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "bytes": 1
+    },
+    {
+      "path": ".claude/skills/godogen/babylon/scaffold/src/assets/shaders/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "bytes": 1
+    },
+    {
+      "path": ".claude/skills/godogen/babylon/scaffold/src/assets/textures/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "bytes": 1
+    },
+    {
+      "path": ".claude/skills/godogen/babylon/scaffold/src/game/assets.ts",
+      "sha256": "00e4c8354c7e6765ac7f5dcdf3bf5cd0ef3c522930c6fef87005aa50565c00c8",
+      "bytes": 35
+    },
+    {
+      "path": ".claude/skills/godogen/babylon/scaffold/src/game/input.ts",
+      "sha256": "0abeb671afe797aa56610c97d428f223a7051262a24dac49946b60d0e1c7463e",
+      "bytes": 1389
+    },
+    {
+      "path": ".claude/skills/godogen/babylon/scaffold/src/game/scene.ts",
+      "sha256": "2421faf65834e322ac3c89b426230d9f0d20aa6190ca6776b8bce4e5db9d8565",
+      "bytes": 1311
+    },
+    {
+      "path": ".claude/skills/godogen/babylon/scaffold/src/game/state.ts",
+      "sha256": "50e2fd5ce33261ac99c6be1f95aa488d77e803214de5862e6241c8fe9bacaab0",
+      "bytes": 156
+    },
+    {
+      "path": ".claude/skills/godogen/babylon/scaffold/src/main.ts",
+      "sha256": "04a28722e84256940399fd90fd735e90b1e179de8027dfc8f5da9b8aa3b87dc2",
+      "bytes": 843
+    },
+    {
+      "path": ".claude/skills/godogen/babylon/scaffold/src/style.css",
+      "sha256": "5d0ce0355e387d5ce4b008517540d62c8837684bab2deb9e7a429ee892e651ca",
+      "bytes": 321
+    },
+    {
+      "path": ".claude/skills/godogen/babylon/scaffold/tsconfig.json",
+      "sha256": "2519b8556961e028cc0a111f4f0e7cf78f193a3106c6f09df32843028ad05a60",
+      "bytes": 279
+    },
+    {
+      "path": ".claude/skills/godogen/babylon/scaffold/vite.config.ts",
+      "sha256": "ddfb1aeb90dd584e69314f8c1be5f8cb8950a5124b33e83efd87982509c9394e",
+      "bytes": 1721
+    },
+    {
+      "path": ".claude/skills/godogen/babylon/skills/babylon-help/SKILL.md",
+      "sha256": "c05cf91983337048a876c9cf6def9f3b6fec717decd7386441cad8a53a8e345a",
+      "bytes": 2579
+    },
+    {
+      "path": ".claude/skills/godogen/babylon/skills/godogen/SKILL.md",
+      "sha256": "e6e56c0bceb206dc32fc3e6329cd6e694321e919a71c1f8f18d1480aee0b0de0",
+      "bytes": 4809
+    },
+    {
+      "path": ".claude/skills/godogen/babylon/skills/godogen/architecture.md",
+      "sha256": "21cefee23c5447abc29e4daadd2e05fb3699d87acc8c40feb8797ef59e6ca6dc",
+      "bytes": 2016
+    },
+    {
+      "path": ".claude/skills/godogen/babylon/skills/godogen/capture.md",
+      "sha256": "7a452d93e23fa792a108fdbf02f94dc987edfa260f0defe4caa9312dd5e3d7d4",
+      "bytes": 2602
+    },
+    {
+      "path": ".claude/skills/godogen/babylon/skills/godogen/decomposer.md",
+      "sha256": "e202a71f88f31e5c2c92d0c41d82d42b20c4a49537274581d1776811b878f370",
+      "bytes": 5715
+    },
+    {
+      "path": ".claude/skills/godogen/babylon/skills/godogen/quirks.md",
+      "sha256": "00d6eaa982673d81948ab648fb9d30662798573466716e0a0a8d7a91f2ff2232",
+      "bytes": 1468
+    },
+    {
+      "path": ".claude/skills/godogen/babylon/skills/godogen/scaffold.md",
+      "sha256": "2059e414fb7aabc2413bd9461d895e848484eff613f560d9e40305054c36607c",
+      "bytes": 4250
+    },
+    {
+      "path": ".claude/skills/godogen/babylon/skills/godogen/scene-generation.md",
+      "sha256": "c7b7c0f758886efe705a281483030efb2105ef517b55cbc2852951b587cf4a4e",
+      "bytes": 2460
+    },
+    {
+      "path": ".claude/skills/godogen/babylon/skills/godogen/task-execution.md",
+      "sha256": "c9b8de30d55c2ae6f34f6ec0f7f6b15b84abbc7e1bca9bbb5e67cb3244d534de",
+      "bytes": 3095
+    },
+    {
+      "path": ".claude/skills/godogen/bevy/game-engine.md",
+      "sha256": "3bf29e1da4fd7993a837f7418c9aa8cd7d4a929de910efb5c4654479919d5777",
+      "bytes": 97
+    },
+    {
+      "path": ".claude/skills/godogen/bevy/hooks/capture_result.sh",
+      "sha256": "7582d08615bcb9d1158c81bc66d1611afff9e29c1d51083b096eaefda51a4027",
+      "bytes": 448
+    },
+    {
+      "path": ".claude/skills/godogen/bevy/skills/bevy-help/SKILL.md",
+      "sha256": "2f546d3d5393b18b594a354d28d36d7c9982247ffe1e0c383f7a6311c8254151",
+      "bytes": 5399
+    },
+    {
+      "path": ".claude/skills/godogen/bevy/skills/bevy-help/docs/.gitignore",
+      "sha256": "240a3e0d37d2e86b614063f5347eb02d4f99ca6c254de6b82871ff8d95532a7d",
+      "bytes": 14
+    },
+    {
+      "path": ".claude/skills/godogen/bevy/skills/godogen/SKILL.md",
+      "sha256": "7a9ce0a9cb109d305548ea5b354c33d900261fc8557b4ba345e17fb33719ff89",
+      "bytes": 5553
+    },
+    {
+      "path": ".claude/skills/godogen/bevy/skills/godogen/capture.md",
+      "sha256": "9bcc8a31234373c2149fde30911e35f2827a205290781c065349f6f7a666664d",
+      "bytes": 9876
+    },
+    {
+      "path": ".claude/skills/godogen/bevy/skills/godogen/decomposer.md",
+      "sha256": "a07e717bcd953171f759e74b4c2d9b106b357253b94247b94d0f43db0984391e",
+      "bytes": 4795
+    },
+    {
+      "path": ".claude/skills/godogen/bevy/skills/godogen/quirks.md",
+      "sha256": "803fdbd6197f2cbd962ab64b44cf62f3b23202c944e39108351929b51c066512",
+      "bytes": 4653
+    },
+    {
+      "path": ".claude/skills/godogen/bevy/skills/godogen/scaffold.md",
+      "sha256": "eb1f0eea084c9e171d2d09627b4a6ff7d925185b96caa9094d5ffcc0a808b15d",
+      "bytes": 8289
+    },
+    {
+      "path": ".claude/skills/godogen/bevy/skills/godogen/scene-generation.md",
+      "sha256": "26280fed488a07f1cd4a0ef88accd691ac9592eb3da62e2170e907ffab841d75",
+      "bytes": 6659
+    },
+    {
+      "path": ".claude/skills/godogen/bevy/skills/godogen/task-execution.md",
+      "sha256": "f1ef37fe1b175a776f8339625635daec6ffd0bb8231e94cfa596ceae22f725b9",
+      "bytes": 7524
+    },
+    {
+      "path": ".claude/skills/godogen/docs/PROJECT.md",
+      "sha256": "9a354cd378c60870090ed6f4a239731924ea67d5acde8fcd053ed8603df0ed91",
+      "bytes": 4394
+    },
+    {
+      "path": ".claude/skills/godogen/docs/demo_prompts.md",
+      "sha256": "d78ff2d6c71037e2e77629e1a010404ab19000673d9e51953fa92a69268b27c2",
+      "bytes": 6149
+    },
+    {
+      "path": ".claude/skills/godogen/docs/gdscript-vs-csharp.md",
+      "sha256": "bda039863df1d787dfc5dced49de1ca3dad655f7f941f46a655414034f20fd1e",
+      "bytes": 4410
+    },
+    {
+      "path": ".claude/skills/godogen/godot/game-engine.md",
+      "sha256": "8815b70d08804cfbd3dca65d10479b954f13cb1f5bdbbc1be44e08f9ef359621",
+      "bytes": 98
+    },
+    {
+      "path": ".claude/skills/godogen/godot/hooks/capture_result.sh",
+      "sha256": "99c75c6f917a67ae739dc38402790df2f7e75f74ecb632a383e2a2c1cccd5c8b",
+      "bytes": 1650
+    },
+    {
+      "path": ".claude/skills/godogen/godot/skills/godogen/SKILL.md",
+      "sha256": "629e05d4b175e118f4a0dd44c5a82385ca9e78abf80dedda0e6ca6747e23ba56",
+      "bytes": 5893
+    },
+    {
+      "path": ".claude/skills/godogen/godot/skills/godogen/android-build.md",
+      "sha256": "6a650c1bd73b2f4173fea948a6c89288f18af39f8d4fd92843f47e0dff65d99b",
+      "bytes": 4190
+    },
+    {
+      "path": ".claude/skills/godogen/godot/skills/godogen/capture.md",
+      "sha256": "5e58777ffd2f374c92f501ed478f6af51faeb1ab6fef622617b5ecb85c0b4092",
+      "bytes": 8997
+    },
+    {
+      "path": ".claude/skills/godogen/godot/skills/godogen/decomposer.md",
+      "sha256": "43f9125f415675c0dee3e30e2de8724259d72b5ec31de4dfeb3e88ac05c49241",
+      "bytes": 5104
+    },
+    {
+      "path": ".claude/skills/godogen/godot/skills/godogen/quirks.md",
+      "sha256": "64884230aa7e111102caa95389bf8680a3ca3f350805b01e6d2642aa4944f08e",
+      "bytes": 9748
+    },
+    {
+      "path": ".claude/skills/godogen/godot/skills/godogen/scaffold.md",
+      "sha256": "42b84dbc96e4a302e5fcc6d5cb7fd3945df5e311057fb2b28394771ce77bfbcd",
+      "bytes": 14542
+    },
+    {
+      "path": ".claude/skills/godogen/godot/skills/godogen/scene-generation.md",
+      "sha256": "ca45c69adde0ba4652fad828c918c4cfe5b9265fd243db453a922c8f0b762534",
+      "bytes": 12781
+    },
+    {
+      "path": ".claude/skills/godogen/godot/skills/godogen/task-execution.md",
+      "sha256": "8bd6eaba74dfcda4a394d56ebf9f224b26b4b934fbcd71d03d5856a0cf01ed40",
+      "bytes": 6133
+    },
+    {
+      "path": ".claude/skills/godogen/godot/skills/godogen/test-harness.md",
+      "sha256": "055e8e3827f788f56b206b4c65c65eafa6b5850650d864d8de4bdfcf1de48457",
+      "bytes": 1567
+    },
+    {
+      "path": ".claude/skills/godogen/godot/skills/godot-api/SKILL.md",
+      "sha256": "34a4cd3930349bd68cc84ebf4b4f6aeda2fefab8068803698875f04ee2bc49b7",
+      "bytes": 1920
+    },
+    {
+      "path": ".claude/skills/godogen/godot/skills/godot-api/csharp.md",
+      "sha256": "e681b9521ac905405131dd731f7a16cf8fb8d7f6e47808dfe41a6acc9d0bf748",
+      "bytes": 17347
+    },
+    {
+      "path": ".claude/skills/godogen/godot/skills/godot-api/gdscript.md",
+      "sha256": "3d9bff9cb4bf2710e724c98fc6e2b2fbbfa42d609d708d3e9d0042edb578243a",
+      "bytes": 24890
+    },
+    {
+      "path": ".claude/skills/godogen/godot/skills/godot-api/tools/class_list.py",
+      "sha256": "3b0285877554dcdc95685a137b032d4b9b99e0c6313909e8aff781c1f5a64e03",
+      "bytes": 13522
+    },
+    {
+      "path": ".claude/skills/godogen/godot/skills/godot-api/tools/ensure_doc_api.sh",
+      "sha256": "826c6c927a7aa23f0146774b3498917d72e66084c8d1a4296e141d41150d89dc",
+      "bytes": 1103
+    },
+    {
+      "path": ".claude/skills/godogen/godot/skills/godot-api/tools/godot_api_converter.py",
+      "sha256": "54885f3a92aa7440e1734a8830b09b851508783ab20c580eeff49a0b2a593f68",
+      "bytes": 24078
+    },
+    {
+      "path": ".claude/skills/godogen/publish.sh",
+      "sha256": "7162505e59bce903ca05d22198226c109283c65d516db8b5646aaec6fce5a307",
+      "bytes": 7985
+    },
+    {
+      "path": ".claude/skills/godogen/scripts/publish/generate_codex_metadata.py",
+      "sha256": "253344e53e28717324afebb15f0b1e3f3aaf2eb0bef9e1cd0292ac7be58c3698",
+      "bytes": 3111
+    },
+    {
+      "path": ".claude/skills/godogen/scripts/publish/inject_claude_lookup_frontmatter.py",
+      "sha256": "d8bc7f6d9793e2045ffb677553997dd1360179b7011f17e85be9970259dda787",
+      "bytes": 962
+    },
+    {
+      "path": ".claude/skills/godogen/scripts/publish/merge_claude_stop_hook.py",
+      "sha256": "24712c80b1e9b44b67920501e579a26a0df8d5b0235584a94dcf695290c36c6d",
+      "bytes": 1525
+    },
+    {
+      "path": ".claude/skills/godogen/scripts/publish/render_dir.py",
+      "sha256": "9ec45445200012e81117b4ed86b8b81c0888a53513c1ca668e24a613d6587516",
+      "bytes": 942
+    },
+    {
+      "path": ".claude/skills/godogen/scripts/publish/write_codex_stop_hook.py",
+      "sha256": "8132cd0a1b035ff8bcd2e34c796254c3734e1a67396deacb58e78b6e84e06a4e",
+      "bytes": 841
+    },
+    {
+      "path": ".claude/skills/godogen/setup.md",
+      "sha256": "9656b9a680c041e49eb1a2d706effbefac00bb8315d6034afee3059f093c6224",
+      "bytes": 7524
+    },
+    {
+      "path": ".claude/skills/godogen/setup_bevy_docs.sh",
+      "sha256": "b5887bc92c8727dfe99f12723dc7cda231754d90fc984c449f78335bcc2fb388",
+      "bytes": 6916
+    },
+    {
+      "path": ".claude/skills/godogen/shared/hooks/stop_post_task_gate.py",
+      "sha256": "428f32c8a59698d1990440357b86899af506a40952a0d341649d204a4a6e4200",
+      "bytes": 2171
+    },
+    {
+      "path": ".claude/skills/godogen/shared/skills/godogen/asset-gen.md",
+      "sha256": "7208fa6d63c0f5bdbda6113b33702d388e5c7b71b2d2830093a3784582fc476b",
+      "bytes": 18211
+    },
+    {
+      "path": ".claude/skills/godogen/shared/skills/godogen/asset-planner.md",
+      "sha256": "22cba7b8b7ec35e294233eebf9980e5572aa1146de4e649dfb412166c9ac6d9a",
+      "bytes": 10457
+    },
+    {
+      "path": ".claude/skills/godogen/shared/skills/godogen/rembg.md",
+      "sha256": "dee81666d09ffdcf50bb72bbac33c45a9f21ccbc5eeef09c8ddf496ae9fe1f1a",
+      "bytes": 4349
+    },
+    {
+      "path": ".claude/skills/godogen/shared/skills/godogen/tools/asset_gen.py",
+      "sha256": "a87515b1235a3d0804d9ead691fdf54e1b35357528fe71504b29077c6c235584",
+      "bytes": 23576
+    },
+    {
+      "path": ".claude/skills/godogen/shared/skills/godogen/tools/find_loop_frame.py",
+      "sha256": "1a614b32977cd49eab3392b1765168bfb5ed0aa577a8a21c147a427fc383a4fb",
+      "bytes": 4442
+    },
+    {
+      "path": ".claude/skills/godogen/shared/skills/godogen/tools/grid_slice.py",
+      "sha256": "55afb459d2e3e069bc49fb63966c709179ab4359c0cef8332a7452d37aa9c6f9",
+      "bytes": 1941
+    },
+    {
+      "path": ".claude/skills/godogen/shared/skills/godogen/tools/rembg_matting.py",
+      "sha256": "7b1cdced01327dede6c1624ddeb2039c65313535646f80260482f3f86010d2c4",
+      "bytes": 12307
+    },
+    {
+      "path": ".claude/skills/godogen/shared/skills/godogen/tools/requirements.txt",
+      "sha256": "0e4bc016d6a6f55f42de78a526cc68867c2db537d296c8a97c7758a8c7f411c4",
+      "bytes": 98
+    },
+    {
+      "path": ".claude/skills/godogen/shared/skills/godogen/tools/tripo3d.py",
+      "sha256": "cc3a0566cddf66bf4988eaaefaa0485e3c80f0f020e90f791edb36d26c64102d",
+      "bytes": 4594
+    },
+    {
+      "path": ".claude/skills/godogen/shared/skills/godogen/visual-target.md",
+      "sha256": "f603ab84c3de0193354fd83fccfc005fdb79f1b6dc409d6c30801ab4d8b135df",
+      "bytes": 3222
+    },
+    {
+      "path": ".claude/skills/local/bevy-modify/SKILL.md",
+      "sha256": "dd0bfc62c5a3e99580d5561ad375039fe9ce6da3e44167a85062d6917af34f4c",
+      "bytes": 4883
+    },
+    {
+      "path": ".claude/skills/local/godogen-lessons/README.md",
+      "sha256": "ef2e219cc956a0fa3b9c938eadb3f5024e987c2da9f5c1e140b46bb8029d8567",
+      "bytes": 1858
+    },
+    {
+      "path": ".claude/skills/local/godogen-lessons/assets.md",
+      "sha256": "78bcf4b095e49d4ee0660ed4744ce034bcd385d83ac2378e40a2933976625e71",
+      "bytes": 915
+    },
+    {
+      "path": ".claude/skills/local/godogen-lessons/bevy.md",
+      "sha256": "afacfe379bf00a0df972f0685b4915c8cdd9e47c0d6f875bc9e8fee58451d19a",
+      "bytes": 4075
+    },
+    {
+      "path": ".claude/skills/local/godogen-lessons/capture.md",
+      "sha256": "334065619ca8ca0ea8f7ac2ced3e322db4d35403b18004bdb3e8c0185b0c382e",
+      "bytes": 1231
+    },
+    {
+      "path": ".claude/skills/local/godogen-lessons/general.md",
+      "sha256": "0ab5be0ab2f605684cb45fcde278e64e95724865bde8f5b1bbc12a266d3c540e",
+      "bytes": 3111
+    },
+    {
+      "path": ".claude/skills/local/godogen-lessons/playthrough.md",
+      "sha256": "17d025229fa4a6869b110e0b0740d6a50b1116f7b516c106aa23726b20ee47e5",
+      "bytes": 1563
+    },
+    {
+      "path": ".claude/skills/local/godogen-lessons/scaffold.md",
+      "sha256": "499a377772dbbe2c049319f9081952aaf3a5f9495d0cc25a75a0ebfb89ac7125",
+      "bytes": 1476
+    },
+    {
+      "path": ".claude/skills/local/godogen-lessons/scenes.md",
+      "sha256": "d5ad0dedf82b7f8f2c5bfc2fa5aeef0ff6c968da594704fbf4ed4be54314bafa",
+      "bytes": 1375
+    },
+    {
+      "path": ".claude/skills/local/godogen-lessons/scripts.md",
+      "sha256": "211961cf6c9de603d25ab77e1d7ec1a4a10618dddb9d4eb5a23b9c1653bf69d5",
+      "bytes": 7383
+    },
+    {
+      "path": ".claude/skills/local/godot-modify/SKILL.md",
+      "sha256": "63c4a77a832bba5d89a18d4cf27f5a63bad99413cf1ee83cfa7e19bbfabd2ce2",
+      "bytes": 4455
+    },
+    {
+      "path": ".dockerignore",
+      "sha256": "8c21dfd08a77e471ad1104835ed6482ebd4a5f645e916c0c140b4c63ec319348",
+      "bytes": 218
+    },
+    {
+      "path": ".env.example",
+      "sha256": "7083720cfd08ae06d3a19e0abc66254be47c81a05491d68960d384e147d8b8ed",
+      "bytes": 3282
+    },
+    {
+      "path": ".env.production.example",
+      "sha256": "760dce47ca7e756cd0178d4dc02ecb2ae239133945c894e41aabdb84bae16f8b",
+      "bytes": 1014
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/bug_report.yml",
+      "sha256": "de2f3a447d7105b281ea3446029b5888da8b17db7110bd7777b06ad0e95fe258",
+      "bytes": 795
+    },
+    {
+      "path": ".github/PULL_REQUEST_TEMPLATE.md",
+      "sha256": "ff0e5190e93d597e495ecfeec777ea5e7de0ccc0f374d8443c4d5a6417ca3525",
+      "bytes": 220
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "sha256": "055966841aff4863071ebd676ad22ba9635c6eb7b02947d3b46e191bdbfbefd0",
+      "bytes": 3090
+    },
+    {
+      "path": ".github/workflows/plugin.yml",
+      "sha256": "9d693cb4e17b35fa6d4d2c49aace0376b20873a1db7a9f1b73d41da00200707d",
+      "bytes": 1347
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "f8c255e72a7c8f9475a731dab2c8d1d9d9db640c802070df5ed707352d418b65",
+      "bytes": 964
+    },
+    {
+      "path": "ATTRIBUTION.md",
+      "sha256": "cd1d68b26a0e34e1164d5b52cb359d57ca4e7f4653c33207cd5ac2e1ff7c89f2",
+      "bytes": 7605
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "sha256": "5f3e495cdb2438342e99c61a167e035f453a5594cc37c4e29ae60abc259e894e",
+      "bytes": 2379
+    },
+    {
+      "path": "Caddyfile",
+      "sha256": "2096eafd2e4bf83272d0dacfd6fd1f063ae0b695d30f22b026c5e47454d5facb",
+      "bytes": 2011
+    },
+    {
+      "path": "Caddyfile.plugin",
+      "sha256": "74cdb64e33e74b136d2d614d0a3256e6c58b80811509f4c7765ddb3c9097162f",
+      "bytes": 124
+    },
+    {
+      "path": "Dockerfile",
+      "sha256": "777405d1f81517aba01d76a68bd25e2ff770b0603ea4e27b929fef7b25d4600b",
+      "bytes": 2830
+    },
+    {
+      "path": "Dockerfile.agent",
+      "sha256": "3530265c1a7c8f1afe98adf471a3c204c9b8e4e3c0e50256410c5adfb7059d8c",
+      "bytes": 2457
+    },
+    {
+      "path": "Dockerfile.bevy-builder",
+      "sha256": "6de24a30f4ffd90de520bd241e802f4f1543c4ce45b30a0dfd025bb387146141",
+      "bytes": 876
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "074e6e32c86a4c0ef8b3ed25b721ca23aca83df277cd88106ef7177c354615ff",
+      "bytes": 10280
+    },
+    {
+      "path": "LICENSE-DOCS",
+      "sha256": "d557539df68e771cc1eedcc91d13f70fca930e508d11eedcafa4b15db49e3744",
+      "bytes": 17023
+    },
+    {
+      "path": "LICENSES/DEPENDENCY_NOTICES-20261104.txt",
+      "sha256": "4e15127c3512eeaa5d4e8d989acd8cdd31775b273703daf79d16f9270ae62fd1",
+      "bytes": 1322201
+    },
+    {
+      "path": "LICENSES/DEPENDENCY_NOTICES-20261108.txt",
+      "sha256": "366cc135500672c6f6a865b31b78ecd74290b16a3962987df55a58cb94e3ea07",
+      "bytes": 619006
+    },
+    {
+      "path": "LICENSES/DEPENDENCY_NOTICES-20261109.txt",
+      "sha256": "f873e9c459ba63726fba36e558cab41a767203c9a16c7b6f084e37b95c340b65",
+      "bytes": 1807563
+    },
+    {
+      "path": "LICENSES/GPL-3.0.txt",
+      "sha256": "fb981668c18a279e285fc4d83fba1e836cc84dd4daa73c9697d3cfd2d8aca6e0",
+      "bytes": 34674
+    },
+    {
+      "path": "LICENSES/agency-agents-MIT.txt",
+      "sha256": "9a45258434d5cedf0af73c9ad4771373701225038d246c49219026c33677f66f",
+      "bytes": 1079
+    },
+    {
+      "path": "LICENSES/agent-browser-Apache-2.0.txt",
+      "sha256": "014bb31e83d5c2e76aea1cc6e82217346ab41362f32cb355ad0f5c10aa0aeaff",
+      "bytes": 10931
+    },
+    {
+      "path": "LICENSES/antigravity-awesome-skills-MIT.txt",
+      "sha256": "af98370a7edc0f00ec46979d049517833c9a7fa2ba74e3cf8cc42f7db557299d",
+      "bytes": 1073
+    },
+    {
+      "path": "LICENSES/assistant-ui-MIT.txt",
+      "sha256": "eafb05991a572efa34097474b31fef45b14a8879ed1d1a8fd77de62e6fa7d275",
+      "bytes": 1073
+    },
+    {
+      "path": "LICENSES/bundled-source-inventory.json",
+      "sha256": "109939e89db89994f2744d0817f1b76b4216c4c920be97b1a49de50da83bfb20",
+      "bytes": 4515
+    },
+    {
+      "path": "LICENSES/collected-20261108/@esbuild__darwin-arm64--LICENSE.md",
+      "sha256": "b40ec5baec7bb34fa5b1c09521fa3cd52d5fad7adafed74932a2010d3612a681",
+      "bytes": 1069
+    },
+    {
+      "path": "LICENSES/collected-20261108/@img__sharp-libvips-darwin-arm64--BUILD-SCRIPTS-APACHE-2.0.txt",
+      "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1",
+      "bytes": 11357
+    },
+    {
+      "path": "LICENSES/collected-20261108/@img__sharp-libvips-darwin-arm64--GPL-3.0.txt",
+      "sha256": "fb981668c18a279e285fc4d83fba1e836cc84dd4daa73c9697d3cfd2d8aca6e0",
+      "bytes": 34674
+    },
+    {
+      "path": "LICENSES/collected-20261108/@img__sharp-libvips-darwin-arm64--LGPL-3.0.txt",
+      "sha256": "e3a994d82e644b03a792a930f574002658412f62407f5fee083f2555c5f23118",
+      "bytes": 7652
+    },
+    {
+      "path": "LICENSES/collected-20261108/@img__sharp-libvips-darwin-arm64--PUBLISHED-LIBRARY-NOTICES.md",
+      "sha256": "47c37432ea30fcf5767611bca7c054d141f7584479ce8b58b5de6b88f9008d1d",
+      "bytes": 4333
+    },
+    {
+      "path": "LICENSES/collected-20261108/@next__env--license.md",
+      "sha256": "ee765244e2d59f5234d474f62e0766fa0c8b99af967fdd4c0cb8dcb0c76ea224",
+      "bytes": 1079
+    },
+    {
+      "path": "LICENSES/collected-20261108/@next__eslint-plugin-next--license.md",
+      "sha256": "ee765244e2d59f5234d474f62e0766fa0c8b99af967fdd4c0cb8dcb0c76ea224",
+      "bytes": 1079
+    },
+    {
+      "path": "LICENSES/collected-20261108/@next__swc-darwin-arm64--license.md",
+      "sha256": "ee765244e2d59f5234d474f62e0766fa0c8b99af967fdd4c0cb8dcb0c76ea224",
+      "bytes": 1079
+    },
+    {
+      "path": "LICENSES/collected-20261108/@rollup__rollup-darwin-arm64--LICENSE.md",
+      "sha256": "fa1bd040c5bdeefe65b3821cebf474f2733ce65df13089bd151dda1778e62fe8",
+      "bytes": 35231
+    },
+    {
+      "path": "LICENSES/collected-20261108/@unrs__resolver-binding-darwin-arm64--LICENSE",
+      "sha256": "a9e35996693bd619302922c731fa2f620ad12d5f50b19a37c8a3e0e078c9bd2f",
+      "bytes": 1158
+    },
+    {
+      "path": "LICENSES/collected-20261108/azure-cognitiveservices-speech--LICENSE.md",
+      "sha256": "3339202801c0a08939229159994a66bc18425f87218ba176f220f61d340679a3",
+      "bytes": 16249
+    },
+    {
+      "path": "LICENSES/collected-20261108/azure-cognitiveservices-speech--REDIST.txt",
+      "sha256": "6f2f4d743515f000bcab4e56724ff281288ce00d48a21a1519c3c56870486358",
+      "bytes": 2719
+    },
+    {
+      "path": "LICENSES/collected-20261108/azure-cognitiveservices-speech--ThirdPartyNotices.md",
+      "sha256": "9995e906c1ef40bbc9d99725a10b33c0b31f57a829ea51f3505f0cc80865fadc",
+      "bytes": 490476
+    },
+    {
+      "path": "LICENSES/collected-20261108/eslint-config-next--license.md",
+      "sha256": "ee765244e2d59f5234d474f62e0766fa0c8b99af967fdd4c0cb8dcb0c76ea224",
+      "bytes": 1079
+    },
+    {
+      "path": "LICENSES/collected-20261108/esrecurse--README-license.txt",
+      "sha256": "cb1764d4708e870cc694de13d499af2e6ee98d2751026e3a3f79de608f4f4ea0",
+      "bytes": 1403
+    },
+    {
+      "path": "LICENSES/collected-20261108/imurmurhash--LICENSE",
+      "sha256": "fa0943ddcaa857d901a9eb92254d89876297ecdfbc884d294a927df08ebcbbe8",
+      "bytes": 1090
+    },
+    {
+      "path": "LICENSES/collected-20261108/saxes--LICENSE",
+      "sha256": "0fac2374380621b22e6b50451057721a9c52935b02d16d106a9f04897f061d0e",
+      "bytes": 3011
+    },
+    {
+      "path": "LICENSES/collected-20261108/unrs-resolver--LICENSE",
+      "sha256": "a9e35996693bd619302922c731fa2f620ad12d5f50b19a37c8a3e0e078c9bd2f",
+      "bytes": 1158
+    },
+    {
+      "path": "LICENSES/collected-20261113/@types__json5--LICENSE",
+      "sha256": "0a48f63d7d32a49d196dce4b2e0cbc236c2cc8fef42cb20e005e4d5f813cc8f6",
+      "bytes": 1167
+    },
+    {
+      "path": "LICENSES/collected-20261113/keyv--LICENSE",
+      "sha256": "1f7dca26d2d328c3dbb9b6fe3b15ec3cda08ffe2288e47b73d617454b256f959",
+      "bytes": 1108
+    },
+    {
+      "path": "LICENSES/context-engineering-intro-MIT.txt",
+      "sha256": "52c59102b1d6e5ef5e880a18dab83cfe89ac8fbe62a659fcfc4e3b9258a32861",
+      "bytes": 1067
+    },
+    {
+      "path": "LICENSES/dependency-inventory-20261104.json",
+      "sha256": "d8d9da1376619e97977af4ef5152fbc3c590cc9626145541e136965d34bc27a4",
+      "bytes": 266730
+    },
+    {
+      "path": "LICENSES/dependency-inventory-20261108.json",
+      "sha256": "55ca3e6017198d40ca6887e80f0295a5a0a5a53cce50237c8938e9557e491956",
+      "bytes": 289146
+    },
+    {
+      "path": "LICENSES/dependency-inventory-20261109.json",
+      "sha256": "3e3a0730df53f0739984b46dbdbaea0ee1e9136a039f198efe0febc0a50f8954",
+      "bytes": 292955
+    },
+    {
+      "path": "LICENSES/dependency-inventory-20261113.json",
+      "sha256": "a46ddc9d622bec69bd8714865198775ced49a1f9be25ce29ad119a64039b0176",
+      "bytes": 312931
+    },
+    {
+      "path": "LICENSES/game-studios-MIT.txt",
+      "sha256": "6ecc068715c0edffc4bc21e5dca450803e0a45af145f72221da23d14e7588359",
+      "bytes": 1066
+    },
+    {
+      "path": "LICENSES/gd-agentic-skills-LGPL-3.0.txt",
+      "sha256": "e3a994d82e644b03a792a930f574002658412f62407f5fee083f2555c5f23118",
+      "bytes": 7652
+    },
+    {
+      "path": "LICENSES/upstream-license-sources.json",
+      "sha256": "62587ba3301148faa0fc7d8a1638e88d084bba5850f8335c3bd975285bf4b8eb",
+      "bytes": 4038
+    },
+    {
+      "path": "LICENSING.md",
+      "sha256": "5b3a48545ac7c863e5d757324ba34cf3d8aff1a6a99d2bc4df1f49a915753505",
+      "bytes": 3041
+    },
+    {
+      "path": "NOTICE",
+      "sha256": "aa9df712d4ce696061cc81975fce689dbaa8300b83f2a8775d147048976cef07",
+      "bytes": 1019
+    },
+    {
+      "path": "README.md",
+      "sha256": "b34efa635802759e81f481047b82cb17f33f600716211d8e4cfdb0e277d4e624",
+      "bytes": 4209
+    },
+    {
+      "path": "SECURITY.md",
+      "sha256": "2387f028add64eb60de182b27433b75e565ad231f336017c59697a0e0409c628",
+      "bytes": 976
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "sha256": "c6454f459f3ea8e7635a9b319183b3756c4ffa057cfc9fdb3f8d9a24003842cd",
+      "bytes": 6380
+    },
+    {
+      "path": "alembic.ini",
+      "sha256": "e834d466b1ac69dd3841cd574f98234cd617c5e7199627df33900cdbcd51d5a0",
+      "bytes": 3601
+    },
+    {
+      "path": "alembic/README",
+      "sha256": "31595cf53626af9ed16e15c44fa43183209cc163fbc3ebcb904b22ac436a8884",
+      "bytes": 38
+    },
+    {
+      "path": "alembic/env.py",
+      "sha256": "954892d6494633d8238be387f975c92f331b35f56b082dea47914631127ad9dd",
+      "bytes": 2293
+    },
+    {
+      "path": "alembic/script.py.mako",
+      "sha256": "304a8bfb6a804e5493f5300e79882c70c9f5bb2e87512f4d16f0e097dddd323f",
+      "bytes": 635
+    },
+    {
+      "path": "alembic/versions/003_migrate_to_uuid_and_games.py",
+      "sha256": "bf553b12fef8d30ed42f8243ca27e6e18a91d4aab3c5f8651414adf38f34864b",
+      "bytes": 10709
+    },
+    {
+      "path": "alembic/versions/004_add_authentication_schema.py",
+      "sha256": "9429cf33041fd280229c4b2cb69bcd804f938a490d7147095d65a04530e1fc78",
+      "bytes": 5065
+    },
+    {
+      "path": "alembic/versions/005_add_sessions_and_tokens.py",
+      "sha256": "a9162c1efc513b1e6d07900d159dc58d4c5db4dc242a183e5023f1c88a425671",
+      "bytes": 3760
+    },
+    {
+      "path": "alembic/versions/006_add_admin_and_invitations.py",
+      "sha256": "4ab0bb850a2b065b4ff3b77548d1ab2db9e7070ccc94a6ea1e9de7277fb90af9",
+      "bytes": 1571
+    },
+    {
+      "path": "alembic/versions/007_add_admin_audit_log.py",
+      "sha256": "05af8b4f6e7f5f5883f1baaedb98c6030b80ba11ad8e624c86404c06ef504b7a",
+      "bytes": 1246
+    },
+    {
+      "path": "alembic/versions/008_add_engine_column.py",
+      "sha256": "76e6d4dfac33ae6a0e69e4fc7751b795e9288030f0a5feffb9d7dbfad0569893",
+      "bytes": 1062
+    },
+    {
+      "path": "constraints-v0.1.txt",
+      "sha256": "bff816074b46a22283a38dc4bee5a72d0b4ec1746bdce44e5f8df3a7fd6160c6",
+      "bytes": 1569
+    },
+    {
+      "path": "docker-compose.observability.yml",
+      "sha256": "f457c54fc6e9ad6439a932bbb1c6077558871a2722e49804ccca20ac11d67d9b",
+      "bytes": 645
+    },
+    {
+      "path": "docker-compose.plugin.yml",
+      "sha256": "223ee7d9a97ddb38f51587f882f68912208c22639ae6afed0219b3125ed54a53",
+      "bytes": 1158
+    },
+    {
+      "path": "docker-compose.prod.yml",
+      "sha256": "827844d3aecfe01860942ec9c9202740ae09d181d4e84b87fb26fd4cc024c626",
+      "bytes": 1642
+    },
+    {
+      "path": "docker-compose.yml",
+      "sha256": "ff7efde210aa1323a329eb8f04f5fdc7907e871479fff34ba912632eec9d5415",
+      "bytes": 3858
+    },
+    {
+      "path": "docs/ROADMAP.md",
+      "sha256": "f1da8d1cb9c562b6b2b1f3dad29546644448377ecb29b617e45b7edf8967eaa9",
+      "bytes": 1217
+    },
+    {
+      "path": "docs/guides/agent-observability.md",
+      "sha256": "0aaf1828c5004a463fe2218d63cb62f84d7729718ca2b8bc34897559f685196f",
+      "bytes": 5590
+    },
+    {
+      "path": "docs/guides/agent-play.md",
+      "sha256": "7b428fc9684ee1614c7e0153cfc23216640c98287baea1c5a2a83cb7516b5516",
+      "bytes": 3698
+    },
+    {
+      "path": "docs/guides/e2e-testing.md",
+      "sha256": "ff01394ced61ed0aed13d854258c184d2fe3b93d418106aec1dbf36c3d28b48c",
+      "bytes": 2994
+    },
+    {
+      "path": "docs/guides/editor-ux-design.md",
+      "sha256": "4073f3e50eb34e462b00a9a8cfacc51ea6c18c4e50a5ff4c3c6d53716f192c4d",
+      "bytes": 4991
+    },
+    {
+      "path": "docs/guides/generation.md",
+      "sha256": "4a62fad50b8761e760b94ec9f1431c9f8c0aa9554ab872bf3b61221d2412e397",
+      "bytes": 12755
+    },
+    {
+      "path": "docs/guides/provider-connections.md",
+      "sha256": "3b6c071f910f244054447efea979f2fe875952bb23711dae563582d3c390f8d4",
+      "bytes": 4879
+    },
+    {
+      "path": "docs/guides/setup-bevy.md",
+      "sha256": "75b20ede949d838ea1c30a3420e304653781df67152fcf21e18c8108117bcd37",
+      "bytes": 3774
+    },
+    {
+      "path": "docs/guides/setup.md",
+      "sha256": "e27c3c8ad521893af64eecdebee6c0afc6a5f567acfbf6c367368604351c8b72",
+      "bytes": 4577
+    },
+    {
+      "path": "docs/guides/testing-quickstart.md",
+      "sha256": "185b47ff5a5e61079aabf1814e2f24823f6a93f154bed624697d4959b6e14116",
+      "bytes": 1436
+    },
+    {
+      "path": "docs/guides/visual-references.md",
+      "sha256": "f34e889616043e182a8d2bcc590cd344fc46a512bfd5791c9c03be5a93aa4141",
+      "bytes": 3251
+    },
+    {
+      "path": "docs/open-source-readiness.md",
+      "sha256": "fda2e82aabafe3db21f3a603ba755aea407c6f34cbf98b936b6a5ee58d6cc396",
+      "bytes": 1627
+    },
+    {
+      "path": "docs/releases/2026-11-08-notice-inventory.md",
+      "sha256": "d99e75f7e7dba81588f58fec38c78308c9fb0a64f3d7b378fe32085121bf45e1",
+      "bytes": 2408
+    },
+    {
+      "path": "docs/releases/2026-11-09-source-candidate.md",
+      "sha256": "d9b2e838a3a6a31879cb330cb8c23727ca20cb68288fdb4c432331fc8ede6f8a",
+      "bytes": 5018
+    },
+    {
+      "path": "docs/releases/2026-11-10-personal-provider.md",
+      "sha256": "8ab60e1572df5f9855674a8d3a89f3296332db8e1498d42f5d4f4cb8504c5794",
+      "bytes": 3926
+    },
+    {
+      "path": "docs/releases/2026-11-13-source-candidate.md",
+      "sha256": "eaa7477aa145bd5154e97ba74311404444f22ec024087a058f88cab326da9d93",
+      "bytes": 3094
+    },
+    {
+      "path": "docs/releases/2026-11-20-publication.md",
+      "sha256": "a34c2606cbd4b1ea934e27d61e7b1bff92d3ad21f377396d346d7e6ea4ef1872",
+      "bytes": 2595
+    },
+    {
+      "path": "docs/releases/v0.1-developer-preview.md",
+      "sha256": "0b01db1eb567e306b225813885ee62b3c87b6477aaa74dd5ca6e01a429b1ad9d",
+      "bytes": 3020
+    },
+    {
+      "path": "plugins/tinyworlds/assets/icon.svg",
+      "sha256": "25d757835dc37670ff03b9ee5ad29ad2ffa82d2b1b574aee6cbacb465c5ce04b",
+      "bytes": 610
+    },
+    {
+      "path": "plugins/tinyworlds/mcp.json",
+      "sha256": "904db5d8adde4a270aba17c444a4f5248daa23878bcf49483fb8834b54cf494c",
+      "bytes": 198
+    },
+    {
+      "path": "plugins/tinyworlds/plugin.json",
+      "sha256": "e3102b777fc7219dc50bdd1d7cd8f688c7a795b1af58deb515ba0ecd8e782dbf",
+      "bytes": 1450
+    },
+    {
+      "path": "plugins/tinyworlds/skills/tinyworlds-games/SKILL.md",
+      "sha256": "c3fcc850afc56e47b5a497c3157c3967031cf1994f5fc523e0f20a8ec2bca173",
+      "bytes": 3788
+    },
+    {
+      "path": "plugins/tinyworlds/skills/tinyworlds-games/agents/openai.yaml",
+      "sha256": "d11f97655c31c26fa5a8471b7900bc5492013bc01c26996940e575006b24482a",
+      "bytes": 234
+    },
+    {
+      "path": "pytest.ini",
+      "sha256": "40bc4cc12da0dcfce35b3927c9481f2aace3fb8609474696722a62b3846c3efe",
+      "bytes": 687
+    },
+    {
+      "path": "requirements-observability.txt",
+      "sha256": "e960b39a36ee6159959693e7ad978baa2759e10ece4decd61b5af8c94bed588e",
+      "bytes": 145
+    },
+    {
+      "path": "requirements.txt",
+      "sha256": "657f312258fc057e9afab1de058a810e196551ef301d158c1b70c2bfa34cacaa",
+      "bytes": 754
+    },
+    {
+      "path": "scripts/README.md",
+      "sha256": "c549cfe904ce1cd9e4438e7890022eb5ac52168870ce5a68c0aee16bbe599bb1",
+      "bytes": 1205
+    },
+    {
+      "path": "scripts/agent_asset_broker.py",
+      "sha256": "5f1d31d426764019534cbcf0b7183e58276c757abfa19d16ecdb3c7beb31c9dc",
+      "bytes": 2438
+    },
+    {
+      "path": "scripts/assign_game_owners.py",
+      "sha256": "6f0da40969c71e5ea148560d0d7d7cf079b2808c0f25a9623991ad7bf03fed8c",
+      "bytes": 1412
+    },
+    {
+      "path": "scripts/backfill_touch_controls.py",
+      "sha256": "7178ee3b53aedec4c8c75c9fb6fa9225fc6514bc2d43d3938d853ba3f443698c",
+      "bytes": 5206
+    },
+    {
+      "path": "scripts/bevy_build.sh",
+      "sha256": "dd28974ee6ac96236d8709b157875d145cf722d1363d913eb27b80cf0b4e1c71",
+      "bytes": 3313
+    },
+    {
+      "path": "scripts/capture_editor_review.mjs",
+      "sha256": "67838b5b05943d936c020fc4afb731e364f01db81cb42dcd0b567e215f054692",
+      "bytes": 12997
+    },
+    {
+      "path": "scripts/check_agent_observability.py",
+      "sha256": "6326500aac78d2c4df58540e8698a2dacd5db00564dc690722f7533df822842c",
+      "bytes": 4121
+    },
+    {
+      "path": "scripts/check_godogen_upstream.py",
+      "sha256": "41c9db9df5774fac1ad201db127e27e45533b7e4d45482b3e1d5ce238296ad39",
+      "bytes": 6849
+    },
+    {
+      "path": "scripts/check_release_snapshot.py",
+      "sha256": "c6629cf0d58f2bd740ef33888b608c0fca4377f02eacb01a225f77a0de4d9b7a",
+      "bytes": 2454
+    },
+    {
+      "path": "scripts/check_upstreams.py",
+      "sha256": "23412dd85bb1c912ef4d5d9c61bbd425b32649b5103bf90a89049b5f80fc4cba",
+      "bytes": 13499
+    },
+    {
+      "path": "scripts/cleanup_test_data.sh",
+      "sha256": "bb555f9be530e0bbdc66fdd779da4aafb3efeb7c2890e57e00df077f6651d40e",
+      "bytes": 2265
+    },
+    {
+      "path": "scripts/companion_scout.py",
+      "sha256": "519256ad1268f8eaa36f3d26b2f1148080036a9a439680b89a5970de2ec40965",
+      "bytes": 6634
+    },
+    {
+      "path": "scripts/distill_failures.py",
+      "sha256": "067ea3f9d0009338d525dee6df60d6ad339e56332b2e9cf30d8a2b4ed74f89f0",
+      "bytes": 5974
+    },
+    {
+      "path": "scripts/editor_qa.mjs",
+      "sha256": "8d34758fb31c00a6205dc042addf5239e476405694b52dcbc3d80b57603a1375",
+      "bytes": 10923
+    },
+    {
+      "path": "scripts/gameplay_diff_check.py",
+      "sha256": "3389dc194cedb9da17058bcf6ea728822ac16d94e1588295af421ce735383fbc",
+      "bytes": 6566
+    },
+    {
+      "path": "scripts/package_editor_review.py",
+      "sha256": "496e778a8870a4d0f779c1a683cefa5a792b421799c9e6ad5c06b16249a6a987",
+      "bytes": 14538
+    },
+    {
+      "path": "scripts/package_openai_plugin.py",
+      "sha256": "53f39d991085d2decc3beeb64d8c6ba74d65d3955fb3aa5bb4470266174add12",
+      "bytes": 2272
+    },
+    {
+      "path": "scripts/play_cdp_input.py",
+      "sha256": "c402625b031ae9e3bfc01bd6566922b5c1cf63bebde69418ca89b70ba159e9b0",
+      "bytes": 5668
+    },
+    {
+      "path": "scripts/play_probe.py",
+      "sha256": "35ef768e93ffdf5ab5fee8ff878a5bdee96735089795ebba3ea8cff236265ac6",
+      "bytes": 8241
+    },
+    {
+      "path": "scripts/prepare_release_snapshot.py",
+      "sha256": "4555b4ad06b78fa43610c7a16658b7b753510c96efb07c943980253e5bb5991e",
+      "bytes": 6569
+    },
+    {
+      "path": "scripts/run_evals.sh",
+      "sha256": "26c59b1ba30fdea6afd522224edc2cf2565160d8950810a77f9e8ace2bc34615",
+      "bytes": 6895
+    },
+    {
+      "path": "scripts/setup_environment.sh",
+      "sha256": "52756fe5fd4982fa3674846bec8aba9aee6a7877da27a74385d79c234b0ec3ab",
+      "bytes": 4458
+    },
+    {
+      "path": "scripts/start_api.sh",
+      "sha256": "46c8f76b778eb37c9d5f759bae207081dde87d782f9ddee1ddac9eec76a30727",
+      "bytes": 1478
+    },
+    {
+      "path": "scripts/start_dev.sh",
+      "sha256": "3d4079976fcdad97eb802799a02391ca1d23a359c5e4c7f80cd88f95115f3038",
+      "bytes": 5291
+    },
+    {
+      "path": "scripts/test_resilient_stream.py",
+      "sha256": "fb80ddb39bb1e01d4485bb9c5e28c5309412e0de21262ccd1ec102e711de3a2a",
+      "bytes": 5567
+    },
+    {
+      "path": "scripts/verify_agent_worker.py",
+      "sha256": "9eafa36067a058fe1b414d3422a13af5e3ad5d181d9c306b67f2d242e84f8e8d",
+      "bytes": 12106
+    },
+    {
+      "path": "scripts/verify_private_playback.py",
+      "sha256": "f1fe3a8b167f69ade8e48cdb8ecdfd2b6c40c13a5c4a446dc7ed1167b785ef65",
+      "bytes": 6624
+    },
+    {
+      "path": "services/plugin/Dockerfile",
+      "sha256": "55c99288b8db580fac14860d525b0eae65ee6c9450c4e158294aec78a9b897b3",
+      "bytes": 484
+    },
+    {
+      "path": "services/plugin/__init__.py",
+      "sha256": "1cb9999f7909ca5a89a487957b777311baba616ac4d6930028c284cdfa07a1c7",
+      "bytes": 44
+    },
+    {
+      "path": "services/plugin/__main__.py",
+      "sha256": "f0fa58297c31f6cbd6f2a69da799206b3c3af98205ec675a6fd70f9ae6022184",
+      "bytes": 298
+    },
+    {
+      "path": "services/plugin/auth.py",
+      "sha256": "4dc98ed16a9c285e2d61fa0e111232790fc9d7aab7ab99a09ba9fa095dfefb71",
+      "bytes": 17337
+    },
+    {
+      "path": "services/plugin/config.py",
+      "sha256": "701291e3c94bcfe57dc4910e24473c934c186f8938e9ec04f5cde0eab79ed7e9",
+      "bytes": 2348
+    },
+    {
+      "path": "services/plugin/requirements-dev.txt",
+      "sha256": "29b30e7c521798a4394e9c2f9c84b8065487cf904446bc9707fac7a78e403e5a",
+      "bytes": 105
+    },
+    {
+      "path": "services/plugin/requirements.txt",
+      "sha256": "706e349f3e0b53ad245381b374db377562f3e45f2646cdad2300c7c8a93bf2b6",
+      "bytes": 184
+    },
+    {
+      "path": "services/plugin/server.py",
+      "sha256": "addf334edfb347a3c43dd81ed4b086dcbfef92aba68188b74d336dce4fb3632c",
+      "bytes": 21472
+    },
+    {
+      "path": "services/plugin/store.py",
+      "sha256": "8e9a3077fb1ac193cc5896594ca876a866f01ced5fbd5cd2560f416b0ee9c5f0",
+      "bytes": 3540
+    },
+    {
+      "path": "services/plugin/tests/backend_server.py",
+      "sha256": "7fea3c2e8d0765988fa724778ca8d9ca2475e99ba64e10c7b38fec19b9d8e835",
+      "bytes": 3013
+    },
+    {
+      "path": "services/plugin/tests/conftest.py",
+      "sha256": "147355fbff12a126cf93e295d91bf44198daab9052560c13cfe5af769f57e1aa",
+      "bytes": 3684
+    },
+    {
+      "path": "services/plugin/tests/test_integration.py",
+      "sha256": "8896c50e79090c7d620798d002ee1b2d6a77647afdcd5a9eafc612c96eab01e2",
+      "bytes": 24147
+    },
+    {
+      "path": "src/CLAUDE.md",
+      "sha256": "bce3a0d02311253c54f31f33410a705f87b58e5eba5b69de1f116ecf8011840e",
+      "bytes": 822
+    },
+    {
+      "path": "src/__init__.py",
+      "sha256": "94497c6d1b974318c8f0c8f3c5140187ed00969f6e3ba5bafcae05a737b36d92",
+      "bytes": 26
+    },
+    {
+      "path": "src/api/README.md",
+      "sha256": "392d42b6d5d60aa112f04874ab1bfd4885bc982f1feddb92e9cd0cb1689038dd",
+      "bytes": 6386
+    },
+    {
+      "path": "src/api/__init__.py",
+      "sha256": "a1093af05c6cd350644797a34f45c67afab4c6105b6a2599f70b6328867d2ca3",
+      "bytes": 34
+    },
+    {
+      "path": "src/api/core/__init__.py",
+      "sha256": "51e226ca120b4b018ac5fc6955961edf789ba9deff501585c901b228862ba652",
+      "bytes": 45
+    },
+    {
+      "path": "src/api/core/config.py",
+      "sha256": "4af77e3112b50004c660e343f53ea6debcabb812d77e9564f5d255ed14541b62",
+      "bytes": 5207
+    },
+    {
+      "path": "src/api/core/database.py",
+      "sha256": "e4af46853eee028ef3499a40cd5da4ef227e04b3a130c9b44e775f5e1a676377",
+      "bytes": 2002
+    },
+    {
+      "path": "src/api/core/db_types.py",
+      "sha256": "128006744b2e4110a2713f16350fa15b75e162964d2e5b0740ddb837b52a58b8",
+      "bytes": 1965
+    },
+    {
+      "path": "src/api/core/security.py",
+      "sha256": "d2d807017fc0e1c1a2f098a9b3a4d5d495cb5e945c66b36dc5c53a98d42bd183",
+      "bytes": 1741
+    },
+    {
+      "path": "src/api/dependencies.py",
+      "sha256": "2d7b6dc053051cb98ffa382242bed945419e3715e6c261348801e0ebf44d963b",
+      "bytes": 7106
+    },
+    {
+      "path": "src/api/main.py",
+      "sha256": "d16351f51cac6542b60c803e9caecea35b9ebc9f634945be1c1c8eebf9064124",
+      "bytes": 11225
+    },
+    {
+      "path": "src/api/middleware/__init__.py",
+      "sha256": "671340c4c773a35d03f120be916594f77cd5450b05f4ff5e154b69a2c3afe6a6",
+      "bytes": 433
+    },
+    {
+      "path": "src/api/middleware/rate_limit.py",
+      "sha256": "443d80282da1f780a2e5ad9d425a88a28cb3f16d3d2f1e41c4521e91814a0577",
+      "bytes": 4931
+    },
+    {
+      "path": "src/api/models/__init__.py",
+      "sha256": "2a3c0cc7a94b01cb0312a6a86bd15bb43c6d5195f5ad88ec08486c6a7a2671f4",
+      "bytes": 744
+    },
+    {
+      "path": "src/api/models/admin_audit_log.py",
+      "sha256": "5dd60d48636621e66e81d6a830f61d37ae5cbf57dea1f63f9962e2d3e18b8bee",
+      "bytes": 949
+    },
+    {
+      "path": "src/api/models/email_verification.py",
+      "sha256": "2cc57a4aab3f696496e03e2dac92f6a0713cc6a8cdc07e4c7b6ab5cd1d089052",
+      "bytes": 951
+    },
+    {
+      "path": "src/api/models/game.py",
+      "sha256": "e11ea28ebe0bed903fcbbc339949a469ec26cf56fbb46f19f11d72f7d751437c",
+      "bytes": 6446
+    },
+    {
+      "path": "src/api/models/invitation.py",
+      "sha256": "08de216de5b5b89aef055dfe1fc68c93fe22b12ccdeef57edea6ce9b46342bd5",
+      "bytes": 1155
+    },
+    {
+      "path": "src/api/models/password_reset_token.py",
+      "sha256": "18365edea84ae8aafec391f341e039dbc9f3f481f4817aed47bd27231b18c4ad",
+      "bytes": 1170
+    },
+    {
+      "path": "src/api/models/refresh_token.py",
+      "sha256": "2b2e97f862154556df9f868669a6cad9c4ece1f1498cafa3aae44c75d2853a28",
+      "bytes": 1492
+    },
+    {
+      "path": "src/api/models/user.py",
+      "sha256": "900594f913cd2f755bc35bb78f6f31a84aff46dad531d2fa11c928972246e0c9",
+      "bytes": 2070
+    },
+    {
+      "path": "src/api/models/user_session.py",
+      "sha256": "68de5bbfb61fc55363927dabcdbc7bac019794011e31073b972de8d03b45c797",
+      "bytes": 1415
+    },
+    {
+      "path": "src/api/observability/__init__.py",
+      "sha256": "b19cc4f59964f93a4fa2a951909fd4c82705a78b6c0ae381c582c8fe852f610b",
+      "bytes": 1783
+    },
+    {
+      "path": "src/api/observability/agent_traces.py",
+      "sha256": "147d7e42fe4edc5edc49cd083c5a79ad841bc8641e21096655291ccd14b3a6c7",
+      "bytes": 10368
+    },
+    {
+      "path": "src/api/observability/decorators.py",
+      "sha256": "9b97428b28abf387048e76efbaca9f06564c3f591cb61c929705e06be11ac2fc",
+      "bytes": 9098
+    },
+    {
+      "path": "src/api/observability/event_bus.py",
+      "sha256": "14877e3608afff293d35568a08f60ed114ee62103c5c1180a23c82cc9ff4126f",
+      "bytes": 5554
+    },
+    {
+      "path": "src/api/observability/events.py",
+      "sha256": "3380a9bd787fbd8317b3663876f4885a2709bec55d77925dcc2e0ca06803add3",
+      "bytes": 8625
+    },
+    {
+      "path": "src/api/observability/handlers.py",
+      "sha256": "15ac4b343eb5ca016f1426864413ce32bc84f8466c847719af69469a77a40c62",
+      "bytes": 9214
+    },
+    {
+      "path": "src/api/observability/logger.py",
+      "sha256": "1451808134df939d869f16df38fa8ea1a2c7e92343e0fa66cca8b0409ae7a9d2",
+      "bytes": 10366
+    },
+    {
+      "path": "src/api/repositories/__init__.py",
+      "sha256": "dcb7cd91d172abe8583717c379805ae8289cc7bf8213902a09c65809326f272d",
+      "bytes": 453
+    },
+    {
+      "path": "src/api/repositories/admin_audit_log_repository.py",
+      "sha256": "155e540bcc47497b75c9d96733902ee2efc7038a6d09554d22d275d8e2a8d2d9",
+      "bytes": 917
+    },
+    {
+      "path": "src/api/repositories/base_repository.py",
+      "sha256": "2f5d45e6356131617328f4c53e6425d4a0ae69552b4398ae21c4b3eaafcd6ba4",
+      "bytes": 2399
+    },
+    {
+      "path": "src/api/repositories/game_repository.py",
+      "sha256": "4b3b8f57f4b566822a3b6f43d68c695b58ef2561553ed11af50ae64a478b234d",
+      "bytes": 12864
+    },
+    {
+      "path": "src/api/repositories/invitation_repository.py",
+      "sha256": "5f0cb8f7f7bd4fea1170b495d46aef6aa67d856e6ae4b71d0279be3edb1d166b",
+      "bytes": 2521
+    },
+    {
+      "path": "src/api/repositories/user_repository.py",
+      "sha256": "29678761d027343da1513ee8d67e7ea5206f25f35af000d778eac8d39ed2a8bf",
+      "bytes": 6145
+    },
+    {
+      "path": "src/api/routes/__init__.py",
+      "sha256": "2f6aea91816c192094d509e482bc399e00a2b1398b50f1fbe3bb97ddeb2cd8d0",
+      "bytes": 26
+    },
+    {
+      "path": "src/api/routes/admin.py",
+      "sha256": "8d577cc435fa7db13cd71dad6eeb1fdd0105c1275ab5263e33430df4552ff1db",
+      "bytes": 17553
+    },
+    {
+      "path": "src/api/routes/agent_play.py",
+      "sha256": "2f5a62cf7099dc8b6b39b5afaaac4eb6224fed1be391f367db4dc838200ce8b1",
+      "bytes": 5248
+    },
+    {
+      "path": "src/api/routes/auth.py",
+      "sha256": "5ebf4ecf8ff3b9a4b78c3ee94c3ed57539ec44fa4aadf5ad2760a1b90f075921",
+      "bytes": 18043
+    },
+    {
+      "path": "src/api/routes/bevy_games.py",
+      "sha256": "d4ba52e4af7b8eac392f05a2b4db39e72eeff60308a19d725ea913d294f3532d",
+      "bytes": 46876
+    },
+    {
+      "path": "src/api/routes/games.py",
+      "sha256": "966fe305b1ded3f411a8e318dc71175ca90b7ad3c37faee2f994d4e3d0d57840",
+      "bytes": 8790
+    },
+    {
+      "path": "src/api/routes/godot_games.py",
+      "sha256": "9d790858f4ad550f10a8066e209140782b954a55c9f7673987db5e12a2308c87",
+      "bytes": 71546
+    },
+    {
+      "path": "src/api/routes/plugin_jobs.py",
+      "sha256": "23736eb0c2fa7ccdef4017d538fe8851fc7adc8728a8e36b0e74c7a03a92b594",
+      "bytes": 4779
+    },
+    {
+      "path": "src/api/routes/provider_connection.py",
+      "sha256": "fe193ac54878dd4077b84d6a655d79236410391ffd3792aa43db210c0d811c7c",
+      "bytes": 3930
+    },
+    {
+      "path": "src/api/routes/voice.py",
+      "sha256": "742866f238fb1271ea07cd5407fc7fedc5bf06a2f570bd316f5a4b43bd1bfdb0",
+      "bytes": 4525
+    },
+    {
+      "path": "src/api/schemas/__init__.py",
+      "sha256": "57057e177f82e3d0f509617096c5a98112531966539497e5f5c03bb416f8f301",
+      "bytes": 261
+    },
+    {
+      "path": "src/api/schemas/admin.py",
+      "sha256": "2af02c0e2501ec7d302ba687cde18a2343a5ffb5113bb853eba9cbc4e7a5b4bc",
+      "bytes": 2249
+    },
+    {
+      "path": "src/api/schemas/auth.py",
+      "sha256": "c9621ffa76650160e8c9718bf9e5a9e24076bde7b8341a468d96402d4cf5f575",
+      "bytes": 1631
+    },
+    {
+      "path": "src/api/schemas/invitation.py",
+      "sha256": "99fe043fe38c7c447b0629612de27fc0be1874ea2fb90ce9112b3abcb9e4dd50",
+      "bytes": 812
+    },
+    {
+      "path": "src/api/schemas/user.py",
+      "sha256": "0b73b7c2b0666e89a3ab5f4520fc32af3c752ba8d017c5ea7dd943a5e08c0961",
+      "bytes": 1333
+    },
+    {
+      "path": "src/api/schemas/voice.py",
+      "sha256": "be6c23c297d238e0f131204c0b5d7e123ba31d9fb09f63bc5da08a3fe157d4c1",
+      "bytes": 2448
+    },
+    {
+      "path": "src/api/services/__init__.py",
+      "sha256": "696b2abd6c5446980fd8187c29939af0e7aa60f5d93aaf6fe8e19a9bd93dbd8f",
+      "bytes": 500
+    },
+    {
+      "path": "src/api/services/agent_commands.py",
+      "sha256": "84c2b42ba163c46d1b528a62b7360daca1102d12f87516dd37b0486ac6cb67d3",
+      "bytes": 2016
+    },
+    {
+      "path": "src/api/services/agent_play.py",
+      "sha256": "ae67eb857ca7bdd8021f74b0722997aec82b05cfe078cbe89403ce74035b715f",
+      "bytes": 9103
+    },
+    {
+      "path": "src/api/services/agent_status.py",
+      "sha256": "5f7a2ba0bb95f9715da1029d191ce6bb29284ed039ea7cfda8d9e56abe5b5ac0",
+      "bytes": 3388
+    },
+    {
+      "path": "src/api/services/auth_service.py",
+      "sha256": "6e527aae7f8fb0dfcac3147c301c406c7a46fc70becbc0929156b30db4416f0d",
+      "bytes": 9242
+    },
+    {
+      "path": "src/api/services/bevy_builder.py",
+      "sha256": "6f600b35cc481cf4c8655ad2fc8c51695e64d100346bea0fba0b3526ae523af8",
+      "bytes": 1389
+    },
+    {
+      "path": "src/api/services/bevy_creation_agent.py",
+      "sha256": "2b427e8e44b522906cc0575ff0ea1d9a126daaddc4d4cff320386ac65a93032f",
+      "bytes": 21688
+    },
+    {
+      "path": "src/api/services/bevy_game_service.py",
+      "sha256": "9b46fb582c94614be7c8205ff85f17afd587c320926e2ff10186e492a0bd3a48",
+      "bytes": 16243
+    },
+    {
+      "path": "src/api/services/bevy_modification_service.py",
+      "sha256": "7ac50374673c9f269fae3abc1a963949c3615279be27e54bd0d97c9a6d7ac5f8",
+      "bytes": 6583
+    },
+    {
+      "path": "src/api/services/browser_verification.py",
+      "sha256": "76dc531178352dcfd02fffa0cd767413b1344f2a6accb6bffb815bf97b4f2319",
+      "bytes": 10980
+    },
+    {
+      "path": "src/api/services/email_service.py",
+      "sha256": "af1d71e5dee6f124c4571b37f92c5fb60a6f5a5d1dbf0453eae9a26aa66c7815",
+      "bytes": 17388
+    },
+    {
+      "path": "src/api/services/executors/__init__.py",
+      "sha256": "71d94e477bd332b94742dc211fddb9eb84e3c4bf4f152ae45566abd8aef64f87",
+      "bytes": 881
+    },
+    {
+      "path": "src/api/services/executors/cli_executor.py",
+      "sha256": "772c8cd6e1c50f4763cb049caed251f9e281901c54366b8c3bd496cdf5f2b0b2",
+      "bytes": 24249
+    },
+    {
+      "path": "src/api/services/executors/codex_executor.py",
+      "sha256": "1b9e66147715b6bf65527b65e01a54565076cfc3a3086efa251d31fa06237433",
+      "bytes": 3463
+    },
+    {
+      "path": "src/api/services/executors/runtime.py",
+      "sha256": "e6b15380b7dcbe790344fa647e3bc94fae33b2d1f8505f6b0ec3915daed32752",
+      "bytes": 9927
+    },
+    {
+      "path": "src/api/services/failure_log.py",
+      "sha256": "e1391416ecfdbfe8ab14233f7fc0d1f4650956f47eca8763c2c814d449d1803c",
+      "bytes": 1885
+    },
+    {
+      "path": "src/api/services/game_access.py",
+      "sha256": "1a8ac0d6859b1ff13e251753d14a6ee11f514383f2c4f5cbe37057c1ee43eaa3",
+      "bytes": 4502
+    },
+    {
+      "path": "src/api/services/game_asset_budget.py",
+      "sha256": "40f1104ff26b3da89e6e17055875f1c67cd5ecf7f0a7996d31900f2b934af283",
+      "bytes": 6384
+    },
+    {
+      "path": "src/api/services/game_companion.py",
+      "sha256": "4f354ba26efa3113d22b55ff7d2aaad274274c6e6ca519f0701e903e619087d9",
+      "bytes": 5281
+    },
+    {
+      "path": "src/api/services/game_event_log.py",
+      "sha256": "19d8a75dd72b728a28cce9e869fe86f55d417c0ceccdb6da825b7372ee9deab0",
+      "bytes": 6604
+    },
+    {
+      "path": "src/api/services/game_jobs.py",
+      "sha256": "a4484ea78970eeae93236cd5957504606b6bd60842074e93f310d13409e78250",
+      "bytes": 3280
+    },
+    {
+      "path": "src/api/services/game_runtime_log.py",
+      "sha256": "f5d2cf816e1d3c785bf29fc9bc1a79d1a6da5a9e2245387c6b64bddf628eb906",
+      "bytes": 8354
+    },
+    {
+      "path": "src/api/services/godot_creation_agent.py",
+      "sha256": "4679910e6ff9e6fd457c6b84b24103e68c1fa0d02b82543bc3b05911c5e0904e",
+      "bytes": 26247
+    },
+    {
+      "path": "src/api/services/godot_executor.py",
+      "sha256": "e50bed486205ac96125e5a6e84a8ec1fe268d024a5499d0d4477180249d13192",
+      "bytes": 3895
+    },
+    {
+      "path": "src/api/services/godot_export_lint.py",
+      "sha256": "853cfd87e4ed4238c747a20dbac3d67f4e3fe3c20a330fc069f455fddc6463e3",
+      "bytes": 6886
+    },
+    {
+      "path": "src/api/services/godot_game_service.py",
+      "sha256": "00bd2fe508c52e66c88bd530e2a7e36abfb45a41959b5e759ea21d131d621a21",
+      "bytes": 34583
+    },
+    {
+      "path": "src/api/services/godot_modification_service.py",
+      "sha256": "4b1154145a506380e6186dba71efbc2cba81f9fe8cdf77913932ff39c730b207",
+      "bytes": 6233
+    },
+    {
+      "path": "src/api/services/mobile_support.py",
+      "sha256": "297c8ff22861e6e4e793ec79cae9373c3b6e3b59d7cd19296917e51879edd0f7",
+      "bytes": 14105
+    },
+    {
+      "path": "src/api/services/modification_run_log.py",
+      "sha256": "36b5e6e4d9282299bf7f8a2dd796d6b14be137d7b0caf343dc24355925f9f2d7",
+      "bytes": 10031
+    },
+    {
+      "path": "src/api/services/personal_provider.py",
+      "sha256": "073f02d98a39b70d30eb9cadb5e4a03aac81bebd4451c8715c990f9338828954",
+      "bytes": 13464
+    },
+    {
+      "path": "src/api/services/pip_bridge.py",
+      "sha256": "ecc8e133e53273438b3511ed7d8cfccaf8549b012af8d2ef65f65cad7958c3a0",
+      "bytes": 6696
+    },
+    {
+      "path": "src/api/services/play_cache.py",
+      "sha256": "d9ab79a72714cf0a5364531198d3f6a2426334e09ccb79a78e6de37263f79b64",
+      "bytes": 3421
+    },
+    {
+      "path": "src/api/services/preview_lifecycle.py",
+      "sha256": "d6a163530219d9ed90b087cb291b09021954a9edadd8725a2bbb00cce6b4cee3",
+      "bytes": 2151
+    },
+    {
+      "path": "src/api/services/runtime_diagnostics.py",
+      "sha256": "3c66094073bebbe3bf357c3244954d8705a0d990a8090e6729964452e37135cd",
+      "bytes": 4683
+    },
+    {
+      "path": "src/api/services/session_service.py",
+      "sha256": "3aadb9d5a481bd82d99d37eec7951cf8db34d31ff4c8087719602b258a2e8916",
+      "bytes": 6191
+    },
+    {
+      "path": "src/api/services/sidecar_launcher_client.py",
+      "sha256": "f95390eecc8ea410a4c8965634487d8e556e48af730f5350567cd35596b2dbc1",
+      "bytes": 3005
+    },
+    {
+      "path": "src/api/services/suggestions_generator.py",
+      "sha256": "833a852652d3e3911eaa2f686997af72c99161f1482e38f1f2f0c081afbfffd3",
+      "bytes": 3626
+    },
+    {
+      "path": "src/api/services/token_service.py",
+      "sha256": "272b9f9677c1d35edff03cf3b63ef546b812ecbdde966910e01fd6b68706d98a",
+      "bytes": 8195
+    },
+    {
+      "path": "src/api/services/touch_input_lint.py",
+      "sha256": "7e623ca9a76cdc2a9d3cf1334e757b329b7451ae748fef01ffca24ee435d5554",
+      "bytes": 3961
+    },
+    {
+      "path": "src/api/services/trellis_assets.py",
+      "sha256": "307833038e50fd40ca18660ff34f1bbd5fd5f4d0920ef909b434f5e20a3bbd0b",
+      "bytes": 5008
+    },
+    {
+      "path": "src/api/services/upload_validator.py",
+      "sha256": "423c671ecee4270e5d2cef6fbc23a2b69b52ea55530b63ec352495ad701f3e08",
+      "bytes": 2457
+    },
+    {
+      "path": "src/api/services/visual_reference.py",
+      "sha256": "6c53aff54282d2e1a1a0fd4cfef65e986be2fc3a366f5e78ff6c80c9072c0998",
+      "bytes": 6810
+    },
+    {
+      "path": "src/api/services/voice_service.py",
+      "sha256": "516a61f86d6db1bd46ca01350379989da476e4038326071be78b3a53e2ff89dc",
+      "bytes": 8606
+    },
+    {
+      "path": "src/api/services/wasm_validate.py",
+      "sha256": "024b23ce5dd8b4b55237aafee883e3f99f4909929fbe099a6b4dc91bc74dd1c0",
+      "bytes": 6095
+    },
+    {
+      "path": "src/api/sidecar_launcher.py",
+      "sha256": "ce6d1e9c32894e205d9e09fd28b99ee802f710e31fff5602f4f2a020b1f12676",
+      "bytes": 41424
+    },
+    {
+      "path": "src/voice/__init__.py",
+      "sha256": "ae67457254a85a8ae2b6db499d1453ccf1c9c9a2aa2adb2cd50411f248a67b7f",
+      "bytes": 82
+    },
+    {
+      "path": "src/voice/modification_extractor.py",
+      "sha256": "88c46b883e85d290f86855d56ba930963f81db865174b957175aa337a3342cc2",
+      "bytes": 9179
+    },
+    {
+      "path": "templates/bevy_index.html",
+      "sha256": "2e5e4143c31b2b7c536f89678ad6c81e6f6a487d4376aada8e51d5730057992f",
+      "bytes": 1076
+    },
+    {
+      "path": "tests/README.md",
+      "sha256": "c70f9ed1e5950335dea244736e24578a03f60127fc22916bad7b8f04f5c0237d",
+      "bytes": 1425
+    },
+    {
+      "path": "tests/__init__.py",
+      "sha256": "ee56ff3626e30b4de22b8711e39e8b5c0700c34a46fc031632377163ad837fc7",
+      "bytes": 140
+    },
+    {
+      "path": "tests/api/__init__.py",
+      "sha256": "620ee389d9b6decbb79d085d66da847abb006c78d0884ad6d24f57e08c4d4fc2",
+      "bytes": 17
+    },
+    {
+      "path": "tests/api/__snapshots__/bevy_openapi.json",
+      "sha256": "bf4940a4e343d2bb9b537d8be059d73f85991893594247a65d2bb6582d998214",
+      "bytes": 33732
+    },
+    {
+      "path": "tests/api/__snapshots__/games_openapi.json",
+      "sha256": "bbf7821b54e4563781e6803473dd077a23222ed31398612fdeea56264ef92675",
+      "bytes": 9328
+    },
+    {
+      "path": "tests/api/__snapshots__/godot_openapi.json",
+      "sha256": "fa9a74b14e9f4d867d1e57d46ec97843658862edcccc9381fc7646f2c1e30516",
+      "bytes": 49644
+    },
+    {
+      "path": "tests/api/conftest.py",
+      "sha256": "a5b554b431e076b98c07bfb2b3e79ebcc122f0d04a8f6f440c43611294e06d6e",
+      "bytes": 4441
+    },
+    {
+      "path": "tests/api/test_agent_play.py",
+      "sha256": "b748664117903666c2f5f59d2ecde85789aacca9de8c83f9e1c8c0a2b4cf8a4f",
+      "bytes": 8344
+    },
+    {
+      "path": "tests/api/test_auth.py",
+      "sha256": "de95e4e4fffcb1890537bbca74ab4a66b906603fb3493fff93e20ffb7a01f0fe",
+      "bytes": 7679
+    },
+    {
+      "path": "tests/api/test_bevy_routes.py",
+      "sha256": "04f293cbfedadc45f0f077b808363f5aa6eee5a8d2e35267e8deb596cc6d97b2",
+      "bytes": 12690
+    },
+    {
+      "path": "tests/api/test_game_access_controls.py",
+      "sha256": "f142d477e5594b1b19ad8bcc1ca6eb613dd544c6b28b7beec96a8ec5365a7861",
+      "bytes": 11612
+    },
+    {
+      "path": "tests/api/test_games_umbrella.py",
+      "sha256": "42a82126db8d3b59f03cbb17b5cf67d5b930268b48036f8ae9b8c3015196c576",
+      "bytes": 11187
+    },
+    {
+      "path": "tests/api/test_godot_play_mobile.py",
+      "sha256": "059d8841bf1014dc6cc8865e69020fb1b92496cfedfe0044b489306a1662348b",
+      "bytes": 3300
+    },
+    {
+      "path": "tests/api/test_health.py",
+      "sha256": "72357456293ae353942b4d5fd1962a7ca90138ba048efd265f937b6abf02617e",
+      "bytes": 343
+    },
+    {
+      "path": "tests/api/test_modify_image_upload.py",
+      "sha256": "2f13fcf7b1fd894b998d0d52826cd444c3059cd3a797be3e8dd813318be28031",
+      "bytes": 5028
+    },
+    {
+      "path": "tests/api/test_openapi_contract.py",
+      "sha256": "17ece09f8edf1c0b515c1475bb6f538c9c2ff0433beaf479358394ce06cc7cd1",
+      "bytes": 2835
+    },
+    {
+      "path": "tests/api/test_play_origin.py",
+      "sha256": "29c2a7121cddc0700c9209981ddfd2ed094b8b7cca10bf3065eb2d487a149679",
+      "bytes": 1982
+    },
+    {
+      "path": "tests/api/test_suggestions_endpoint.py",
+      "sha256": "536af04f01a8f94d5f8921906ec76f3e0c03ac86891f254cdfe3769da3436e16",
+      "bytes": 6125
+    },
+    {
+      "path": "tests/api/test_visual_context.py",
+      "sha256": "13a9d17e6d0c1f6344c6ac0c83470e59b48a6d05942070fdc76c70f06de0a33f",
+      "bytes": 4583
+    },
+    {
+      "path": "tests/e2e/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "tests/e2e/conftest.py",
+      "sha256": "df78d9e2ca0508e9732a9703ab72356ead660c51d726550be1e1f9885d6add0b",
+      "bytes": 9053
+    },
+    {
+      "path": "tests/e2e/test_admin_e2e.py",
+      "sha256": "414f6437133ed87215bcae2acf630bcda59f76730ae2e5d6819825eabe16d26e",
+      "bytes": 9750
+    },
+    {
+      "path": "tests/e2e/test_auth_flows.py",
+      "sha256": "c95b69ae454622113e51958f845fe707f2bb2b44fb45355a49576bcc095aea69",
+      "bytes": 12663
+    },
+    {
+      "path": "tests/e2e/test_bevy_builder.py",
+      "sha256": "4deb78ac7d6d26f9fdea1c57f3848ace179c5e014bdeebd4111aa089869707b3",
+      "bytes": 1733
+    },
+    {
+      "path": "tests/e2e/test_godot_e2e.py",
+      "sha256": "14de57032c79023561bb9f668b6d0a98c7f7237b2003aab35863756fe2d94eb9",
+      "bytes": 14324
+    },
+    {
+      "path": "tests/fixtures/README.md",
+      "sha256": "b989b37501e46a470417cde7bcf2630025089cf85b45e6862dbf1a86c1db2871",
+      "bytes": 1375
+    },
+    {
+      "path": "tests/fixtures/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "tests/fixtures/bevy_hello/.gitignore",
+      "sha256": "14c8b650eb920e7c3cfc691ed56e6823059ac58cead925222d7b22fcf14c10d0",
+      "bytes": 25
+    },
+    {
+      "path": "tests/fixtures/bevy_hello/Cargo.toml",
+      "sha256": "3aa5e5d4147687fd95be75c9ca9d37d193e73e66b315555b8d137c6b063e41a5",
+      "bytes": 240
+    },
+    {
+      "path": "tests/fixtures/bevy_hello/src/main.rs",
+      "sha256": "f566084c033aa2a006018945e8cbe9da1bdcf7bf0ec54bd1ffca00964de6f605",
+      "bytes": 329
+    },
+    {
+      "path": "tests/fixtures/godot_projects/minimal_project/player.gd",
+      "sha256": "206ac67a201cfbc263b75aca3528c958ff5b350a6ec39751117c745d8c265a36",
+      "bytes": 482
+    },
+    {
+      "path": "tests/fixtures/godot_projects/minimal_project/project.godot",
+      "sha256": "ace368f59ea6f8156b1cbf16d31f6f7b2ac52135b141012decfbc02eda751fe6",
+      "bytes": 455
+    },
+    {
+      "path": "tests/fixtures/images.py",
+      "sha256": "e823559ca177c8654ed8a3fa14202fdda74330d8f3073b37061ed82a4f859aff",
+      "bytes": 259
+    },
+    {
+      "path": "tests/integration/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "tests/integration/azure/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "tests/integration/azure/test_voice_transcription.py",
+      "sha256": "7a63ac336df0dd4549c3196d67dfb10cc6b5e2d1e0b18a6539aeb8973b5f8f55",
+      "bytes": 21096
+    },
+    {
+      "path": "tests/integration/conftest.py",
+      "sha256": "e913bec64edc0f9b6fb55ccfe028dd161e15534509da93a2d4fd0a95863ec0d5",
+      "bytes": 1101
+    },
+    {
+      "path": "tests/integration/game/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "tests/integration/git/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "tests/unit/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "tests/unit/conftest.py",
+      "sha256": "174c7966b92a71623afaebd8744c103d899c3c8c3b311389115b88f971e53adc",
+      "bytes": 1419
+    },
+    {
+      "path": "tests/unit/schemas/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "tests/unit/services/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "tests/unit/services/test_bevy_creation_agent.py",
+      "sha256": "3fd6005f920bb1306375d830ba3ebf470b4607988e54a691005922268929b0c9",
+      "bytes": 7573
+    },
+    {
+      "path": "tests/unit/services/test_broker_rewire.py",
+      "sha256": "0ee74b1b88afb2b98a9e6a5cfe106a71fd11b3f457919fb7fdbe0e57739072f1",
+      "bytes": 2573
+    },
+    {
+      "path": "tests/unit/services/test_creation_log.py",
+      "sha256": "a66cd002df4926e10ca63dd7f92c0dddf3ae5549809f28dd2bb58a91670aa052",
+      "bytes": 3447
+    },
+    {
+      "path": "tests/unit/services/test_godot_creation_agent_logging.py",
+      "sha256": "a48180aa516bd44063a28a9f1e353f2ab3739bb4533c9f2a77c1cc049abd69aa",
+      "bytes": 9840
+    },
+    {
+      "path": "tests/unit/services/test_session_service.py",
+      "sha256": "845f1d9d31e455fa491f7491266ba6ce4973bffa4dca0bdb91da755f2a91a0c7",
+      "bytes": 5986
+    },
+    {
+      "path": "tests/unit/services/test_token_service.py",
+      "sha256": "2798f23da5dc9286ce0199378145a8ff223d6ab37eee0ee2a6563b448d97e5a2",
+      "bytes": 6327
+    },
+    {
+      "path": "tests/unit/test_admin_users_list.py",
+      "sha256": "d8ddffa2517d07bd96faebf4bf0c0c70e3aad73de66f179b5a3b68f8bf45a5c5",
+      "bytes": 6018
+    },
+    {
+      "path": "tests/unit/test_agent_commands.py",
+      "sha256": "77bc7ba3c015244b6ff58b5665b4c5da19772dd4921d75aad266c2dba728d23e",
+      "bytes": 2556
+    },
+    {
+      "path": "tests/unit/test_bevy_game_service.py",
+      "sha256": "f5a25daf6022b21f2058444a9a4e6c8f001bd819dd10449c24602aca27a55d2c",
+      "bytes": 6913
+    },
+    {
+      "path": "tests/unit/test_browser_verification.py",
+      "sha256": "dd976c0e704f17946afcc4a3f9d983a938895d3d7b801dcb7bc8e749dcf8d926",
+      "bytes": 4151
+    },
+    {
+      "path": "tests/unit/test_cli_stream_event.py",
+      "sha256": "4b085d684420d982a8a6d041ce4aa2dff57bce0a241d33923da2ed294080eb33",
+      "bytes": 3983
+    },
+    {
+      "path": "tests/unit/test_config.py",
+      "sha256": "19f7d68de0e33e165fd142470d7f0cf769e1f65289b6a70ff41e59acf215ffe9",
+      "bytes": 420
+    },
+    {
+      "path": "tests/unit/test_email_service.py",
+      "sha256": "182b2cc18901c7801a55f07abd42f6c161093be0ee7195a23f4aa95997b670fe",
+      "bytes": 7087
+    },
+    {
+      "path": "tests/unit/test_game_asset_budget_contract.py",
+      "sha256": "86c6abc1acb7145e72a30949b94173f2fa9f7ea04210fb7e469f6f396c3f6eb0",
+      "bytes": 4842
+    },
+    {
+      "path": "tests/unit/test_game_companion.py",
+      "sha256": "d30968dbf9e91182d8b253f8aac9d332c70a433be9b53806eb9cb17ef95a1b4d",
+      "bytes": 2832
+    },
+    {
+      "path": "tests/unit/test_game_event_log.py",
+      "sha256": "57be0cfca4dffcfa7f9bd11795d124355c85965dbf49d910398ad69362f6c3f5",
+      "bytes": 5020
+    },
+    {
+      "path": "tests/unit/test_game_runtime_log.py",
+      "sha256": "94ad37b89a665e0466e2c6fc6cdc608fc0dd3e0517a1d362973e52da40cc4b17",
+      "bytes": 4608
+    },
+    {
+      "path": "tests/unit/test_generation_executor_contract.py",
+      "sha256": "5be2f8055cc1fec4cbf1ea13d98d5dae069ddf66b31dfe84b2b28c3c3913d397",
+      "bytes": 9767
+    },
+    {
+      "path": "tests/unit/test_godot_creation_agent_enriched.py",
+      "sha256": "3e954b6ea12c2e81bcf5403993e0d3d37232bbdac80ed3ae3720dd73dfaccebf",
+      "bytes": 5580
+    },
+    {
+      "path": "tests/unit/test_launcher_import_boundary.py",
+      "sha256": "d23d078d668c9eb8ebf39eccd30e4572b60ac030472878077e93f158a2614b24",
+      "bytes": 842
+    },
+    {
+      "path": "tests/unit/test_mobile_support.py",
+      "sha256": "881482f024d17cab9351b0c383c37cf9257f65944bd535d8123045f1d07d3efc",
+      "bytes": 755
+    },
+    {
+      "path": "tests/unit/test_modification_log_routes.py",
+      "sha256": "dff71a6ef473017965106f120c25057a37d1c9446741e959fabeddde94937659",
+      "bytes": 4566
+    },
+    {
+      "path": "tests/unit/test_modification_resume.py",
+      "sha256": "535386d01cbad2f9eb90c7ea5e5c05bc290e206a8a5e694102f4b9ddf4112f53",
+      "bytes": 4805
+    },
+    {
+      "path": "tests/unit/test_modification_run_log.py",
+      "sha256": "898742785f9829100969d9aab36fae98dc0b53679c32bca9300ed99a7824d576",
+      "bytes": 8212
+    },
+    {
+      "path": "tests/unit/test_personal_provider.py",
+      "sha256": "54c30d5450232258ed0a951523418e9e3d207e23529c1bdbd753ff5a07f854cb",
+      "bytes": 5788
+    },
+    {
+      "path": "tests/unit/test_play_cache.py",
+      "sha256": "2113d1ca3c50a1d8b4d1d0dd889a4b5986a4db5738c4e2cbf46a15b8a680c45d",
+      "bytes": 2100
+    },
+    {
+      "path": "tests/unit/test_runtime_diagnostics.py",
+      "sha256": "992655145a4408567e4f54a6421aa82cf12c66565bc952f41cfa95ba0f4d4c12",
+      "bytes": 1736
+    },
+    {
+      "path": "tests/unit/test_sidecar_launcher.py",
+      "sha256": "d1fb98b86f242591e5decfceaa285825e82288dd36f133de4cbdcf1d3da06cfb",
+      "bytes": 4799
+    },
+    {
+      "path": "tests/unit/test_suggestions_generator.py",
+      "sha256": "a210069b13b493cf8f368699496ebac864f4553f471b67648d48b40e91e9d142",
+      "bytes": 3821
+    },
+    {
+      "path": "tests/unit/test_touch_input_lint.py",
+      "sha256": "c64d99482d98eb57b095f22f589514f2042c52a15f2692b7249a3c88f636a85d",
+      "bytes": 2966
+    },
+    {
+      "path": "tests/unit/test_trellis_assets.py",
+      "sha256": "b3b5bd9de2cc48c3a8480ebe89c5696d7af5f688aef61545a5437733bfa1300b",
+      "bytes": 6553
+    },
+    {
+      "path": "tests/unit/test_upload_validator.py",
+      "sha256": "3ed31e257387723254ae7e2ac7ead2455a521e7013fb01d0215a1b0592678090",
+      "bytes": 2474
+    },
+    {
+      "path": "tests/unit/test_vendored_runtime.py",
+      "sha256": "45055f243d01359319add1b791a17592db5738f1b492962bfa5f2e3e760e20b9",
+      "bytes": 4054
+    },
+    {
+      "path": "tests/unit/test_visual_reference.py",
+      "sha256": "9fe3f1131f94247770c4e01d9edcd2cc257079345de07dbc2c8fd209cdd472d0",
+      "bytes": 4059
+    },
+    {
+      "path": "tests/unit/utils/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "vendor/godogen-runtime/LICENSE.md",
+      "sha256": "9994c50a3e043728bcf59106d5941c21b06e53dc64977e6bcafe9580a8a5e5d6",
+      "bytes": 1077
+    },
+    {
+      "path": "vendor/godogen-runtime/PROVENANCE.md",
+      "sha256": "478a0825b68f3cf09360087e3cbc4965a8eebdf48672479be2c56b1c12c119cd",
+      "bytes": 905
+    },
+    {
+      "path": "vendor/godogen-runtime/SHA256SUMS.json",
+      "sha256": "6cd43f6fe29e59ae469aa601fde172f1e4a0b3095923ad22cde9cffe65eaf194",
+      "bytes": 1923
+    },
+    {
+      "path": "vendor/godogen-runtime/asset-gen/SKILL.md",
+      "sha256": "eaccfe3e0cf98b8837ae59887209e3d061da78bfd4e458c486b9d20c77f3df19",
+      "bytes": 5961
+    },
+    {
+      "path": "vendor/godogen-runtime/asset-gen/api.md",
+      "sha256": "558725807017685180fb60eb705492b80e60923bbffffb3cda508c6a981d827d",
+      "bytes": 13670
+    },
+    {
+      "path": "vendor/godogen-runtime/asset-gen/motion.md",
+      "sha256": "f618e9fdefca885b22cf29e0e2daffb6c21aebc86cef3b76fa28db4aeaa5409a",
+      "bytes": 16239
+    },
+    {
+      "path": "vendor/godogen-runtime/asset-gen/rembg.md",
+      "sha256": "0b81f9dace0d1d838ec981a3dce85db8411843bfbc04b732be789821156e67cc",
+      "bytes": 2705
+    },
+    {
+      "path": "vendor/godogen-runtime/asset-gen/tools/asset_gen.py",
+      "sha256": "8e88f8ee814b68c007aed35fff65d9408509bc5b13d5bf7f84296d2a72fd5bdf",
+      "bytes": 23252
+    },
+    {
+      "path": "vendor/godogen-runtime/asset-gen/tools/find_loop_frame.py",
+      "sha256": "1a614b32977cd49eab3392b1765168bfb5ed0aa577a8a21c147a427fc383a4fb",
+      "bytes": 4442
+    },
+    {
+      "path": "vendor/godogen-runtime/asset-gen/tools/grid_slice.py",
+      "sha256": "55afb459d2e3e069bc49fb63966c709179ab4359c0cef8332a7452d37aa9c6f9",
+      "bytes": 1941
+    },
+    {
+      "path": "vendor/godogen-runtime/asset-gen/tools/loop_audio.py",
+      "sha256": "2ee0f03e40c5771d7c79eced420609d70008fc029ddd1f32eb3eb03d071acc94",
+      "bytes": 4079
+    },
+    {
+      "path": "vendor/godogen-runtime/asset-gen/tools/rembg_matting.py",
+      "sha256": "79d86130c6f03c14be688ae1c69e3721ae3be2d0850debddd6ac334a487b6b2c",
+      "bytes": 12107
+    },
+    {
+      "path": "vendor/godogen-runtime/asset-gen/tools/requirements.txt",
+      "sha256": "4b99ca26713a4f3332b1e0627a0bb95e6e486b214da6c50c701f85c1dce01ee1",
+      "bytes": 99
+    },
+    {
+      "path": "vendor/godogen-runtime/engines/babylon.md",
+      "sha256": "47911e246ffa7e5e9f29479bc41064df30d8a51266c05ced47631d2617ca6f04",
+      "bytes": 3189
+    },
+    {
+      "path": "vendor/godogen-runtime/engines/bevy.md",
+      "sha256": "ad44702af773a207a780ae63484a14b14e4c7d00a1ca13eb730d21779ffadd3b",
+      "bytes": 4302
+    },
+    {
+      "path": "vendor/godogen-runtime/engines/godot-gdscript.md",
+      "sha256": "ac27c510305b0513cb6fe0fae4e277f488afdda15579561fb2158a119cdc1cc7",
+      "bytes": 6835
+    },
+    {
+      "path": "vendor/godogen-runtime/engines/godot.md",
+      "sha256": "c0d2f9f22bf654b2d0d3543a12369831d02ce21c5a267fcb74ca56a1f99ca648",
+      "bytes": 6046
+    },
+    {
+      "path": "vendor/godogen-runtime/engines/threejs.md",
+      "sha256": "a03da4dcb0e87c771d843ca66a5144e7a392f2f13bb6c89b06ddf38386399c41",
+      "bytes": 4055
+    },
+    {
+      "path": "vendor/godogen-runtime/prompts/runtime.md",
+      "sha256": "41f08aab1964fc218883478f8a4111cdbf3516437ea2a149538c8397f423f5a9",
+      "bytes": 1120
+    },
+    {
+      "path": "vendor/godogen-runtime/publish.sh",
+      "sha256": "620b118932bc21805f1bb9b2ede692a84f429a3aedfb1c44f1d65bf964f10469",
+      "bytes": 5467
+    },
+    {
+      "path": "vendor/godogen-runtime/scripts/generate_codex_metadata.py",
+      "sha256": "253344e53e28717324afebb15f0b1e3f3aaf2eb0bef9e1cd0292ac7be58c3698",
+      "bytes": 3111
+    },
+    {
+      "path": "vendor/godogen-runtime/scripts/render_dir.py",
+      "sha256": "9ec45445200012e81117b4ed86b8b81c0888a53513c1ca668e24a613d6587516",
+      "bytes": 942
+    },
+    {
+      "path": "web/.dockerignore",
+      "sha256": "43b5f3078c9643b3150788da07b74095706a42b51149368cecfac2ee36c459cb",
+      "bytes": 27
+    },
+    {
+      "path": "web/.gitignore",
+      "sha256": "10379bc2677c838cba1cb112511005aa5ac7983bd0a9c029d697ddf95839fa69",
+      "bytes": 535
+    },
+    {
+      "path": "web/Dockerfile",
+      "sha256": "4f3374c85f3a83db8324130572c7a1860430b482960e16e8ecafe0b5e638b4cc",
+      "bytes": 629
+    },
+    {
+      "path": "web/PROJECT_STRUCTURE.md",
+      "sha256": "99a345b2944eaddd39e06ab94afd6092f6ae25f055ed325ecc75f5e481a7be14",
+      "bytes": 2979
+    },
+    {
+      "path": "web/README.md",
+      "sha256": "60b55ff7df79af72590f9524208e46642bc32bdc175cdad41349681c0e2f958f",
+      "bytes": 1450
+    },
+    {
+      "path": "web/components.json",
+      "sha256": "2cc1a8206b39ade49917b804fd9d67f95f2b9558ecc2a98bd35a211e0423b320",
+      "bytes": 451
+    },
+    {
+      "path": "web/design-previews/a-soft-rounded.html",
+      "sha256": "1f20192e3c52f6ae279124cbcd2d969926c55e5c5863fd3566fd9e0eadce183f",
+      "bytes": 10457
+    },
+    {
+      "path": "web/design-previews/b-bold-vibrant.html",
+      "sha256": "92dd2697bc059c9cdfdc9a31fc5468fe869cb9e44086bd13e1813e9464f1579d",
+      "bytes": 11770
+    },
+    {
+      "path": "web/design-previews/c-neobrutalist.html",
+      "sha256": "36e06f9913b59eb36c5673c06e8768155b8cd6c40aa79e106ea17fb883c44cb8",
+      "bytes": 11669
+    },
+    {
+      "path": "web/eslint.config.mjs",
+      "sha256": "25f04bcee38c4e41c2bf345e2df820cf3c76d97dafcde8acbb8736e5eb11ce91",
+      "bytes": 711
+    },
+    {
+      "path": "web/next.config.ts",
+      "sha256": "37e00c87ef299363d8e2a2c969a5fb8025013607fdc1c32047e6a13b02233348",
+      "bytes": 202
+    },
+    {
+      "path": "web/package.json",
+      "sha256": "90a4366696ab96eaf5c69d8d83efc4bec5eaffc8983ef6e5afb922de7e2dae29",
+      "bytes": 1744
+    },
+    {
+      "path": "web/playwright.agent-play.config.ts",
+      "sha256": "cc6845fcb731f099260f2d165f736a9c4783aca6159cd7c7c11a0a2d7e5dabc1",
+      "bytes": 384
+    },
+    {
+      "path": "web/playwright.api.config.ts",
+      "sha256": "68282c51df373048095e8fca333b908eff31afea73fedc34e32f11ba362ca29b",
+      "bytes": 422
+    },
+    {
+      "path": "web/playwright.config.ts",
+      "sha256": "37cea1036d3646502ed5cbee838318efef3e14dd58ce65959ac7d10c1d17703a",
+      "bytes": 1252
+    },
+    {
+      "path": "web/playwright.editor.config.ts",
+      "sha256": "45d2d45aa88ea27f203bc74d17755ef8610402739500a8b0e554e91ee2c0d9da",
+      "bytes": 827
+    },
+    {
+      "path": "web/playwright.provider.config.ts",
+      "sha256": "d32686c425ce5fa175a9b42f370dc5cc53ae95f0732bb24f91ec1f6e41015524",
+      "bytes": 492
+    },
+    {
+      "path": "web/pnpm-lock.yaml",
+      "sha256": "1d743318c109b55d7a8e2adec297e9e00ca510030f3d1777b335e8dd1862e98f",
+      "bytes": 406146
+    },
+    {
+      "path": "web/postcss.config.mjs",
+      "sha256": "dfac7ac2d86d326a0e5adb024e7943c181393ed17a5fcb8f0315b24c7da6ddde",
+      "bytes": 94
+    },
+    {
+      "path": "web/src/__tests__/setup.ts",
+      "sha256": "fe4e2672d154a7af6a300ca1a4ae748e672e3bdfd31cf8db23a564bff84866cc",
+      "bytes": 772
+    },
+    {
+      "path": "web/src/__tests__/voice-recording-conversion.test.ts",
+      "sha256": "37ce79a774010378b2df6ae95afb0548fee9c7f26289d0c2e48f309733c06a65",
+      "bytes": 4196
+    },
+    {
+      "path": "web/src/app/admin/page.tsx",
+      "sha256": "2c5c8e81c31bb15cb271678f89881a1ed889c384842451346fd2600e0fcb37d4",
+      "bytes": 25400
+    },
+    {
+      "path": "web/src/app/agent-play/page.tsx",
+      "sha256": "a3e6df0c70c3b46f60ea0ba713692c68fa35f70dae2379670aea3261ff357cb6",
+      "bytes": 11913
+    },
+    {
+      "path": "web/src/app/apple-icon.svg",
+      "sha256": "51da67a5ab2d0f9d435c08822508e129d094de9a0b75d87680f19a538e97fc02",
+      "bytes": 449
+    },
+    {
+      "path": "web/src/app/connect/page.tsx",
+      "sha256": "790a386157312cf3715379c8ec780e89d3a844f2b2774e34f68fb66453add982",
+      "bytes": 9376
+    },
+    {
+      "path": "web/src/app/create/page.tsx",
+      "sha256": "dca847aa12296eadf2e30ff5bac5201061f3e47cce4b6897d9bdd681742cd25a",
+      "bytes": 27199
+    },
+    {
+      "path": "web/src/app/fonts/fredoka-OFL.txt",
+      "sha256": "5c9e7eee5c6b25f4b05b8d53b2e470ea4962f9ced742d044a98f7d95d1375bab",
+      "bytes": 4388
+    },
+    {
+      "path": "web/src/app/fonts/fredoka.ttf",
+      "sha256": "2ba02e68b152868aef9ba28e24b3648c7d457fe6f25c761f2c2c53fb61a73fc8",
+      "bytes": 159184
+    },
+    {
+      "path": "web/src/app/fonts/geist-mono.ttf",
+      "sha256": "d00e590b8eb3a59acc329b2d044fd143ae935090b7da33199ebee27cc7de8196",
+      "bytes": 171948
+    },
+    {
+      "path": "web/src/app/fonts/geistmono-OFL.txt",
+      "sha256": "1781d2806a07d91c4edf4740b88449fab7d0eadad53f7c351b94cd4d4eb8c00f",
+      "bytes": 4387
+    },
+    {
+      "path": "web/src/app/fonts/nunito-OFL.txt",
+      "sha256": "580df76c95a1ec5ab878ceb25bb3d85c6a076804e9c970c8c6972aea775fdf65",
+      "bytes": 4385
+    },
+    {
+      "path": "web/src/app/fonts/nunito.ttf",
+      "sha256": "bb55a5ca5c2042335b3991af27c4d0705d0ef41cac6164ac737fd8f2a1e85207",
+      "bytes": 276932
+    },
+    {
+      "path": "web/src/app/fonts/sources.json",
+      "sha256": "6bd2ef22e9c2b7341a66234379d5ae543089a68bffdc70c11911f4c0695b833d",
+      "bytes": 1718
+    },
+    {
+      "path": "web/src/app/forgot-password/page.tsx",
+      "sha256": "3ce2b0c0ff8302587d8c3fbcfe6fb9099ab062c3eaf2e517e9944638dca1b9c3",
+      "bytes": 259
+    },
+    {
+      "path": "web/src/app/games/[id]/layout.tsx",
+      "sha256": "4a754948da1d16dbf60b5212ebf880cec81246f58040823a5deff36d10525f1f",
+      "bytes": 2343
+    },
+    {
+      "path": "web/src/app/games/[id]/page.tsx",
+      "sha256": "4559af0f49f875bb67f48d0c6e32599469a8e1c69bcd1fbf18a116e40367c5be",
+      "bytes": 39404
+    },
+    {
+      "path": "web/src/app/games/page.tsx",
+      "sha256": "cdeac96e5068d37a5181db796d002ddb8309f643201f38b8a0387c1b7506c513",
+      "bytes": 4974
+    },
+    {
+      "path": "web/src/app/globals.css",
+      "sha256": "8892c86ea559448da438c6eba47eeca96365f577ec0352225757eec0c6e78b3b",
+      "bytes": 15463
+    },
+    {
+      "path": "web/src/app/icon.svg",
+      "sha256": "d30663c5ed94d78d8d4af88d8926f0582e9acf3c0785daef21d724140bc8e690",
+      "bytes": 533
+    },
+    {
+      "path": "web/src/app/layout.tsx",
+      "sha256": "2090c7f699b23f15a55f2daca0e29026b3dbf3320c794f79d270fff5112b74e3",
+      "bytes": 2450
+    },
+    {
+      "path": "web/src/app/login/page.tsx",
+      "sha256": "865b830a7353659a6a5c6a2a716cfd6dd2025e3f6f4a10384a0edcaa0fc59516",
+      "bytes": 222
+    },
+    {
+      "path": "web/src/app/opengraph-image.tsx",
+      "sha256": "eb560e47de3d45c7b0725eb2260275fb807d79ecb38e58c4a2c948ffca408722",
+      "bytes": 2869
+    },
+    {
+      "path": "web/src/app/page.tsx",
+      "sha256": "d4010687c8397f9cdf8962a5165b27ce3dd2f3be11e781c31f417b64f96e3ed2",
+      "bytes": 103
+    },
+    {
+      "path": "web/src/app/register/page.tsx",
+      "sha256": "c39bcbc28d09bede56ce42221675f0800ca01071645170da74944f757785419d",
+      "bytes": 234
+    },
+    {
+      "path": "web/src/app/reset-password/page.tsx",
+      "sha256": "6428e994e62694cf655b29c3381c5690d247533c5da86fbdb54c522236e70257",
+      "bytes": 255
+    },
+    {
+      "path": "web/src/app/robots.ts",
+      "sha256": "5a2f7418109d801a81299273b4b29170dad5513e0fceebacaf871503aa40be05",
+      "bytes": 570
+    },
+    {
+      "path": "web/src/app/sitemap.ts",
+      "sha256": "cf5689ac46a650fdcb5742e3261d7069a34062ed4b770af2abe7a85e9eeadd38",
+      "bytes": 506
+    },
+    {
+      "path": "web/src/app/twitter-image.tsx",
+      "sha256": "db3b602fe83216c3cdddf0943b407ca7a0b1f59027c0d0fff9aa8cf3f4116f5b",
+      "bytes": 69
+    },
+    {
+      "path": "web/src/components/auth/auth-page.tsx",
+      "sha256": "727759a9b6371bafb5cf400b25a909601f5510e44c4ae6f8c2bd2544d9bb239f",
+      "bytes": 1534
+    },
+    {
+      "path": "web/src/components/auth/auth-provider.tsx",
+      "sha256": "120002d845398167dd031b898b6c29c127af8d27942d64bc5865936d00b07280",
+      "bytes": 8769
+    },
+    {
+      "path": "web/src/components/auth/forgot-password-form.tsx",
+      "sha256": "205e0e83d2169b0d0d002d0def40cdc5d823b1c07e2d386fc780961408e401d1",
+      "bytes": 3884
+    },
+    {
+      "path": "web/src/components/auth/login-form.tsx",
+      "sha256": "921ac9b6e411469ec97d02f7ada55692066b7617a3f2bcb4b05853237bb0a565",
+      "bytes": 4727
+    },
+    {
+      "path": "web/src/components/auth/register-form.tsx",
+      "sha256": "94f27b6d57fbd24f16c55b61f4a77e152dbaa9d37e9b49472ed31e6af92314d7",
+      "bytes": 8915
+    },
+    {
+      "path": "web/src/components/auth/reset-password-form.tsx",
+      "sha256": "5d0caed62c69043a181b4b15b4fb00149091c42f91dbeb85d46206d85a8219f7",
+      "bytes": 5708
+    },
+    {
+      "path": "web/src/components/auth/session-expired-modal.tsx",
+      "sha256": "1a476b6fb90ab461839668765ca9488bde542f7042aacc6b1e7da2ecabe9c29b",
+      "bytes": 3619
+    },
+    {
+      "path": "web/src/components/build-layouts.tsx",
+      "sha256": "37b89bbb3599f3367ad450ab4fc98cff48c6913cc0d866119ff1a73aeaaf365f",
+      "bytes": 5830
+    },
+    {
+      "path": "web/src/components/build-log-replay.tsx",
+      "sha256": "521a1f65d7e238d165e75d9425e111c2c7e1954e0cbfd1316d48901fd993e980",
+      "bytes": 5390
+    },
+    {
+      "path": "web/src/components/delete-game-button.tsx",
+      "sha256": "ddeffbfb5ff90c64f86db4413942cc12b89e0c329cc15b5064075b89c560fff0",
+      "bytes": 3971
+    },
+    {
+      "path": "web/src/components/drawing-input.tsx",
+      "sha256": "240ea74f10ab862d78c28755277879a231c6f62a4e252aae1f0985f5f2ab5fc5",
+      "bytes": 10997
+    },
+    {
+      "path": "web/src/components/editor-conversation.tsx",
+      "sha256": "de009d9bd26b48d1e950aebf25020b62d067ec6e77f845d8e03f4c96413968fd",
+      "bytes": 3413
+    },
+    {
+      "path": "web/src/components/editor-image.tsx",
+      "sha256": "836f6428087d1439888fe6db6d42994adff1117c7ae3dffd112952cbac6edd7a",
+      "bytes": 2265
+    },
+    {
+      "path": "web/src/components/editor-panel.tsx",
+      "sha256": "3075c84c2b5ce5ddce84ba97bbe3be1ca3f53ae02f23e5067ceb779d8347ae01",
+      "bytes": 1877
+    },
+    {
+      "path": "web/src/components/game-companion.tsx",
+      "sha256": "e451d72b32e808459e0bf56cd704a99fdac05105d98e507d89446a4ce8b8156b",
+      "bytes": 4134
+    },
+    {
+      "path": "web/src/components/game-editor.tsx",
+      "sha256": "4bf6aa14fcf40d8f35ed7e2ea0dc02f9f9355de8e43ab2ded10bff07ae1092f2",
+      "bytes": 36626
+    },
+    {
+      "path": "web/src/components/game-name-control.tsx",
+      "sha256": "f52d2b81cb478fba6981e1326fb695e693c6cdc7ce40cb23a7cbfe94e4359447",
+      "bytes": 3060
+    },
+    {
+      "path": "web/src/components/share-link-button.tsx",
+      "sha256": "b5e0d48d636ec956da2ed7977436364bca4d8e703b0ae6ab8a348a40a8132d8d",
+      "bytes": 2546
+    },
+    {
+      "path": "web/src/components/site-nav.tsx",
+      "sha256": "ffde6bba3a64e27528cc3cc06f7710e037fd14acc038d0c968533da224f3537c",
+      "bytes": 7289
+    },
+    {
+      "path": "web/src/components/stream-cards.tsx",
+      "sha256": "3ce88a189b814227176e9a4bf6af52fe32d53ebd33f1ec39b5ca816668eb1c14",
+      "bytes": 9791
+    },
+    {
+      "path": "web/src/components/ui/button.tsx",
+      "sha256": "cd98acc71988e234da58315ba3d98b9592dfc91e646cebaafc1d205609ce5eae",
+      "bytes": 2392
+    },
+    {
+      "path": "web/src/components/ui/dialog.tsx",
+      "sha256": "0596a93da7e192fd71780e43d1b7d9dcb55e98590b9f1240c3b3a14a06e63b91",
+      "bytes": 4303
+    },
+    {
+      "path": "web/src/components/ui/live-waveform.tsx",
+      "sha256": "ca011f6594bb105afe56362eef5f9032c008623b507b16320216121951939170",
+      "bytes": 17316
+    },
+    {
+      "path": "web/src/components/ui/response.tsx",
+      "sha256": "129a7e7acd1344af1ee0406e555d378c3c2c85b626ac52b350dad0fb3698a09b",
+      "bytes": 539
+    },
+    {
+      "path": "web/src/components/ui/speech-input.tsx",
+      "sha256": "9e0486799a7f580a08078266cca08e77adc55b7ccc8987f543c1cebb93d4d1bf",
+      "bytes": 4855
+    },
+    {
+      "path": "web/src/components/ui/voice-button.tsx",
+      "sha256": "a53627784ba58d4e442f6e17bbf0d531af557bb1e676bdfa10a9150a35213264",
+      "bytes": 6264
+    },
+    {
+      "path": "web/src/hooks/use-auth.ts",
+      "sha256": "e86703c071763baa63ad960713fd48ecb84455b4c4cc522ec980c6c094e7c203",
+      "bytes": 750
+    },
+    {
+      "path": "web/src/hooks/use-editor-draft.ts",
+      "sha256": "3b2415a981adc6f9c4afa0491d943cdd96fa52c93e07982ff977776b17dd2894",
+      "bytes": 4346
+    },
+    {
+      "path": "web/src/hooks/use-game-history.ts",
+      "sha256": "859081243a03956e65b1c234a8679847c17785a55752ca045ddd3f7ced49947a",
+      "bytes": 2787
+    },
+    {
+      "path": "web/src/lib/__tests__/client-id.test.ts",
+      "sha256": "3bc7b653a67d252197cbb8ee2ca1dccd6c1d5f07f5294cfe2c8b6913faf0fe2e",
+      "bytes": 730
+    },
+    {
+      "path": "web/src/lib/__tests__/event-stream.test.ts",
+      "sha256": "e017afdd4962d8f7a1aa54062e6edc540f57e2c10654e34ec3fb5ee7a3fa5e01",
+      "bytes": 8280
+    },
+    {
+      "path": "web/src/lib/__tests__/game-editor.test.ts",
+      "sha256": "5ba40105fb4cb486bdc6da02fe556a1d356b33dd21ab00a356347827df28bc48",
+      "bytes": 7676
+    },
+    {
+      "path": "web/src/lib/__tests__/stream-cards.test.ts",
+      "sha256": "5f94702e533b63e8c2784d662de089fdd2c4b5a5b12c00182f44f67d087db9f3",
+      "bytes": 6950
+    },
+    {
+      "path": "web/src/lib/api-config.ts",
+      "sha256": "75a17b19a162ef7f6dc80d60474c79d8876b2b5ea6d7f1c8219e8c7f27339e85",
+      "bytes": 165
+    },
+    {
+      "path": "web/src/lib/api-errors.ts",
+      "sha256": "a5d12592b55bea67eaad2248c8b5b120eda2156b6745edd899999d77e72bd289",
+      "bytes": 3666
+    },
+    {
+      "path": "web/src/lib/api.ts",
+      "sha256": "14154214c0dbc53deef7681cd9acf32bd55a1d1cd8434e4accd31b64f4aac0c9",
+      "bytes": 18045
+    },
+    {
+      "path": "web/src/lib/audio-utils.ts",
+      "sha256": "4a40a5f439f70cf0ef94196bc2f5aaaef025847d8779c0b8f3cdce0ea65a71c4",
+      "bytes": 2087
+    },
+    {
+      "path": "web/src/lib/auth.ts",
+      "sha256": "58c000182848687161fd1c84463270329a48b6a08c09c0f80657cfc65ed81c49",
+      "bytes": 11815
+    },
+    {
+      "path": "web/src/lib/client-id.ts",
+      "sha256": "d7e2c6f51ca84381de849e42bb598f9f4f8b7240b2fc7dbb6a5b70ccffce4b6d",
+      "bytes": 473
+    },
+    {
+      "path": "web/src/lib/editor-draft-images.ts",
+      "sha256": "64b98eb3e4251451ccc1adee9e13ec1949a1a0a2da631e4d5a2f8fd1df69616c",
+      "bytes": 1965
+    },
+    {
+      "path": "web/src/lib/event-stream.ts",
+      "sha256": "61e8a7c11e769cdacc86398af6fd78f966060b8e384a826948aaf2beb36f5b5a",
+      "bytes": 5606
+    },
+    {
+      "path": "web/src/lib/game-editor.ts",
+      "sha256": "4d55b4d8eaf192754936d90e9a33d17eca964fe188abe3acf627461c1a8eeaef",
+      "bytes": 10326
+    },
+    {
+      "path": "web/src/lib/game-streams.ts",
+      "sha256": "fd4908da09008b0c1786a363a6c1931b04ec231408b5cb5449b1851a716453cf",
+      "bytes": 6684
+    },
+    {
+      "path": "web/src/lib/limits.ts",
+      "sha256": "49986a1e7282224692f8c175086c4b2f8dd5aa70c41bd587bbe21daf9d26edf0",
+      "bytes": 136
+    },
+    {
+      "path": "web/src/lib/provider-connection.ts",
+      "sha256": "0f31bf437a1baabd985e8e9f052157c70d2ca8d545b6b7cd862e8158056038d3",
+      "bytes": 862
+    },
+    {
+      "path": "web/src/lib/stream-cards.ts",
+      "sha256": "732b61f01884b7d50057fcc1bcadb7698e7a282b01c717bc832375e74a62a1d8",
+      "bytes": 7466
+    },
+    {
+      "path": "web/src/lib/token-storage.ts",
+      "sha256": "889f3e0d1006043c2ebd7bd5614e435686b94b8fa3f0d3ce03da327dc252f2c9",
+      "bytes": 2590
+    },
+    {
+      "path": "web/src/lib/utils.ts",
+      "sha256": "7c8c3dfc0cdd370d44932828eb067ef771c8fe7996693221d5d4b90af6d54f2d",
+      "bytes": 166
+    },
+    {
+      "path": "web/src/lib/visual-reference.ts",
+      "sha256": "1edc20a98018ea5afb39da6463c0088a9213c210a288a9c8e727adceb1e9e2b7",
+      "bytes": 2058
+    },
+    {
+      "path": "web/tests/e2e/agent-play.spec.ts",
+      "sha256": "3f924328a771ca707302d8f2587c8cedc10f891cce8b8793ddbf0c2e313a69d1",
+      "bytes": 5509
+    },
+    {
+      "path": "web/tests/e2e/auth.spec.ts",
+      "sha256": "d5fff1ac85a648ffeb4344152eab76f6cbd1edb0569eb05f036ea8be379fa392",
+      "bytes": 14212
+    },
+    {
+      "path": "web/tests/e2e/fixtures/backend.ts",
+      "sha256": "11c3a4abc1921ba54a38c5880faacc4c5730e64ed435defcbccde2cb9ae17c8c",
+      "bytes": 1567
+    },
+    {
+      "path": "web/tests/e2e/fixtures/browser-tags.ts",
+      "sha256": "c8f47cc61626c1781072a1c110f98bcf8361acee8ce5f591d33fe83dee6b18c4",
+      "bytes": 4720
+    },
+    {
+      "path": "web/tests/e2e/game-editor.spec.ts",
+      "sha256": "fc033115f98f88aa98232f90e124305e2911cdd30c43640c53e5033faff0c78e",
+      "bytes": 40582
+    },
+    {
+      "path": "web/tests/e2e/home.spec.ts",
+      "sha256": "1726d6a41f8be14ebe378dd089ce61d2320dfbd833e7c1acfc2cfef4535cd2ca",
+      "bytes": 1319
+    },
+    {
+      "path": "web/tests/e2e/mobile-touch.spec.ts",
+      "sha256": "d5ebcec1a46c7e74a535202123f7a584be15620e275930096f4e2bbd06a779ba",
+      "bytes": 11258
+    },
+    {
+      "path": "web/tests/personal/provider-connection.spec.ts",
+      "sha256": "8766d3e9c53fbd9b71c4cd8e4d6b3ac82bdb66f42bfc3de2f0fb449c47574cfa",
+      "bytes": 3927
+    },
+    {
+      "path": "web/tsconfig.json",
+      "sha256": "a18cd137c10a13a9c1c416fd69e1a8acab49d89a9b7eed710319ffee71abe037",
+      "bytes": 822
+    },
+    {
+      "path": "web/vitest.config.ts",
+      "sha256": "2abddbc5171d9597c115b64124a8c16758ed0d4022dd5130f39fdd6931905af2",
+      "bytes": 414
+    },
+    {
+      "path": "RELEASE_SCOPE.md",
+      "sha256": "0f5762909f9f26c174ea2c07c9a2816e4a89c0d11872b7710f883d8111f6d69a",
+      "bytes": 813
+    }
+  ]
+}

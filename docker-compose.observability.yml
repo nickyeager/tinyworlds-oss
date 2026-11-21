@@ -1,0 +1,19 @@
+# Independent local operator dashboard. No app/worker secrets or Docker socket.
+name: tinyworlds-observability
+services:
+  phoenix:
+    image: arizephoenix/phoenix@sha256:1f9a144a5357b4973e93a15718f050247cb7a4ee7b7c6c06ecb91b5eed3fbaad
+    ports:
+      - "127.0.0.1:6006:6006"
+    environment:
+      PHOENIX_HOST: "0.0.0.0"
+      PHOENIX_ENABLE_AUTH: "false"
+      PHOENIX_WORKING_DIR: /data
+      PHOENIX_SQL_DATABASE_URL: sqlite:////data/phoenix.db
+      PHOENIX_ALLOW_EXTERNAL_RESOURCES: "false"
+      PHOENIX_DISABLE_MODEL_COST_AUTO_UPDATE: "true"
+    volumes:
+      - phoenix-data:/data
+    restart: unless-stopped
+volumes:
+  phoenix-data:

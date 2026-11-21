@@ -1,0 +1,10 @@
+{
+  "name": "tinyworlds-local",
+  "interface": {"displayName": "TinyWorlds Development"},
+  "plugins": [{
+    "name": "tinyworlds",
+    "source": {"source": "local", "path": "./plugins/tinyworlds"},
+    "policy": {"installation": "AVAILABLE", "authentication": "ON_INSTALL"},
+    "category": "Developer Tools"
+  }]
+}

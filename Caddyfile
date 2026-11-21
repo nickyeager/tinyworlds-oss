@@ -1,0 +1,64 @@
+tinyworlds.us {
+	# Dream Island is deployed independently, with its own private playtest login.
+	handle /islands {
+		redir /islands/ 308
+	}
+	handle /islands/* {
+		reverse_proxy tinyworlds-islands:5199
+	}
+
+	# On-the-fly compression for compressible types.
+	# zstd > gzip in compression ratio + decompression speed; gzip is the
+	# universal fallback. Caddy auto-skips already-compressed types
+	# (jpeg/png/mp4/zip) so we don't burn CPU re-compressing them.
+	# Critical for Godot .wasm exports: a 42 MB raw wasm compresses to
+	# ~12 MB gzip / ~9 MB zstd — 3-4× faster initial load.
+	# NOT applied to text/event-stream — SSE streams must flush
+	# byte-by-byte; compression buffers defeats real-time delivery.
+	@compressible {
+		not header Content-Type *event-stream*
+	}
+	encode @compressible zstd gzip
+
+	# Godot game play routes — require SharedArrayBuffer, which needs cross-origin isolation
+	handle /api/v1/godot/games/*/play* {
+		reverse_proxy backend:8001 {
+			header_down Cross-Origin-Embedder-Policy "require-corp"
+			header_down Cross-Origin-Opener-Policy "same-origin"
+		}
+	}
+
+	# API — reverse proxy to backend
+	# flush_interval -1 disables buffering for SSE streams
+	# read_timeout 600s allows long-running game creation (Claude CLI)
+	handle /api/* {
+		reverse_proxy backend:8001 {
+			flush_interval -1
+			transport http {
+				read_timeout 600s
+			}
+		}
+	}
+
+	# Frontend
+	handle {
+		reverse_proxy web:3000
+	}
+}
+
+# Generated HTML runs on a different origin from the application's login storage.
+# Provision this DNS record before deploying the isolated playback configuration.
+games.tinyworlds.us {
+	encode zstd gzip
+	@game_runtime path_regexp game_runtime ^/api/v1/(godot|bevy)/games/[A-Za-z0-9_-]+/(play(/.*)?|telemetry|playthrough)$
+	handle @game_runtime {
+		reverse_proxy backend:8001 {
+			header_down Cross-Origin-Embedder-Policy "require-corp"
+			header_down Cross-Origin-Opener-Policy "same-origin"
+			header_down Referrer-Policy "no-referrer"
+		}
+	}
+	handle {
+		respond "Not found" 404
+	}
+}

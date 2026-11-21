@@ -1,0 +1,39 @@
+# Opt-in gateway. Apply after docker-compose.yml and docker-compose.prod.yml.
+services:
+  plugin:
+    build:
+      context: .
+      dockerfile: services/plugin/Dockerfile
+    restart: unless-stopped
+    environment:
+      PLUGIN_PUBLIC_URL: ${PLUGIN_PUBLIC_URL:-https://plugins.tinyworlds.us}
+      PLUGIN_BACKEND_URL: http://backend:8001
+      PLUGIN_WEB_URL: https://tinyworlds.us
+      PLUGIN_ENCRYPTION_KEY: ${PLUGIN_ENCRYPTION_KEY:?Set a dedicated Fernet key for plugin credential storage}
+      PLUGIN_REDIRECT_URIS: ${PLUGIN_REDIRECT_URIS:-}
+    ports:
+      - "127.0.0.1:8787:8787"
+    volumes:
+      - plugin-data:/app/data/plugin
+    read_only: true
+    tmpfs:
+      - /tmp:size=32m,mode=1777
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    depends_on:
+      - backend
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8787/health', timeout=5)"]
+      interval: 30s
+      timeout: 6s
+      retries: 3
+
+  caddy:
+    volumes:
+      - ./Caddyfile:/etc/caddy/TinyWorldsBase:ro
+      - ./Caddyfile.plugin:/etc/caddy/Caddyfile:ro
+
+volumes:
+  plugin-data:

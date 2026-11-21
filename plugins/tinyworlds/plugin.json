@@ -1,0 +1,27 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "tinyworlds",
+  "version": "0.1.0",
+  "description": "Create, edit, and preview browser games in your TinyWorlds account.",
+  "author": {"name": "Nick Yeager"},
+  "homepage": "https://tinyworlds.us",
+  "repository": "https://github.com/nickyeager/tinyworlds-oss",
+  "keywords": ["games", "godot", "bevy", "game-development"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "TinyWorlds",
+        "shortDescription": "Create and edit browser games",
+        "longDescription": "Describe a game, start its build, check progress, preview screenshots, and modify games in your linked TinyWorlds account. Supports Godot and Bevy browser games. Requires a TinyWorlds account and a running generation backend. New games default to private and a zero paid-asset budget. Builds run asynchronously. Runtime smoke tests do not establish every gameplay rule. Roblox export is not available in this version.",
+        "developerName": "Nick Yeager",
+        "category": "Developer Tools",
+        "capabilities": ["Read", "Write"],
+        "websiteURL": "https://tinyworlds.us",
+        "defaultPrompt": ["Create a small browser game with TinyWorlds.", "Show my TinyWorlds games and their build progress."],
+        "brandColor": "#171717",
+        "composerIcon": "./assets/icon.svg",
+        "logo": "./assets/icon.svg"
+      }
+    }
+  }
+}

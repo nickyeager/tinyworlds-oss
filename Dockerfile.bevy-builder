@@ -1,0 +1,29 @@
+# Bevy → WASM builder. Pinned to Bevy 0.18.1 toolchain.
+FROM rust:1.89-slim-bookworm
+
+# wasm-bindgen-cli version MUST match the version Bevy 0.18.1 resolves in Cargo.lock.
+# Bump deliberately when upgrading Bevy.
+ARG WASM_BINDGEN_VERSION=0.2.121
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        binaryen \
+        ca-certificates \
+        pkg-config \
+        libssl-dev \
+        build-essential \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN rustup target add wasm32-unknown-unknown && \
+    cargo install wasm-bindgen-cli --version "${WASM_BINDGEN_VERSION}" --locked
+
+ENV CARGO_TARGET_DIR=/cargo-target \
+    CARGO_HOME=/cargo-home \
+    BEVY_INDEX_TEMPLATE=/app/templates/bevy_index.html
+
+WORKDIR /app
+
+COPY scripts/bevy_build.sh /usr/local/bin/bevy_build
+COPY templates/ /app/templates/
+RUN chmod +x /usr/local/bin/bevy_build
+
+CMD ["bevy_build"]

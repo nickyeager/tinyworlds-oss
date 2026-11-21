@@ -1,0 +1,17 @@
+TinyWorlds
+Copyright 2026 TinyWorlds contributors
+
+TinyWorlds builds on the work of many independent maintainers.
+
+Godogen — Alex Ermolov (htdt): game-generation instructions and asset tooling.
+Agency Agents — msitarzewski and contributors: adapted Godot development guidance.
+Game Dev Agentic Skills — thedivergentai and contributors: source credited by
+our C# patterns adaptation; historical licensing remains under review.
+Antigravity/Agentic Awesome Skills — sickn33 and contributors: optional image guidance.
+Claude Code Game Studios — Donchitos and contributors: isolated evaluation adaptation.
+Context Engineering Intro — Cole Medin and contributors: corresponding team-build workflow.
+agent-browser — Vercel and contributors: browser automation tool and skill lineage.
+
+See ATTRIBUTION.md for how each source is used, THIRD_PARTY_NOTICES.md for
+license locations, and LICENSING.md for scope and unresolved release items.
+These acknowledgments do not imply endorsement or modify upstream licenses.
