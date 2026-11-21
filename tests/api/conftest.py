@@ -6,6 +6,11 @@ os.environ.setdefault("OPENAI_API_KEY", "test-key")
 os.environ.setdefault("AZURE_OPENAI_ENDPOINT", "https://test.openai.azure.com")
 os.environ.setdefault("AZURE_OPENAI_API_KEY", "test-key")
 os.environ.setdefault("USE_AZURE", "false")  # Disable Azure to avoid client init issues
+# /health probes the configured engine directly rather than get_db. Keep that
+# real probe in the same disposable database scope as the rest of this suite,
+# even when API tests run alone in a clean checkout without a data/ directory.
+TEST_DATABASE_URL = "sqlite+aiosqlite:///:memory:"
+os.environ["DATABASE_URL"] = TEST_DATABASE_URL
 
 import pytest
 from httpx import AsyncClient
@@ -14,10 +19,6 @@ from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession, async_sess
 from src.api.core.config import Settings
 from src.api.core.database import Base, get_db
 from src.api.main import app
-
-
-# Test database URL (in-memory SQLite)
-TEST_DATABASE_URL = "sqlite+aiosqlite:///:memory:"
 
 
 @pytest.fixture
