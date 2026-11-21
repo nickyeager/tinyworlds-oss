@@ -16,8 +16,21 @@ Upstream material retains its own notices and extensive
 - Source scan: one finding, an upstream SHA-256 checksum in
   `vendor/godogen-runtime/SHA256SUMS.json`. Its value was verified against the
   SHA-256 of `asset-gen/api.md`; no credential was identified in that finding.
-- A fresh real create/edit verification and GitHub CI are in progress during
-  private staging. Final results will be recorded before the release is tagged.
+- Fresh real Codex/Godot run from an empty database: create **179 seconds**,
+  edit **68 seconds**, both completed. Trusted browser checks exercised keyboard,
+  pointer and touch input without reported errors. Screenshots were inspected:
+  the game rendered and the requested blue-to-magenta player edit appeared.
+  This is one successful example, not a game-quality benchmark.
+- Initial GitHub CI exposed an API test isolation problem: `/health` accessed
+  the default disk database when the API suite ran alone without `data/`.
+  The API fixtures now select a real disposable in-memory database before app
+  imports. The endpoint and its assertions remain unchanged.
+  Isolated API rerun with the same signing-key environment as CI: **127 passed**,
+  exit 0. A prior local invocation omitted that required environment variable
+  and failed during settings import, before any tests ran.
+- Public snapshot after documentation updates: **545 manifest files**, 25 public
+  Markdown documents checked. Its new Git history was scanned separately; the
+  only finding was the same verified upstream file checksum.
 
 Tests used the retained constrained Python 3.12 acceptance environment and a
 fresh frozen frontend install. The final distribution manifest records source
@@ -43,5 +56,10 @@ marketing demo or generated asset is licensed or distributed with the source.
 
 GitHub CI results are available in the
 [Actions dashboard](https://github.com/nickyeager/tinyworlds-oss/actions).
+Private vulnerability reporting is enabled. The main branch requires backend,
+frontend and worker-image checks and resolved review conversations; force pushes
+and branch deletion are disabled. Administrators retain GitHub's bypass ability.
+Actions tokens default to read-only and cannot approve pull requests. GitHub
+recognizes the source license as Apache-2.0.
 Report vulnerabilities through the private channel described in
 [SECURITY.md](../../SECURITY.md).

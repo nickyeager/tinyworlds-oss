@@ -950,8 +950,8 @@
     },
     {
       "path": "docs/releases/2026-11-20-publication.md",
-      "sha256": "a34c2606cbd4b1ea934e27d61e7b1bff92d3ad21f377396d346d7e6ea4ef1872",
-      "bytes": 2595
+      "sha256": "eaf38bffbb07b0f042b9a296a13c604c847c84e63e1ca49ba807c194a517ee7f",
+      "bytes": 3908
     },
     {
       "path": "docs/releases/v0.1-developer-preview.md",
@@ -1720,8 +1720,8 @@
     },
     {
       "path": "tests/api/conftest.py",
-      "sha256": "a5b554b431e076b98c07bfb2b3e79ebcc122f0d04a8f6f440c43611294e06d6e",
-      "bytes": 4441
+      "sha256": "d4161fd2bd6baf51be294109925902c5ccd1674eeef55749267c3b75a36cd8ec",
+      "bytes": 4682
     },
     {
       "path": "tests/api/test_agent_play.py",
