@@ -20,25 +20,22 @@ git clone https://github.com/nickyeager/tinyworlds-oss.git
 cd tinyworlds-oss
 ```
 
-Backend, from the repository root (runs on http://localhost:8001):
+Install and start from the repository root:
 
 ```bash
-python3.12 -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt -c constraints-v0.1.txt
-python -m playwright install chromium
-cp .env.example .env
-openssl rand -hex 32   # put this value in .env as SECRET_KEY
-mkdir -p data
-uvicorn src.api.main:app --host 127.0.0.1 --port 8001
+bash scripts/setup_environment.sh
+bash scripts/start_dev.sh
 ```
 
-Frontend, in a second terminal (runs on http://localhost:3333):
+Setup installs the pinned Python/frontend dependencies and Chromium, creates a
+private `.env` with a unique signing key, and preserves existing configuration.
+The launcher starts the API on port 8001 and the app on port 3333. Ctrl+C stops
+the services it started. Existing databases are not automatically migrated.
+
+To diagnose an installation without starting services or calling a model:
 
 ```bash
-cd web
-pnpm install --frozen-lockfile
-NEXT_PUBLIC_API_URL=http://localhost:8001 NEXT_PUBLIC_GAME_PLAY_URL=http://localhost:8001 pnpm dev --hostname 127.0.0.1
+.venv/bin/python scripts/local_dev.py check
 ```
 
 Open http://localhost:3333/create. The first visit asks you to

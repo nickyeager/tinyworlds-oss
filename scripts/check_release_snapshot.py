@@ -5,14 +5,24 @@ import hashlib
 import json
 from pathlib import Path
 import re
+import subprocess
 from urllib.parse import unquote
 
 
-def check(root: Path) -> dict:
+def check(root: Path, tracked: bool = False) -> dict:
     manifest = json.loads((root / "RELEASE_MANIFEST.json").read_text())
     failures = []
     paths = {row["path"] for row in manifest["files"]}
+    if tracked:
+        tracked_paths = set(filter(None, subprocess.check_output(['git', 'ls-files', '-z'], cwd=root).decode().split('\0')))
+        for extra in sorted(tracked_paths - paths - {'RELEASE_MANIFEST.json'}):
+            failures.append(f'Tracked file missing from manifest: {extra}')
+        for missing in sorted(paths - tracked_paths):
+            failures.append(f'Manifest file is not tracked: {missing}')
     for row in manifest["files"]:
+        if Path(row['path']).is_absolute() or '..' in Path(row['path']).parts:
+            failures.append(f'Unsafe manifest path: {row["path"]}')
+            continue
         file = root / row["path"]
         if not file.is_file() or file.is_symlink():
             failures.append(f"Missing/unsafe file: {row['path']}")
@@ -41,7 +51,8 @@ def check(root: Path) -> dict:
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('candidate', type=Path)
+    parser.add_argument('--tracked', action='store_true', help='Also require exact Git-tracked file coverage')
     args = parser.parse_args()
-    result = check(args.candidate)
+    result = check(args.candidate, tracked=args.tracked)
     print(json.dumps(result, indent=2))
     raise SystemExit(0 if result['passed'] else 1)

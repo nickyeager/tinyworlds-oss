@@ -27,6 +27,28 @@ pnpm test:run
 Tests that use providers, Docker, engines or paid assets need the setup in the
 guides and a spending limit. Do not point a local test at production.
 
+For setup/launcher changes, run `python3 -m unittest discover -s tests/setup -v`.
+In a disposable checkout with dependencies installed, run
+`.venv/bin/python scripts/check_local_startup.py` to exercise real API/frontend
+startup on unused ports and verify shutdown. It creates a development database
+and Next output; it does not generate games or sign into a provider.
+
+## Keeping the public source manifest current
+
+Stage the intended source changes and new files, then run:
+
+```bash
+python3 scripts/refresh_release_manifest.py
+git add RELEASE_MANIFEST.json
+python3 scripts/check_release_snapshot.py . --tracked
+```
+
+The manifest lists source file hashes, not dependencies or runtime data. The
+refresh command refuses tracked files outside the distribution scope and does
+not pick up ignored credentials or generated games. Inspect your staged diff;
+the manifest check is not a credential scanner. CI verifies file hashes,
+tracked-file coverage and public documentation links on every pull request.
+
 ## Skills and upstream code
 
 - Pin upstream sources to a revision. Keep their licence and copyright files
