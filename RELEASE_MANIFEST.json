@@ -1,7 +1,7 @@
 {
   "format": 1,
-  "source_head": "2478658f5b9c91dde702b0ee583e2a409f7ce7b3",
-  "source": "current working files, including untracked source; not a clean commit",
+  "source_head": "b650e6c7b36678a32c4992e14ecca948f8bc4368",
+  "source": "public working source; tracked files only",
   "files": [
     {
       "path": ".agents/plugins/marketplace.json",
@@ -525,8 +525,8 @@
     },
     {
       "path": ".github/workflows/ci.yml",
-      "sha256": "055966841aff4863071ebd676ad22ba9635c6eb7b02947d3b46e191bdbfbefd0",
-      "bytes": 3090
+      "sha256": "277af2d9715e45d935107978dc7f8754f4eec8d504ceb68ca812bb5abe0c7344",
+      "bytes": 3940
     },
     {
       "path": ".github/workflows/plugin.yml",
@@ -545,8 +545,8 @@
     },
     {
       "path": "CONTRIBUTING.md",
-      "sha256": "5f3e495cdb2438342e99c61a167e035f453a5594cc37c4e29ae60abc259e894e",
-      "bytes": 2379
+      "sha256": "1c143cbce6108765c9c5756fd0fa886cda41caad14775682fa81d68d85b7c4c4",
+      "bytes": 3379
     },
     {
       "path": "Caddyfile",
@@ -780,8 +780,13 @@
     },
     {
       "path": "README.md",
-      "sha256": "b34efa635802759e81f481047b82cb17f33f600716211d8e4cfdb0e277d4e624",
-      "bytes": 4209
+      "sha256": "99552e06d6b694912d2a982eb39b3d141985acf4ed6baada863fdc3e94f0a2a0",
+      "bytes": 4162
+    },
+    {
+      "path": "RELEASE_SCOPE.md",
+      "sha256": "0f5762909f9f26c174ea2c07c9a2816e4a89c0d11872b7710f883d8111f6d69a",
+      "bytes": 813
     },
     {
       "path": "SECURITY.md",
@@ -870,8 +875,8 @@
     },
     {
       "path": "docs/ROADMAP.md",
-      "sha256": "f1da8d1cb9c562b6b2b1f3dad29546644448377ecb29b617e45b7edf8967eaa9",
-      "bytes": 1217
+      "sha256": "db3a66991d9ab31b988c3cf6874c3686e1e18d42ece2c49365f0f11de3635c18",
+      "bytes": 1295
     },
     {
       "path": "docs/guides/agent-observability.md",
@@ -910,8 +915,8 @@
     },
     {
       "path": "docs/guides/setup.md",
-      "sha256": "e27c3c8ad521893af64eecdebee6c0afc6a5f567acfbf6c367368604351c8b72",
-      "bytes": 4577
+      "sha256": "c8de3c5c1c1225ee20e8a35ee61ff65fd908669286158a3dfd6b569e5e93bd33",
+      "bytes": 6229
     },
     {
       "path": "docs/guides/testing-quickstart.md",
@@ -959,6 +964,11 @@
       "bytes": 3020
     },
     {
+      "path": "docs/releases/v0.1.1-local-setup.md",
+      "sha256": "01793ea0ec7885df4304c6d3d9ace5937c137d67b033cc3af282679cb73fb214",
+      "bytes": 2161
+    },
+    {
       "path": "plugins/tinyworlds/assets/icon.svg",
       "sha256": "25d757835dc37670ff03b9ee5ad29ad2ffa82d2b1b574aee6cbacb465c5ce04b",
       "bytes": 610
@@ -1000,8 +1010,8 @@
     },
     {
       "path": "scripts/README.md",
-      "sha256": "c549cfe904ce1cd9e4438e7890022eb5ac52168870ce5a68c0aee16bbe599bb1",
-      "bytes": 1205
+      "sha256": "ce75f1d0d95c6e7078b6ee1cc42a3b97d867bd1997f6947389a91bc6534a3204",
+      "bytes": 1724
     },
     {
       "path": "scripts/agent_asset_broker.py",
@@ -1039,9 +1049,14 @@
       "bytes": 6849
     },
     {
+      "path": "scripts/check_local_startup.py",
+      "sha256": "f23493c45293ddefaa7fd2b5e23680eea4cc12e16ff886b01922f404deed9d7c",
+      "bytes": 3058
+    },
+    {
       "path": "scripts/check_release_snapshot.py",
-      "sha256": "c6629cf0d58f2bd740ef33888b608c0fca4377f02eacb01a225f77a0de4d9b7a",
-      "bytes": 2454
+      "sha256": "e420f381b3117e04229aadad9cf83402836eef6609c2d16d95adbb5631ac939a",
+      "bytes": 3219
     },
     {
       "path": "scripts/check_upstreams.py",
@@ -1074,6 +1089,11 @@
       "bytes": 6566
     },
     {
+      "path": "scripts/local_dev.py",
+      "sha256": "9213515eccb8f2c02c6bed73006b02c1e963693d32db227ae3a3661fff40768d",
+      "bytes": 7364
+    },
+    {
       "path": "scripts/package_editor_review.py",
       "sha256": "496e778a8870a4d0f779c1a683cefa5a792b421799c9e6ad5c06b16249a6a987",
       "bytes": 14538
@@ -1099,24 +1119,29 @@
       "bytes": 6569
     },
     {
+      "path": "scripts/refresh_release_manifest.py",
+      "sha256": "73968991e84975ba67f5b4c1d5d03893d31af28472befe0ee84d8e5e6ad52325",
+      "bytes": 1551
+    },
+    {
       "path": "scripts/run_evals.sh",
       "sha256": "26c59b1ba30fdea6afd522224edc2cf2565160d8950810a77f9e8ace2bc34615",
       "bytes": 6895
     },
     {
       "path": "scripts/setup_environment.sh",
-      "sha256": "52756fe5fd4982fa3674846bec8aba9aee6a7877da27a74385d79c234b0ec3ab",
-      "bytes": 4458
+      "sha256": "f9def50b3dd53e1a1fae8e93350cbe19aa97738242c9e05f4cf39f032929feb6",
+      "bytes": 1107
     },
     {
       "path": "scripts/start_api.sh",
-      "sha256": "46c8f76b778eb37c9d5f759bae207081dde87d782f9ddee1ddac9eec76a30727",
-      "bytes": 1478
+      "sha256": "27a902b5b9e8668f05bdbbeff5a72aa1a13ab7af1f54172b45bf5100abcf6944",
+      "bytes": 245
     },
     {
       "path": "scripts/start_dev.sh",
-      "sha256": "3d4079976fcdad97eb802799a02391ca1d23a359c5e4c7f80cd88f95115f3038",
-      "bytes": 5291
+      "sha256": "e7e1ab2363db53808b38ad343804ad8649c760440178c277adc095c5ab142a78",
+      "bytes": 234
     },
     {
       "path": "scripts/test_resilient_stream.py",
@@ -1882,6 +1907,11 @@
       "path": "tests/integration/git/__init__.py",
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "bytes": 0
+    },
+    {
+      "path": "tests/setup/test_local_dev.py",
+      "sha256": "821b2da8668cfb2dd5b73aed23920672b213a7f94acac7867cb9c1362fffa3f8",
+      "bytes": 3234
     },
     {
       "path": "tests/unit/__init__.py",
@@ -2722,11 +2752,6 @@
       "path": "web/vitest.config.ts",
       "sha256": "2abddbc5171d9597c115b64124a8c16758ed0d4022dd5130f39fdd6931905af2",
       "bytes": 414
-    },
-    {
-      "path": "RELEASE_SCOPE.md",
-      "sha256": "0f5762909f9f26c174ea2c07c9a2816e4a89c0d11872b7710f883d8111f6d69a",
-      "bytes": 813
     }
   ]
 }

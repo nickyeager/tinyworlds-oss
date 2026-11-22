@@ -16,6 +16,18 @@ isolation and separate playback origin in [generation.md](generation.md).
 
 ## Configure and start the backend
 
+For the complete personal setup, run `bash scripts/setup_environment.sh` and
+then `bash scripts/start_dev.sh` from the repository root. The setup command
+requires Python 3.12, Node.js 22 and pnpm 10.18.0 already installed; it installs
+the constrained Python dependencies, frozen frontend dependencies and Chromium.
+Set `TINYWORLDS_PYTHON` if Python 3.12 has another executable path.
+
+Setup generates a unique signing key with owner-only file permissions when
+creating `.env`. Existing `.env` files, provider selections, credentials and
+databases are preserved. A pre-existing placeholder key must be replaced by its
+owner; setup does not silently rotate it. Neither setup nor startup applies
+database migrations. The commands below are the equivalent manual steps.
+
 From the repository root:
 
 ```bash
@@ -23,11 +35,10 @@ python3.12 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt -c constraints-v0.1.txt
 python -m playwright install chromium
-cp .env.example .env
-openssl rand -hex 32
+python scripts/local_dev.py configure
 ```
 
-Put the generated value in `.env` as `SECRET_KEY`. Keep `PERSONAL_MODE=true`
+The configure command creates the signing key without printing it. Keep `PERSONAL_MODE=true`
 and `AGENT_EXECUTION_MODE=local` for this personal install. On first visit the
 app opens `/connect`: choose Codex, then sign in with ChatGPT, supply an OpenAI
 API key, or explicitly connect an existing local Codex login. Claude Code also
@@ -100,5 +111,23 @@ explicitly rather than claiming success from a compile or file-existence check.
 
 If a port is occupied, inspect its owning process and stop only a service you
 started, or configure a different port consistently on backend and frontend.
+The launcher can configure both sides for you:
+
+```bash
+bash scripts/start_dev.sh --api-port 8011 --web-port 3343
+```
+
+It refuses occupied ports and binds both services to `127.0.0.1`. It preserves
+provider/model settings, sets the local frontend URL and CORS origins for the
+chosen ports, and runs without backend reload. Ctrl+C signals only the process
+groups it created. `bash scripts/start_api.sh` starts only the backend.
+
+Run `.venv/bin/python scripts/local_dev.py check` for a diagnostic that never
+prints keys or contacts providers. A passing result checks application setup;
+missing Codex/Godot executables appear as warnings because the app can open
+before generation is configured. This does not validate provider authentication,
+Godot Web templates, Chromium launch or generated-game quality. The first real
+create/edit remains the generation acceptance check.
+
 For dependency conflicts, use a fresh environment matching the requirements;
 do not assume an old environment's installed extras are part of the project.

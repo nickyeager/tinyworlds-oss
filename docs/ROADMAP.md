@@ -7,8 +7,9 @@ game, generate it with Codex, play the Web export, and request an edit while
 keeping the generated source available locally.
 
 The release work is tracked in [release scope](releases/v0.1-developer-preview.md)
-and [readiness](open-source-readiness.md). Freeze the source and finish setup,
-notices, acceptance and public-repository preparation before adding features.
+and [readiness](open-source-readiness.md). The v0.1.0 source preview is public. The next maintenance increment improves
+fresh setup, local process lifecycle and contributor checks before expanding
+the supported provider/engine matrix.
 
 ## After the preview
 
