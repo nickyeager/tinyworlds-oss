@@ -19,7 +19,33 @@ Both paths build their command line in `src/api/services/agent_commands.py`.
 
 `AGENT_EXECUTION_MODE=local` preserves host development. CLI execution starts in the game's directory with a minimal environment and provider sandboxing. Codex workspace sandboxing restricts writes; local development still trusts the operator's machine and permits host reads. Use the isolated worker for untrusted prompts requiring a read boundary. It fails closed when the required isolation is unavailable. Authenticate the configured CLI through its official login flow before generation. Application signing/database/mail credentials and asset API keys are never copied into the generation subprocess.
 
-The current godogen runtime is pinned under `vendor/godogen-runtime`; its revision is reported by capabilities. The older `.claude/skills/godogen` subtree remains for consumers that have not migrated. Generated Claude workspaces receive `CLAUDE.md` and `.claude/skills`; Codex workspaces receive `AGENTS.md` and `.agents/skills`, with matching engine instructions and project overlays.
+Godogen source is pinned under `vendor/godogen-runtime`; its revision is reported
+by capabilities. Generated workspaces receive one application contract in
+`CLAUDE.md` or `AGENTS.md`, plus an on-demand engine reference. The model's
+selected name passes through to its CLI; this path does not add model-specific
+prompt recipes or require a new model allowlist.
+
+Zero-budget jobs receive no optional skill definitions. With a paid budget,
+`asset-gen` provides the broker commands and asset-specific guidance. Budget
+enforcement, credential isolation, export requirements and the Pip protocol stay
+in the application contract. The broker tool still rejects unauthorized calls
+independently of the instructions.
+
+The edit skill, automatic lesson preamble and copies of the complete application
+contract inside skills are no longer loaded. Existing project notes are linked
+when already on disk instead of copied into the prompt. Relevant Godogen engine
+guidance remains available on demand; its capture section is omitted from the
+workspace copy because browser verification belongs to the application.
+Vendored source and its licenses remain unchanged.
+
+Old generated skill directories in workspaces with recognized TinyWorlds runtime
+provenance are moved to `.tinyworlds-context-archive/` before replacement. That
+directory is outside skill discovery and is never linked into the active
+instructions. Original lesson sources and experiment records remain in the
+repository. Their removal from default context is scoped to this user-requested
+simplification, not a claim that all optional skills are ineffective. Restore an
+earlier application tag for the old rendering behavior; retain archive contents
+if historical workspace instructions are needed for diagnosis.
 
 The October 27 update pins Godogen `40542b6c8efbdc40112c2b004fbaa6d67141846d`.
 Godot now uses upstream's GDScript guide (rendered as `godot.md`); Bevy uses

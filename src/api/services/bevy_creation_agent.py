@@ -289,7 +289,7 @@ class BevyCreationAgent:
                 status="started",
             ))
 
-            skill_content = self.game_service.read_skill("SKILL.md")
+            skill_content = ""  # Runtime manifest supplies the application contract once.
 
             async for event in self.executor.run_stage(
                 skill_content,
@@ -453,7 +453,7 @@ class BevyCreationAgent:
                 status="started",
             ))
 
-            skill_content = self.game_service.read_skill("SKILL.md")
+            skill_content = ""  # Runtime manifest supplies the application contract once.
 
             async for event in self.executor.run_stage(
                 skill_content,

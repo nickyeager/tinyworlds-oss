@@ -19,27 +19,6 @@ from src.api.services.mobile_support import append_mobile_controls_requirement
 logger = logging.getLogger(__name__)
 
 
-_LESSONS_PREAMBLE = """
-
---- Project Lessons ---
-Before starting each godogen stage, read the matching lessons file from
-`.claude/skills/local/godogen-lessons/` (relative to the repo root) and apply
-any guidance present. Files may be empty (just a placeholder comment) — that's
-fine, proceed normally. If a lesson contradicts the upstream skill, the lesson
-wins (it was written from a real failure on this project).
-
-| Stage | Lessons file |
-|-------|--------------|
-| decomposer / scaffold / asset-planner | godogen-lessons/scaffold.md |
-| task-execution (writing scripts) | godogen-lessons/scripts.md |
-| scene-generation | godogen-lessons/scenes.md |
-| asset-gen / rembg | godogen-lessons/assets.md |
-| capture / final result bundle | godogen-lessons/capture.md |
-| any stage (cross-cutting build/export/quirks) | godogen-lessons/general.md |
-| runtime / play-time issues (telemetry, freeze, no-input) | godogen-lessons/playthrough.md |
-"""
-
-
 class _CreationLog:
     """Append-only per-game creation log written to {game_path}/.creation/.
 
@@ -310,8 +289,7 @@ class GodotCreationAgent:
                 status="started",
             ))
 
-            skill_content = self.game_service.read_skill("SKILL.md")
-            skill_content += _LESSONS_PREAMBLE
+            skill_content = ""  # Runtime manifest supplies the application contract once.
 
             user_prompt = append_mobile_controls_requirement(request.intent)
 
@@ -483,8 +461,7 @@ class GodotCreationAgent:
                 status="started",
             ))
 
-            skill_content = self.game_service.read_skill("SKILL.md")
-            skill_content += _LESSONS_PREAMBLE
+            skill_content = ""  # Runtime manifest supplies the application contract once.
 
             self.game_service.ensure_capture_wrapper(game_path)
 

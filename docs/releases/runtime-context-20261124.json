@@ -1,0 +1,370 @@
+{
+  "date": "2026-11-24",
+  "baseline_release": "v0.1.1",
+  "scope": "One paired Codex/Godot create/edit task on macOS arm64. Lean is the no-optional-skill baseline; required application contracts and optional engine reference remain. No per-skill causal claim.",
+  "evaluation_design_skill": {
+    "name": "llm-application-dev:llm-evaluation",
+    "sha256": "d1c980c9674e3ed5d9c067bc7972c88953f5e3dfd06a5cd09877fb16021e3d39"
+  },
+  "whole_tree_token_usage": null,
+  "whole_tree_usage_limitation": "Native CLI turn usage is recorded below. No delegated calls were observed in normalized events, but independent child-session accounting was unavailable; these are not certified whole-tree totals.",
+  "arms": [
+    {
+      "variant": "legacy",
+      "model": "gpt-6.2-astra",
+      "harness": "Codex CLI 0.171.0; native TinyWorlds CodexExecutor; workspace-write; ignored user config; zero asset budget",
+      "harness_sha256": "5a1e1cee4ccab5004d7ed5a0a11a00d415f2d0706f7c671394fa56fd3962242b",
+      "reasoning_effort": "CLI default (no override)",
+      "tasks": {
+        "create": "Make a small 2D collect-the-stars game: blue human player, three yellow stars, score 0/3, win and restart. Arrow/WASD and touch controls. Pip is a distinct green helper that follows using the native adapter. One scene, code-drawn shapes, no paid assets. Use player position, star positions, score, and terminal state in the native observation so gameplay can be checked. Keep it simple.",
+        "modify": "Change only the human player color from blue to bright magenta, and update any player-color wording. Preserve three yellow stars, movement, scoring, restart, touch and Pip. No paid assets."
+      },
+      "source_files": [
+        {
+          "path": "src/api/services/executors/runtime.py",
+          "sha256": "e6b15380b7dcbe790344fa647e3bc94fae33b2d1f8505f6b0ec3915daed32752"
+        },
+        {
+          "path": "src/api/services/executors/cli_executor.py",
+          "sha256": "772c8cd6e1c50f4763cb049caed251f9e281901c54366b8c3bd496cdf5f2b0b2"
+        },
+        {
+          "path": "vendor/godogen-runtime/prompts/runtime.md",
+          "sha256": "41f08aab1964fc218883478f8a4111cdbf3516437ea2a149538c8397f423f5a9"
+        },
+        {
+          "path": "vendor/godogen-runtime/engines/godot-gdscript.md",
+          "sha256": "ac27c510305b0513cb6fe0fae4e277f488afdda15579561fb2158a119cdc1cc7"
+        },
+        {
+          "path": ".claude/skills/local/godogen-lessons/README.md",
+          "sha256": "ef2e219cc956a0fa3b9c938eadb3f5024e987c2da9f5c1e140b46bb8029d8567"
+        },
+        {
+          "path": ".claude/skills/local/godogen-lessons/assets.md",
+          "sha256": "78bcf4b095e49d4ee0660ed4744ce034bcd385d83ac2378e40a2933976625e71"
+        },
+        {
+          "path": ".claude/skills/local/godogen-lessons/bevy.md",
+          "sha256": "afacfe379bf00a0df972f0685b4915c8cdd9e47c0d6f875bc9e8fee58451d19a"
+        },
+        {
+          "path": ".claude/skills/local/godogen-lessons/capture.md",
+          "sha256": "334065619ca8ca0ea8f7ac2ced3e322db4d35403b18004bdb3e8c0185b0c382e"
+        },
+        {
+          "path": ".claude/skills/local/godogen-lessons/general.md",
+          "sha256": "0ab5be0ab2f605684cb45fcde278e64e95724865bde8f5b1bbc12a266d3c540e"
+        },
+        {
+          "path": ".claude/skills/local/godogen-lessons/playthrough.md",
+          "sha256": "17d025229fa4a6869b110e0b0740d6a50b1116f7b516c106aa23726b20ee47e5"
+        },
+        {
+          "path": ".claude/skills/local/godogen-lessons/scaffold.md",
+          "sha256": "499a377772dbbe2c049319f9081952aaf3a5f9495d0cc25a75a0ebfb89ac7125"
+        },
+        {
+          "path": ".claude/skills/local/godogen-lessons/scenes.md",
+          "sha256": "d5ad0dedf82b7f8f2c5bfc2fa5aeef0ff6c968da594704fbf4ed4be54314bafa"
+        },
+        {
+          "path": ".claude/skills/local/godogen-lessons/scripts.md",
+          "sha256": "211961cf6c9de603d25ab77e1d7ec1a4a10618dddb9d4eb5a23b9c1653bf69d5"
+        },
+        {
+          "path": ".claude/skills/local/godot-modify/SKILL.md",
+          "sha256": "63c4a77a832bba5d89a18d4cf27f5a63bad99413cf1ee83cfa7e19bbfabd2ce2"
+        }
+      ],
+      "runs": [
+        {
+          "operation": "create",
+          "status": "passed",
+          "agent_seconds": 116.8,
+          "elapsed_seconds": 127.17,
+          "prompt_bytes": 10911,
+          "prompt_sha256": "45c72d1576c2c9deb199e694fb53720b8f7fa82e9f05abbb325c0ae86c87829c",
+          "workspace_context_bytes": 46801,
+          "optional_skill_count": 2,
+          "verification_failures": [],
+          "errors": [],
+          "cli_turn_usage": {
+            "input_tokens": 244426,
+            "cached_input_tokens": 213760,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 3635,
+            "reasoning_output_tokens": 47
+          },
+          "context_files": [
+            {
+              "path": "AGENTS.md",
+              "sha256": "e33ce50abc438f5e926a153a21ca9508851719de28af02070d4ef68c6264c5ad"
+            },
+            {
+              "path": "godot.md",
+              "sha256": "ac27c510305b0513cb6fe0fae4e277f488afdda15579561fb2158a119cdc1cc7"
+            },
+            {
+              "path": ".agents/skills/asset-gen/SKILL.md",
+              "sha256": "3bdddd0cc6eec0036c08b1982a3330b647e5c946e25476450d9e1417571b325a"
+            },
+            {
+              "path": ".agents/skills/godot-modify/SKILL.md",
+              "sha256": "05042d7038fa6b9358b9400abc6508ad06ec4b4613f40903fe24f545044c7242"
+            },
+            {
+              "path": ".agents/skills/local/godogen-lessons/assets.md",
+              "sha256": "78bcf4b095e49d4ee0660ed4744ce034bcd385d83ac2378e40a2933976625e71"
+            },
+            {
+              "path": ".agents/skills/local/godogen-lessons/bevy.md",
+              "sha256": "afacfe379bf00a0df972f0685b4915c8cdd9e47c0d6f875bc9e8fee58451d19a"
+            },
+            {
+              "path": ".agents/skills/local/godogen-lessons/capture.md",
+              "sha256": "334065619ca8ca0ea8f7ac2ced3e322db4d35403b18004bdb3e8c0185b0c382e"
+            },
+            {
+              "path": ".agents/skills/local/godogen-lessons/general.md",
+              "sha256": "0ab5be0ab2f605684cb45fcde278e64e95724865bde8f5b1bbc12a266d3c540e"
+            },
+            {
+              "path": ".agents/skills/local/godogen-lessons/playthrough.md",
+              "sha256": "17d025229fa4a6869b110e0b0740d6a50b1116f7b516c106aa23726b20ee47e5"
+            },
+            {
+              "path": ".agents/skills/local/godogen-lessons/scaffold.md",
+              "sha256": "499a377772dbbe2c049319f9081952aaf3a5f9495d0cc25a75a0ebfb89ac7125"
+            },
+            {
+              "path": ".agents/skills/local/godogen-lessons/scenes.md",
+              "sha256": "d5ad0dedf82b7f8f2c5bfc2fa5aeef0ff6c968da594704fbf4ed4be54314bafa"
+            },
+            {
+              "path": ".agents/skills/local/godogen-lessons/scripts.md",
+              "sha256": "211961cf6c9de603d25ab77e1d7ec1a4a10618dddb9d4eb5a23b9c1653bf69d5"
+            }
+          ]
+        },
+        {
+          "operation": "modify",
+          "status": "passed",
+          "agent_seconds": 47.78,
+          "elapsed_seconds": 70.66,
+          "prompt_bytes": 6422,
+          "prompt_sha256": "3fe4034a75fd16b05bc61b670d2024f199709bbb6aaddb64edb44d0aa9c4a289",
+          "workspace_context_bytes": 46801,
+          "optional_skill_count": 2,
+          "verification_failures": [],
+          "errors": [],
+          "cli_turn_usage": {
+            "input_tokens": 188083,
+            "cached_input_tokens": 160640,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 909,
+            "reasoning_output_tokens": 0
+          },
+          "context_files": [
+            {
+              "path": "AGENTS.md",
+              "sha256": "e33ce50abc438f5e926a153a21ca9508851719de28af02070d4ef68c6264c5ad"
+            },
+            {
+              "path": "godot.md",
+              "sha256": "ac27c510305b0513cb6fe0fae4e277f488afdda15579561fb2158a119cdc1cc7"
+            },
+            {
+              "path": ".agents/skills/asset-gen/SKILL.md",
+              "sha256": "3bdddd0cc6eec0036c08b1982a3330b647e5c946e25476450d9e1417571b325a"
+            },
+            {
+              "path": ".agents/skills/godot-modify/SKILL.md",
+              "sha256": "05042d7038fa6b9358b9400abc6508ad06ec4b4613f40903fe24f545044c7242"
+            },
+            {
+              "path": ".agents/skills/local/godogen-lessons/assets.md",
+              "sha256": "78bcf4b095e49d4ee0660ed4744ce034bcd385d83ac2378e40a2933976625e71"
+            },
+            {
+              "path": ".agents/skills/local/godogen-lessons/bevy.md",
+              "sha256": "afacfe379bf00a0df972f0685b4915c8cdd9e47c0d6f875bc9e8fee58451d19a"
+            },
+            {
+              "path": ".agents/skills/local/godogen-lessons/capture.md",
+              "sha256": "334065619ca8ca0ea8f7ac2ced3e322db4d35403b18004bdb3e8c0185b0c382e"
+            },
+            {
+              "path": ".agents/skills/local/godogen-lessons/general.md",
+              "sha256": "0ab5be0ab2f605684cb45fcde278e64e95724865bde8f5b1bbc12a266d3c540e"
+            },
+            {
+              "path": ".agents/skills/local/godogen-lessons/playthrough.md",
+              "sha256": "17d025229fa4a6869b110e0b0740d6a50b1116f7b516c106aa23726b20ee47e5"
+            },
+            {
+              "path": ".agents/skills/local/godogen-lessons/scaffold.md",
+              "sha256": "499a377772dbbe2c049319f9081952aaf3a5f9495d0cc25a75a0ebfb89ac7125"
+            },
+            {
+              "path": ".agents/skills/local/godogen-lessons/scenes.md",
+              "sha256": "d5ad0dedf82b7f8f2c5bfc2fa5aeef0ff6c968da594704fbf4ed4be54314bafa"
+            },
+            {
+              "path": ".agents/skills/local/godogen-lessons/scripts.md",
+              "sha256": "211961cf6c9de603d25ab77e1d7ec1a4a10618dddb9d4eb5a23b9c1653bf69d5"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "variant": "lean",
+      "model": "gpt-6.2-astra",
+      "harness": "Codex CLI 0.171.0; native TinyWorlds CodexExecutor; workspace-write; ignored user config; zero asset budget",
+      "harness_sha256": "5a1e1cee4ccab5004d7ed5a0a11a00d415f2d0706f7c671394fa56fd3962242b",
+      "reasoning_effort": "CLI default (no override)",
+      "tasks": {
+        "create": "Make a small 2D collect-the-stars game: blue human player, three yellow stars, score 0/3, win and restart. Arrow/WASD and touch controls. Pip is a distinct green helper that follows using the native adapter. One scene, code-drawn shapes, no paid assets. Use player position, star positions, score, and terminal state in the native observation so gameplay can be checked. Keep it simple.",
+        "modify": "Change only the human player color from blue to bright magenta, and update any player-color wording. Preserve three yellow stars, movement, scoring, restart, touch and Pip. No paid assets."
+      },
+      "source_files": [
+        {
+          "path": "src/api/services/executors/runtime.py",
+          "sha256": "d07fd7d234522165fefa2be6e03f2f07c55bca179adf76b659880709e760e6c9"
+        },
+        {
+          "path": "src/api/services/executors/cli_executor.py",
+          "sha256": "c3c4cd0a0344f30e8460bf9283d4d717e27d8f5563b46deede1940283f8509a0"
+        },
+        {
+          "path": "vendor/godogen-runtime/prompts/runtime.md",
+          "sha256": "41f08aab1964fc218883478f8a4111cdbf3516437ea2a149538c8397f423f5a9"
+        },
+        {
+          "path": "vendor/godogen-runtime/engines/godot-gdscript.md",
+          "sha256": "ac27c510305b0513cb6fe0fae4e277f488afdda15579561fb2158a119cdc1cc7"
+        },
+        {
+          "path": ".claude/skills/local/godogen-lessons/README.md",
+          "sha256": "ef2e219cc956a0fa3b9c938eadb3f5024e987c2da9f5c1e140b46bb8029d8567"
+        },
+        {
+          "path": ".claude/skills/local/godogen-lessons/assets.md",
+          "sha256": "78bcf4b095e49d4ee0660ed4744ce034bcd385d83ac2378e40a2933976625e71"
+        },
+        {
+          "path": ".claude/skills/local/godogen-lessons/bevy.md",
+          "sha256": "afacfe379bf00a0df972f0685b4915c8cdd9e47c0d6f875bc9e8fee58451d19a"
+        },
+        {
+          "path": ".claude/skills/local/godogen-lessons/capture.md",
+          "sha256": "334065619ca8ca0ea8f7ac2ced3e322db4d35403b18004bdb3e8c0185b0c382e"
+        },
+        {
+          "path": ".claude/skills/local/godogen-lessons/general.md",
+          "sha256": "0ab5be0ab2f605684cb45fcde278e64e95724865bde8f5b1bbc12a266d3c540e"
+        },
+        {
+          "path": ".claude/skills/local/godogen-lessons/playthrough.md",
+          "sha256": "17d025229fa4a6869b110e0b0740d6a50b1116f7b516c106aa23726b20ee47e5"
+        },
+        {
+          "path": ".claude/skills/local/godogen-lessons/scaffold.md",
+          "sha256": "499a377772dbbe2c049319f9081952aaf3a5f9495d0cc25a75a0ebfb89ac7125"
+        },
+        {
+          "path": ".claude/skills/local/godogen-lessons/scenes.md",
+          "sha256": "d5ad0dedf82b7f8f2c5bfc2fa5aeef0ff6c968da594704fbf4ed4be54314bafa"
+        },
+        {
+          "path": ".claude/skills/local/godogen-lessons/scripts.md",
+          "sha256": "211961cf6c9de603d25ab77e1d7ec1a4a10618dddb9d4eb5a23b9c1653bf69d5"
+        },
+        {
+          "path": ".claude/skills/local/godot-modify/SKILL.md",
+          "sha256": "63c4a77a832bba5d89a18d4cf27f5a63bad99413cf1ee83cfa7e19bbfabd2ce2"
+        }
+      ],
+      "runs": [
+        {
+          "operation": "create",
+          "status": "passed",
+          "agent_seconds": 88.6,
+          "elapsed_seconds": 101.54,
+          "prompt_bytes": 1597,
+          "prompt_sha256": "56591b78d0b27d69f772d6453081fb8f7676086cbe16d2f62d77f89d94512d59",
+          "workspace_context_bytes": 9021,
+          "optional_skill_count": 0,
+          "verification_failures": [],
+          "errors": [],
+          "cli_turn_usage": {
+            "input_tokens": 156403,
+            "cached_input_tokens": 128512,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 3119,
+            "reasoning_output_tokens": 9
+          },
+          "context_files": [
+            {
+              "path": "AGENTS.md",
+              "sha256": "104207ec65200e55e99206403a0429c72b4438c9a181e3e0ff62f7b727d7f2a0"
+            },
+            {
+              "path": "godot.md",
+              "sha256": "3962da4266cfb2214a0d0fb36fed1aa9c1aa307c997dd6057be6e917629dde7d"
+            }
+          ]
+        },
+        {
+          "operation": "modify",
+          "status": "passed",
+          "agent_seconds": 22.05,
+          "elapsed_seconds": 31.86,
+          "prompt_bytes": 1405,
+          "prompt_sha256": "9eb730944c5a3aaf8d413419484d9d1f02ba1e133630f528e28109aba188ac16",
+          "workspace_context_bytes": 9038,
+          "optional_skill_count": 0,
+          "verification_failures": [],
+          "errors": [],
+          "cli_turn_usage": {
+            "input_tokens": 92572,
+            "cached_input_tokens": 75264,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 344,
+            "reasoning_output_tokens": 0
+          },
+          "context_files": [
+            {
+              "path": "AGENTS.md",
+              "sha256": "4c7c352347215d9a4d390ef0a585aebe6a5915c46d574b8cec4a590c28c87cb6"
+            },
+            {
+              "path": "godot.md",
+              "sha256": "3962da4266cfb2214a0d0fb36fed1aa9c1aa307c997dd6057be6e917629dde7d"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "keyboard_playthrough": [
+    {
+      "variant": "legacy",
+      "initial_score": 0,
+      "final_score": 3,
+      "terminal": true,
+      "remaining_stars": 0,
+      "page_errors": []
+    },
+    {
+      "variant": "lean",
+      "initial_score": 0,
+      "final_score": 3,
+      "terminal": true,
+      "remaining_stars": 0,
+      "page_errors": []
+    }
+  ],
+  "keyboard_harness_sha256": "5d0ad144f1fc4fbbe335043e86a8c0733e95f71eced6f44a255fdfe63472b8e4"
+}

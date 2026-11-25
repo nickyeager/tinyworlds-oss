@@ -59,9 +59,8 @@ async def _collect(agent: BevyCreationAgent, game_path: Path, intent: str = "tes
 
 
 @pytest.mark.asyncio
-async def test_create_game_loads_bevy_skill_content(tmp_path: Path):
-    """SKILL.md content must be passed to executor.run_stage verbatim — no
-    project-lessons preamble appended (Bevy has none in v1)."""
+async def test_create_game_uses_native_runtime_without_duplicate_skill_content(tmp_path: Path):
+    """The renderer owns engine guidance; the task retains the touch contract."""
     captured = {}
 
     executor = MagicMock()
@@ -80,8 +79,8 @@ async def test_create_game_loads_bevy_skill_content(tmp_path: Path):
     agent = BevyCreationAgent(executor, game_service)
     await _collect(agent, tmp_path)
 
-    game_service.read_skill.assert_any_call("SKILL.md")
-    assert captured["skill_content"] == "BEVY_SKILL_BODY"
+    game_service.read_skill.assert_not_called()
+    assert captured["skill_content"] == ""
     assert "Project Lessons" not in captured["skill_content"]
     assert "Mobile and Touch Runtime Requirement" in captured["user_prompt"]
     assert "Keyboard-only" in captured["user_prompt"]

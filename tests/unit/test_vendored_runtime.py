@@ -27,7 +27,8 @@ def test_upstream_files_match_recorded_source_hashes():
 @pytest.mark.parametrize("engine,guide", [("godot", "godot-gdscript.md"), ("bevy", "bevy.md")])
 def test_rendered_runtime_uses_native_guide_and_only_broker(tmp_path, provider, engine, guide):
     skills = render_runtime(tmp_path, engine=engine, provider=provider, budget_cents=50)
-    assert (tmp_path / f"{engine}.md").read_bytes() == (RUNTIME_ROOT / "engines" / guide).read_bytes()
+    expected_guide = (RUNTIME_ROOT / "engines" / guide).read_text().split("\n## Capture", 1)[0].rstrip() + "\n"
+    assert (tmp_path / f"{engine}.md").read_text() == expected_guide
     assert (RUNTIME_ROOT / "engines" / guide).read_text() in runtime_instructions(engine)
     asset = skills / "asset-gen"
     assert not (asset / "api.md").exists()
@@ -37,7 +38,7 @@ def test_rendered_runtime_uses_native_guide_and_only_broker(tmp_path, provider, 
     assert "${" not in text
     assert "50 cents" in text
     assert "not provisioned" in text
-    assert f"python {asset.relative_to(tmp_path)}/tools/asset_gen.py image" in text
+    assert f"python {asset.relative_to(tmp_path)}/tools/asset_gen.py image" in (asset / "SKILL.md").read_text()
     # Exercise the actual tool, with no credentials/job token or broker available.
     result = subprocess.run(
         [sys.executable, str(asset / "tools/asset_gen.py"), "image", "--prompt", "test", "--output", "assets/test.png"],
@@ -47,6 +48,45 @@ def test_rendered_runtime_uses_native_guide_and_only_broker(tmp_path, provider, 
     assert result.returncode != 0
     assert not (tmp_path / "assets/test.png").exists()
     assert json.loads(result.stdout)["ok"] is False
+
+
+@pytest.mark.parametrize("provider", ["claude", "codex"])
+def test_zero_budget_has_no_optional_skills_and_keeps_edit_contract(tmp_path, provider):
+    skills = render_runtime(tmp_path, engine="godot", provider=provider, budget_cents=0, mode="modify")
+    assert list(skills.rglob("SKILL.md")) == []
+    manifest = tmp_path / ("CLAUDE.md" if provider == "claude" else "AGENTS.md")
+    content = manifest.read_text()
+    assert "application performs the Web export" in content
+    assert "Paid calls are disabled" in content
+    assert "Pip" in content
+    assert "godogen-lessons" not in content
+    assert "--write-movie" not in (tmp_path / "godot.md").read_text()
+    provenance = json.loads((tmp_path / ".runtime-provenance.json").read_text())
+    for path, digest in provenance["context_sha256"].items():
+        assert hashlib.sha256((tmp_path / path).read_bytes()).hexdigest() == digest
+
+
+def test_legacy_context_is_archived_and_never_reactivated(tmp_path):
+    old = tmp_path / ".agents/skills/godot-modify/SKILL.md"
+    old.parent.mkdir(parents=True)
+    original = (PROJECT_ROOT / ".claude/skills/local/godot-modify/SKILL.md").read_bytes()
+    old.write_bytes(original)
+    (tmp_path / ".runtime-provenance.json").write_text(json.dumps({"upstream": UPSTREAM_COMMIT}))
+    skills = render_runtime(tmp_path, engine="godot", provider="codex", budget_cents=0)
+    assert not old.exists()
+    archived = list((tmp_path / ".tinyworlds-context-archive").rglob("SKILL.md"))
+    assert len(archived) == 1 and archived[0].read_bytes() == original
+    render_runtime(tmp_path, engine="godot", provider="codex", budget_cents=0, mode="modify")
+    assert list(skills.rglob("SKILL.md")) == []
+    assert archived[0].read_bytes() == original
+
+
+def test_paid_skill_is_removed_when_budget_ends(tmp_path):
+    skills = render_runtime(tmp_path, engine="godot", provider="codex", budget_cents=50)
+    assert (skills / "asset-gen/SKILL.md").exists()
+    render_runtime(tmp_path, engine="godot", provider="codex", budget_cents=0)
+    assert not (skills / "asset-gen/SKILL.md").exists()
+    assert (skills / "asset-gen/tools/asset_gen.py").exists()
 
 
 def test_renderer_rejects_symlink_escape(tmp_path):
