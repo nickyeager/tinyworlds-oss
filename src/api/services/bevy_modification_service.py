@@ -71,24 +71,13 @@ class BevyModificationService:
         if runtime_diagnostics:
             context["RUNTIME_DIAGNOSTICS.md"] = runtime_diagnostics
 
-        # bevy-modify is a TinyWorlds-only skill, not part of the synced
-        # godogen subtree.
-        modify_skill_path = (
-            Path(__file__).resolve().parent.parent.parent.parent
-            / ".claude" / "skills" / "local" / "bevy-modify" / "SKILL.md"
-        )
-        try:
-            skill = modify_skill_path.read_text()
-        except FileNotFoundError:
-            skill = ""
-
         screenshots_dir = request.game_path / "screenshots"
         pre_screenshots = set()
         if screenshots_dir.exists():
             pre_screenshots = set(screenshots_dir.glob("*.png"))
 
         async for event in self.executor.run_stage(
-            skill,
+            "",  # Edit constraints live in the runtime manifest.
             append_mobile_controls_requirement(request.instruction),
             request.game_path,
             context_files=context,

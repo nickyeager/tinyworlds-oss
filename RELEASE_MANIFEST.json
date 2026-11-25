@@ -1,6 +1,6 @@
 {
   "format": 1,
-  "source_head": "b650e6c7b36678a32c4992e14ecca948f8bc4368",
+  "source_head": "8a801cd886b775f5af32872c88df8bc5599e76d1",
   "source": "public working source; tracked files only",
   "files": [
     {
@@ -540,8 +540,8 @@
     },
     {
       "path": "ATTRIBUTION.md",
-      "sha256": "cd1d68b26a0e34e1164d5b52cb359d57ca4e7f4653c33207cd5ac2e1ff7c89f2",
-      "bytes": 7605
+      "sha256": "c9f7a7e50356828f2a20251ba198f1966c722b633375595bcb047916e3cd5b56",
+      "bytes": 8082
     },
     {
       "path": "CONTRIBUTING.md",
@@ -900,8 +900,8 @@
     },
     {
       "path": "docs/guides/generation.md",
-      "sha256": "4a62fad50b8761e760b94ec9f1431c9f8c0aa9554ab872bf3b61221d2412e397",
-      "bytes": 12755
+      "sha256": "b3d9d1b6fdf00798069aa9f88f8ac0639d4912c23300cc46ea307f1ff6d9dc53",
+      "bytes": 14133
     },
     {
       "path": "docs/guides/provider-connections.md",
@@ -959,6 +959,11 @@
       "bytes": 3908
     },
     {
+      "path": "docs/releases/runtime-context-20261124.json",
+      "sha256": "0aef798752968e70ccc012995be72eecc17b5f3f364d964fbfcd18806bac112d",
+      "bytes": 16033
+    },
+    {
       "path": "docs/releases/v0.1-developer-preview.md",
       "sha256": "0b01db1eb567e306b225813885ee62b3c87b6477aaa74dd5ca6e01a429b1ad9d",
       "bytes": 3020
@@ -967,6 +972,11 @@
       "path": "docs/releases/v0.1.1-local-setup.md",
       "sha256": "01793ea0ec7885df4304c6d3d9ace5937c137d67b033cc3af282679cb73fb214",
       "bytes": 2161
+    },
+    {
+      "path": "docs/releases/v0.1.2-lean-runtime.md",
+      "sha256": "76cd10b8522c4a3798a9d171f1b6ac4e049e0da4f9723d9d7803b2409472f66b",
+      "bytes": 4207
     },
     {
       "path": "plugins/tinyworlds/assets/icon.svg",
@@ -1505,8 +1515,8 @@
     },
     {
       "path": "src/api/services/bevy_creation_agent.py",
-      "sha256": "2b427e8e44b522906cc0575ff0ea1d9a126daaddc4d4cff320386ac65a93032f",
-      "bytes": 21688
+      "sha256": "d6b70e605d6b872e2576db3258a90b5f66d56f5cd438235685196977300f5c96",
+      "bytes": 21732
     },
     {
       "path": "src/api/services/bevy_game_service.py",
@@ -1515,8 +1525,8 @@
     },
     {
       "path": "src/api/services/bevy_modification_service.py",
-      "sha256": "7ac50374673c9f269fae3abc1a963949c3615279be27e54bd0d97c9a6d7ac5f8",
-      "bytes": 6583
+      "sha256": "7649ffe22126dbe6fe2d938840641171f7be65ead27b20a2830b52fa71fbaea0",
+      "bytes": 6230
     },
     {
       "path": "src/api/services/browser_verification.py",
@@ -1535,8 +1545,8 @@
     },
     {
       "path": "src/api/services/executors/cli_executor.py",
-      "sha256": "772c8cd6e1c50f4763cb049caed251f9e281901c54366b8c3bd496cdf5f2b0b2",
-      "bytes": 24249
+      "sha256": "c3c4cd0a0344f30e8460bf9283d4d717e27d8f5563b46deede1940283f8509a0",
+      "bytes": 23986
     },
     {
       "path": "src/api/services/executors/codex_executor.py",
@@ -1545,8 +1555,8 @@
     },
     {
       "path": "src/api/services/executors/runtime.py",
-      "sha256": "e6b15380b7dcbe790344fa647e3bc94fae33b2d1f8505f6b0ec3915daed32752",
-      "bytes": 9927
+      "sha256": "d07fd7d234522165fefa2be6e03f2f07c55bca179adf76b659880709e760e6c9",
+      "bytes": 9370
     },
     {
       "path": "src/api/services/failure_log.py",
@@ -1585,8 +1595,8 @@
     },
     {
       "path": "src/api/services/godot_creation_agent.py",
-      "sha256": "4679910e6ff9e6fd457c6b84b24103e68c1fa0d02b82543bc3b05911c5e0904e",
-      "bytes": 26247
+      "sha256": "b79247f08f134b54061d93e854ffc65b7f4161eccd3669e02eb2ee8f906e03ac",
+      "bytes": 25249
     },
     {
       "path": "src/api/services/godot_executor.py",
@@ -1605,8 +1615,8 @@
     },
     {
       "path": "src/api/services/godot_modification_service.py",
-      "sha256": "4b1154145a506380e6186dba71efbc2cba81f9fe8cdf77913932ff39c730b207",
-      "bytes": 6233
+      "sha256": "613c40226da97de759e6dd6c1c497848c9c580b39486c1a79ab58a99e7225c7f",
+      "bytes": 5784
     },
     {
       "path": "src/api/services/mobile_support.py",
@@ -1935,8 +1945,8 @@
     },
     {
       "path": "tests/unit/services/test_bevy_creation_agent.py",
-      "sha256": "3fd6005f920bb1306375d830ba3ebf470b4607988e54a691005922268929b0c9",
-      "bytes": 7573
+      "sha256": "8643017796734717cab879c0d2b48186e33d5df41362e1c96a104d1e0af30fb9",
+      "bytes": 7518
     },
     {
       "path": "tests/unit/services/test_broker_rewire.py",
@@ -2095,8 +2105,8 @@
     },
     {
       "path": "tests/unit/test_vendored_runtime.py",
-      "sha256": "45055f243d01359319add1b791a17592db5738f1b492962bfa5f2e3e760e20b9",
-      "bytes": 4054
+      "sha256": "01a166c193637b763e0ec8e1b33f3996bd733a6ae9723d2cd0d71b5547ce0f02",
+      "bytes": 6296
     },
     {
       "path": "tests/unit/test_visual_reference.py",

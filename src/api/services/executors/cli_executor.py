@@ -438,16 +438,14 @@ class CLIExecutor(GodotExecutor):
         """Run creation or modification using the requested engine and approved budget."""
         root = Path(game_path).resolve()
         skills = render_runtime(
-            root, engine=engine, provider=self.provider, budget_cents=budget_cents
+            root, engine=engine, provider=self.provider, budget_cents=budget_cents, mode=mode
         )
         operation = "modify an existing" if mode == "modify" else "create a new"
         prompt = (
-            f"{operation} {engine.title()} browser game in {root}. Read {engine}.md and "
+            f"{operation} {engine.title()} browser game in {root}. Read "
             + ("CLAUDE.md" if self.provider == "claude" else "AGENTS.md")
             + f".\nInstruction: {user_prompt}\n"
         )
-        if mode == "modify":
-            prompt += f"Read {skills}/{engine}-modify/SKILL.md and existing project files before changing them.\n"
         resolved = (
             skill_content.replace("${ENGINE_NAME}", engine.title())
             .replace("${ENGINE_GUIDE_FILE}", f"{engine}.md")
@@ -463,19 +461,18 @@ class CLIExecutor(GodotExecutor):
         resolved = resolved.replace(
             ".claude/skills/local/", str(skills / "local") + "/"
         )
-        prompt += f"\n--- Engine instructions ---\n{resolved}"
+        if resolved.strip():
+            prompt += f"\n--- Additional task instructions ---\n{resolved}"
         for name, content in (context_files or {}).items():
-            prompt += f"\n--- {name} ---\n{content}"
+            path = root / name
+            if path.resolve().is_relative_to(root) and path.is_file() and not path.is_symlink() and path.read_text() == content:
+                prompt += f"\nExisting project note (read if relevant): {name}"
+            else:
+                prompt += f"\n--- {name} ---\n{content}"
         for name in image_paths or []:
             if not (root / name).resolve().is_relative_to(root):
                 raise ValueError("Reference image must be inside the game workspace")
             prompt += f"\nReference image: {name}"
-        prompt += (
-            "\nFinal application pipeline requirement: implement and export the browser game, "
-            "then finish your turn. Do not launch Playwright/Chromium, run a browser server, "
-            "or capture video. The application performs trusted browser verification after you exit. "
-            "Record that verification as pending; never loop on unavailable browser tooling."
-        )
         timeout = float(getattr(self.settings, "GAME_AGENT_TIMEOUT_SECONDS", 1800.0))
         stream = (
             self._worker_stream(prompt, root, engine, budget_cents, timeout)

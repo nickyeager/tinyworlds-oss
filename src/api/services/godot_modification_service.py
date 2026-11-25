@@ -61,18 +61,6 @@ class GodotModificationService:
         if runtime_diagnostics:
             context["RUNTIME_DIAGNOSTICS.md"] = runtime_diagnostics
 
-        # Read the godot-modify skill content (lives in .claude/skills/local/
-        # since godot-modify is a TinyWorlds-only skill, not part of the
-        # synced upstream godogen subtree).
-        modify_skill_path = (
-            Path(__file__).resolve().parent.parent.parent.parent
-            / ".claude" / "skills" / "local" / "godot-modify" / "SKILL.md"
-        )
-        try:
-            skill = modify_skill_path.read_text()
-        except FileNotFoundError:
-            skill = ""
-
         # Track the latest screenshot before modification starts
         screenshots_dir = request.game_path / "screenshots"
         pre_screenshots = set()
@@ -82,7 +70,7 @@ class GodotModificationService:
         self.game_service.ensure_capture_wrapper(request.game_path)
 
         async for event in self.executor.run_stage(
-            skill,
+            "",  # Edit constraints live in the runtime manifest.
             append_mobile_controls_requirement(request.instruction),
             request.game_path,
             context_files=context,

@@ -27,6 +27,13 @@ its accumulated local lessons. Those additions do not make upstream work ours.
 The older `.claude/skills/godogen/` subtree is retained for capture helpers and
 unmigrated consumers; the active runtime is the separately pinned vendor copy.
 
+The application now renders a concise contract with on-demand Godogen engine
+guidance and budget-conditional asset instructions. Historical orchestration and
+lesson files are preserved as sources, rather than automatically injected into
+each job. Workspace engine references omit upstream capture instructions because
+TinyWorlds performs that check separately. This adaptation does not change the
+vendored files, their MIT license, or the credit due to Godogen's maintainers.
+
 Additional repository workflows deserve credit too:
 
 - [Context Engineering Intro](https://github.com/coleam00/context-engineering-intro/tree/38113371a1ac8d3f8ca1e586ec402e6d7c47370d/use-cases/build-with-agent-team)
